@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/120-card-game/static/css/main.5f361e03.chunk.css",
+    "main.js": "/120-card-game/static/js/main.232c6ee6.chunk.js",
+    "main.js.map": "/120-card-game/static/js/main.232c6ee6.chunk.js.map",
+    "runtime-main.js": "/120-card-game/static/js/runtime-main.fd80cd30.js",
+    "runtime-main.js.map": "/120-card-game/static/js/runtime-main.fd80cd30.js.map",
+    "static/js/2.262ee91e.chunk.js": "/120-card-game/static/js/2.262ee91e.chunk.js",
+    "static/js/2.262ee91e.chunk.js.map": "/120-card-game/static/js/2.262ee91e.chunk.js.map",
+    "index.html": "/120-card-game/index.html",
+    "precache-manifest.87d2963793e707cb5593f642dff3dfad.js": "/120-card-game/precache-manifest.87d2963793e707cb5593f642dff3dfad.js",
+    "service-worker.js": "/120-card-game/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/120-card-game/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.262ee91e.chunk.js.LICENSE.txt": "/120-card-game/static/js/2.262ee91e.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/120-card-game/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd80cd30.js",
+    "static/js/2.262ee91e.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.232c6ee6.chunk.js"
+  ]
+}
