@@ -19,10 +19,10 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">Rules</Link>
+              <Link to="/rules">Rules</Link>
             </li>
             <li>
-              <Link to="/users">Leaderboard</Link>
+              <Link to="/leaderboard">Leaderboard</Link>
             </li>
           </ul>
         </nav>
