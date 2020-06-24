@@ -1,5 +1,5 @@
-import React from 'react';
 import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -7,12 +7,21 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from './pages/Home';
+import Rules from './pages/Rules';
+import Leaderboard from './pages/Leaderboard';
 
 
-function App() {
-  return (
-    <Router>
+class App extends Component {
+  render() {
+    return (
+      <Router>
       <div>
+        {/* <Route path="/" exact render={(props) => <Home {...props}/>}/>
+				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
+        <Route path="/Rules" exact render={(props) => <Rules {...props}/>}/>
+        <Route path="/Leaderboard" exact render={(props) => <Leaderboard {...props}/>}/> */}
+
         <nav>
           <ul>
             <li>
@@ -31,30 +40,32 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/rules">
-            <About />
+            <Rules />
           </Route>
           <Route path="/leaderboard">
-            <Users />
+            <Leaderboard />
           </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
+
       </div>
-    </Router>
-  );
+      </Router>
+    );
+  }
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
+// function Home() {
+//   return <h2>Home</h2>;
+// }
 
-function About() {
-  return <h2>Rules</h2>;
-}
+// function About() {
+//   return <h2>Rules</h2>;
+// }
 
-function Users() {
-  return <h2>Leaderboard</h2>;
-}
+// function Users() {
+//   return <h2>Leaderboard</h2>;
+// }
 
 export default App;
