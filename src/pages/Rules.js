@@ -6,20 +6,17 @@ class Rules extends React.Component {
     render() {
         
           const titleStyle = {
-        //      textAlign: 'center',
-        //      fontSize: 50,
+              textAlign: 'center',
+              fontSize: 50,
           };
 
           const subtitleStyle = {
-        //      fontSize: 30,
-        //      paddingLeft: 20,
+              fontSize: 30,
+              paddingLeft: 20,
           };
 
           const textStyle = {
-        //      fontSize: 18,
-        //      textIndent: '50px', 
-        //      listStylePosition: 'outside',
-        //      overflow: 'hidden',
+              fontSize: 18,
           };
 
         return (
