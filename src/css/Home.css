@@ -1,0 +1,45 @@
+.Home-Title {
+    font-size: 7vw;
+    color: blue;
+    text-align: center;
+}
+
+.Description {
+    font-size: 3vw;
+    color: turquoise;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.Start-Game {
+    margin-top: 15%;
+    border-radius: 1vw;
+    margin-left: 10vw;
+    background-color: white;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid seagreen;
+    width: 20vw;
+    transition-duration: 0.4s;
+}
+
+.Start-Game:hover {
+    background-color: red;
+    color: white;
+}
+
+.Join-Game {
+    margin-top: 10%;
+    border-radius: 1vw;
+    margin-left: 10%;
+    background-color: white;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid seagreen;
+    width: 20vw;
+}
+
+.Join-Game:hover {
+    background-color: red;
+    color: white;
+}
