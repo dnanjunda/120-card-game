@@ -11,18 +11,21 @@ import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Leaderboard from './pages/Leaderboard';
 
+import Navigation from './components/Navigation';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Route path="/" exact render={(props) => <Home {...props}/>}/>
+        <Navigation/>
+        {/*<Route path="/" exact render={(props) => <Home {...props}/>}/>*/}
 				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/rules" exact render={(props) => <Rules {...props}/>}/>
         <Route path="/leaderboard" exact render={(props) => <Leaderboard {...props}/>}/>
 
-      <nav>
+     {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -34,7 +37,7 @@ class App extends Component {
               <Link to="/leaderboard">Leaderboard</Link>
             </li>
           </ul>
-      </nav> 
+     </nav> */}
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
