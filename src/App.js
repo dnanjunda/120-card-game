@@ -20,7 +20,8 @@ class App extends Component {
     return (
       <div>
         <Navigation/>
-        {/*<Route path="/" exact render={(props) => <Home {...props}/>}/>*/}
+        <Route path="" exact render={(props) => <Home {...props}/>}/>
+        <Route path="/" exact render={(props) => <Home {...props}/>}/>
 				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/rules" exact render={(props) => <Rules {...props}/>}/>
         <Route path="/leaderboard" exact render={(props) => <Leaderboard {...props}/>}/>

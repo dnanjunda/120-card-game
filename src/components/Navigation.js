@@ -23,7 +23,7 @@ class Navigation extends Component {
 
                 <Router>
                     <Navbar bg="light" >
-                        <Navbar.Brand href="/home">120</Navbar.Brand>
+                        <Navbar.Brand href="/">120</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav>
