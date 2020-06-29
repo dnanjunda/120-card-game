@@ -7,7 +7,7 @@ class Rules extends React.Component {
     render() {
         return (
             <div>
-                <Navigation val = {true}/>
+                <Navigation/>
                 <h1 className="titleStyle"> How To Play: </h1>
             </div>
         );

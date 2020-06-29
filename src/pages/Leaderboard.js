@@ -6,7 +6,7 @@ class Leaderboard extends React.Component {
     render() {
         return (
             <div>
-                <Navigation val = {true}/>
+                <Navigation/>
                 <h1> PLAYER LEADERBOARD: </h1>
             </div>
         );

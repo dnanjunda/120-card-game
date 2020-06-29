@@ -18,12 +18,12 @@ class App extends Component {
     return (
       <Router>
       <div>
-        {/* <Route path="/" exact render={(props) => <Home {...props}/>}/>
+        <Route path="/" exact render={(props) => <Home {...props}/>}/>
 				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/Rules" exact render={(props) => <Rules {...props}/>}/>
-        <Route path="/Leaderboard" exact render={(props) => <Leaderboard {...props}/>}/> */}
+        <Route path="/Leaderboard" exact render={(props) => <Leaderboard {...props}/>}/>
 
-        <nav>
+       {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -35,11 +35,11 @@ class App extends Component {
               <Link to="/leaderboard">Leaderboard</Link>
             </li>
           </ul>
-        </nav>
+       </nav> */}
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
+       {/*<Switch>
           <Route path="/rules">
             <Rules />
           </Route>
@@ -49,7 +49,7 @@ class App extends Component {
           <Route path="/">
             <Home />
           </Route>
-        </Switch>
+       </Switch> */}
 
       </div>
       </Router>
