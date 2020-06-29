@@ -26,8 +26,8 @@ class Navigation extends Component {
                         <Navbar.Brand href="/">120</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav>
-                                <Nav.Link href="/home" to="/home"> Home</Nav.Link>
+                            <Nav className="ml-auto" >
+                                <Nav.Link href="/home" to="/home" > Home</Nav.Link>
                                 <Nav.Link href="/rules" to="/rules"> Rules</Nav.Link>
                                 <Nav.Link href="/leaderboard" to="/leaderboard"> Leaderboard</Nav.Link>
                             </Nav>
