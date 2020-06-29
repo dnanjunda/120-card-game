@@ -23,16 +23,4 @@ class App extends Component {
   }
 }
 
-// function Home() {
-//   return <h2>Home</h2>;
-// }
-
-// function About() {
-//   return <h2>Rules</h2>;
-// }
-
-// function Users() {
-//   return <h2>Leaderboard</h2>;
-// }
-
 export default App;
