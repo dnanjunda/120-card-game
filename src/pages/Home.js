@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom';
 import React, { Component } from 'react';
-import Navigation from '../components/Navigation';
 
 class Home extends React.Component {
     render() {

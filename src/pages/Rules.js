@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 import React, { Component, Stylesheet } from 'react';
 import '../css/Rules.css';
-import Navigation from '../components/Navigation';
 
 class Rules extends React.Component {
     render() {
