@@ -3,16 +3,22 @@ import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import '../css/Home.css';
 import JoinDashboard from '../components/JoinDashboard.js';
-import Navigation from '../components/Navigation';
 
 class Home extends React.Component {
     render() {
 
         return (
             <div>
-                {/* <Navigation val = {false}/> */}
                 <Container>
-                    <h1 className="Home-Title">Welcome to 120!</h1>
+                    {/* <h1 className="Home-Title">Welcome to 120!</h1>
+                    <p className="Description"> An Original, Online, Multiplayer Card Game!</p> */}
+                    <Row>
+                    <Col>
+                    <img className="Logo"
+                        src={require("../images/homeLogo.png")}></img>
+                        </Col>
+                        <Col>
+                        {/* <h1 className="Home-Title">Welcome to 120!</h1> */}
                     <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
                     <Row>
                         <Col>
@@ -24,10 +30,14 @@ class Home extends React.Component {
                     <JoinDashboard/>
                     </Col>
                     </Row>
+                    </Col>
+                    </Row>
                     {/* <Link to="/joingame">
                         <button className="Join-Game" type="button"> Join A Game! </button>
                     </Link> */}
                 </Container>
+                <br/>
+                <br/>
             </div>
         );
     }
