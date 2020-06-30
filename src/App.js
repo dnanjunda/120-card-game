@@ -10,6 +10,8 @@ import {
 import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Leaderboard from './pages/Leaderboard';
+import StartGame from './pages/StartGame';
+import JoinGame from './pages/JoinGame';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -17,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div>
+      <div className="Main-Content">
         {/* <Route path="/" exact render={(props) => <Home {...props}/>}/>
 				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/Rules" exact render={(props) => <Rules {...props}/>}/>
@@ -45,6 +47,12 @@ class App extends Component {
           </Route>
           <Route path="/leaderboard">
             <Leaderboard />
+          </Route>
+          <Route path="/startgame">
+            <StartGame />
+          </Route>
+          <Route path="/joingame">
+            <JoinGame />
           </Route>
           <Route path="/">
             <Home />
