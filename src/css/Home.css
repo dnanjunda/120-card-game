@@ -9,13 +9,14 @@
     font-size: 3vw;
     color: white;
     text-align: center;
+    margin-top: 15%;
     margin-bottom: 2%;
 }
 
 .Start-Game {
-    margin-top: 15%;
+    margin-top: 30%;
     border-radius: 1vw;
-    margin-left: 10vw;
+    margin-left: -10%;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;

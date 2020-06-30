@@ -10,10 +10,16 @@ class Home extends React.Component {
         return (
             <div>
                 <Container>
-                    <h1 className="Home-Title">Welcome to 120!</h1>
-                    <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
+                    {/* <h1 className="Home-Title">Welcome to 120!</h1>
+                    <p className="Description"> An Original, Online, Multiplayer Card Game!</p> */}
+                    <Row>
+                    <Col>
                     <img className="Logo"
                         src={require("../images/homeLogo.png")}></img>
+                        </Col>
+                        <Col>
+                        {/* <h1 className="Home-Title">Welcome to 120!</h1> */}
+                    <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
                     <Row>
                         <Col>
                     <Link to="/startgame">
@@ -24,10 +30,14 @@ class Home extends React.Component {
                     <JoinDashboard/>
                     </Col>
                     </Row>
+                    </Col>
+                    </Row>
                     {/* <Link to="/joingame">
                         <button className="Join-Game" type="button"> Join A Game! </button>
                     </Link> */}
                 </Container>
+                <br/>
+                <br/>
             </div>
         );
     }
