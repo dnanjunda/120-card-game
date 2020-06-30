@@ -25,8 +25,8 @@ class Navigation extends Component {
                         <Navbar.Brand href="/home">
                             <img
                                 src={require("../images/navLogoLarger.png")}
-                                width="45"
-                                height="45"
+                                width="75"
+                                height="75"
                                 className="d-inline-block align-top"
                                 alt="error"
                             />
