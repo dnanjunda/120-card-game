@@ -10,7 +10,7 @@ class Home extends React.Component {
 
         return (
             <div>
-                <Navigation val = {false}/>
+                {/* <Navigation val = {false}/> */}
                 <Container>
                     <h1 className="Home-Title">Welcome to 120!</h1>
                     <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
