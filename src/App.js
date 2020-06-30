@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React, { Component } from 'react';
+import React, { Component, View, Text } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -13,6 +13,7 @@ import Leaderboard from './pages/Leaderboard';
 import StartGame from './pages/StartGame';
 import JoinGame from './pages/JoinGame';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   render() {
