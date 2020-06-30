@@ -8,7 +8,7 @@ class StartGame extends React.Component {
         return (
             <div>
                 <Container>
-                    <h1 className="Game-Title">Starting new game...</h1>
+                    <h1 className="Game-title">Starting new game...</h1>
                     <h1 className="Game-code">Your game code is...</h1>
                     <h2 className="Players-Title"> Players in your game:</h2>
                     <ol className="Players-list">

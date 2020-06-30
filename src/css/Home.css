@@ -1,45 +1,39 @@
 .Home-Title {
     font-size: 7vw;
-    color: blue;
+    color: white;
     text-align: center;
+    margin-bottom: 1%;
 }
 
 .Description {
     font-size: 3vw;
-    color: turquoise;
+    color: white;
     text-align: center;
-    margin-top: 20%;
+    margin-bottom: 2%;
 }
 
 .Start-Game {
     margin-top: 15%;
     border-radius: 1vw;
     margin-left: 10vw;
-    background-color: white;
+    background-color: black;
+    color: #5e715b;
     font-size: 2vw;
     padding: 0.5vw 1vw;
-    border: 0.4vw solid seagreen;
+    border: 0.4vw solid black;
     width: 20vw;
     transition-duration: 0.4s;
 }
 
 .Start-Game:hover {
-    background-color: red;
-    color: white;
+    border-radius: 2vw;
+    font-weight: bold;
 }
 
-.Join-Game {
-    margin-top: 10%;
-    border-radius: 1vw;
-    margin-left: 10%;
-    background-color: white;
-    font-size: 2vw;
-    padding: 0.5vw 1vw;
-    border: 0.4vw solid seagreen;
-    width: 20vw;
-}
-
-.Join-Game:hover {
-    background-color: red;
-    color: white;
+.Logo {
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }

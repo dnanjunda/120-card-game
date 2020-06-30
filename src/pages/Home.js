@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import '../css/Home.css';
 import JoinDashboard from '../components/JoinDashboard.js';
-import Navigation from '../components/Navigation';
 
 class Home extends React.Component {
     render() {
 
         return (
             <div>
-                {/* <Navigation val = {false}/> */}
                 <Container>
                     <h1 className="Home-Title">Welcome to 120!</h1>
                     <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
+                    <img className="Logo"
+                        src={require("../images/homeLogo.png")}></img>
                     <Row>
                         <Col>
                     <Link to="/startgame">
