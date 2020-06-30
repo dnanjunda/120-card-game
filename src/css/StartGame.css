@@ -1,28 +1,28 @@
-.Game-Title {
-    color: blue;
+.Game-title {
+    color: white;
     margin-left: 15%;
     margin-top: 5%;
 }
 
 .Game-code {
-    color: blue;
+    color: whitesmoke;
     margin-left: 15%;
     margin-top: 5%;
 }
 
 .Players-Title {
-    color: blue;
+    color: whitesmoke;
     margin-left: 15%;
     margin-top: 5%;
 }
 
 .Players-list {
-    color: blue;
+    color: white;
     margin-left: 15%;
 }
 
 .Waiting-Text {
-    color: blue;
+    color: whitesmoke;
     margin-left: 15%;
     margin-top: 5%;
 }

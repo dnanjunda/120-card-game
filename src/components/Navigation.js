@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Navbar, Nav } from 'react-bootstrap';
-
-
+import '../css/Navigation.css';
 
 class Navigation extends Component {
 
@@ -22,8 +21,16 @@ class Navigation extends Component {
                 />
 
                 <Router>
-                    <Navbar bg="light" >
-                        <Navbar.Brand href="/">120</Navbar.Brand>
+                    <Navbar bg="#5e715b" >
+                        <Navbar.Brand href="/home">
+                            <img
+                                src={require("../images/navLogoLarger.png")}
+                                width="45"
+                                height="45"
+                                className="d-inline-block align-top"
+                                alt="error"
+                            />
+                        </Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav className="ml-auto" >
