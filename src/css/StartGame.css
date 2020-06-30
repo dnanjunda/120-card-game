@@ -5,24 +5,24 @@
 }
 
 .Game-Code {
-    color: chartreuse;
+    color: blue;
     margin-left: 15%;
     margin-top: 5%;
 }
 
 .Players {
-    color: burlywood;
+    color: blue;
     margin-left: 15%;
     margin-top: 5%;
 }
 
 .Players-List {
-    color: orange;
+    color: blue;
     margin-left: 15%;
 }
 
 .Waiting {
-    color: purple;
+    color: blue;
     margin-left: 15%;
     margin-top: 5%;
 }
