@@ -1,0 +1,28 @@
+.Game-Title {
+    color: blue;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.Game-Code {
+    color: chartreuse;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.Players {
+    color: burlywood;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.Players-List {
+    color: burlywood;
+    margin-left: 15%;
+}
+
+.Waiting {
+    color: blue;
+    margin-left: 15%;
+    margin-top: 5%;
+}
