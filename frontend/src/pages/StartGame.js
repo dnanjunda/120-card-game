@@ -35,6 +35,9 @@ class StartGame extends React.Component {
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
                     <p className="App-intro">;{this.state.apiResponse}</p>
+                    <Link to="/game">
+                        <button className="Start-Game" type="button"> Start Game! </button>
+                    </Link>
                 </Container>
                 <br/>
                 <br/>
