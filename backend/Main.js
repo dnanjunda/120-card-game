@@ -92,9 +92,6 @@ class Player {
     constructor (playerName) {
         this.playerName = playerName;
         this.playerStack = [10];
-
-        // boolean flag, true if this player is the dealer, must handle this somewhere
-        //this.dealer = dealer;
     }
 }
 
@@ -103,6 +100,7 @@ class Game {
     constructor() {
         this.hands = [10][5]; //2D array of 10 hands of 5 cards each
         this.players = [5]; //5 total players
+        this.dealer = 0;
     }
 
     startGame(playerOne, playerTwo, playerThree, playerFour, playerFive) {
@@ -123,6 +121,16 @@ class Game {
         this.players[2].playerStack = deck.cards.slice(20, 30);
         this.players[3].playerStack = deck.cards.slice(30, 40);
         this.players[4].playerStack = deck.cards.slice(40, 50);
+    }
+
+    updateDealer() {
+        if (this.dealer < 4) {
+            this.dealer++;
+        }
+
+        else {
+            this.dealer = 0;
+        }
     }
 }
 
