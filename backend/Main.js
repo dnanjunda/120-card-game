@@ -92,6 +92,7 @@ class Player {
     constructor (playerName) {
         this.playerName = playerName;
         this.playerStack = [10];
+        this.playerHands = [];
     }
 }
 

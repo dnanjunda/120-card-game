@@ -19,6 +19,9 @@ class StartGame extends React.Component {
                         <li>Waiting</li>
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
+                    <Link to="/game">
+                        <button className="Start-Game" type="button"> Start Game! </button>
+                    </Link>
                 </Container>
                 <br/>
                 <br/>
