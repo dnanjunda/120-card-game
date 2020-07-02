@@ -4,10 +4,10 @@ import './App.css';
 import { Route } from "react-router-dom";
 import Home from './pages/Home';
 import Rules from './pages/Rules';
-import Leaderboard from './pages/Leaderboard';
 import Navigation from './components/Navigation';
 import StartGame from './pages/StartGame';
 import JoinGame from './pages/JoinGame';
+import Game from './pages/Game';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,9 +20,9 @@ class App extends Component {
         <Route path="/" exact render={(props) => <Home {...props}/>}/>
 				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/rules" exact render={(props) => <Rules {...props}/>}/>
-        <Route path="/leaderboard" exact render={(props) => <Leaderboard {...props}/>}/>
         <Route path="/startgame" exact render={(props) => <StartGame {...props}/>}/>
         <Route path="/joingame" exact render={(props) => <JoinGame {...props}/>}/>
+        <Route path="/game" exact render={(props) => <Game {...props}/>}/>
       </div>
     );
   }
