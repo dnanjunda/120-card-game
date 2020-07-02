@@ -36,7 +36,6 @@ class Navigation extends Component {
                             <Nav className="ml-auto" >
                                 <Nav.Link href="/home" to="/home" > Home</Nav.Link>
                                 <Nav.Link href="/rules" to="/rules"> Rules</Nav.Link>
-                                <Nav.Link href="/leaderboard" to="/leaderboard"> Leaderboard</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
