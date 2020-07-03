@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-import {Container} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import '../css/StartGame.css';
 
 class StartGame extends React.Component {
@@ -8,13 +8,13 @@ class StartGame extends React.Component {
         super(props);
         this.state = { apiResponse: "" };
     }
-    
+
     callAPI() {
         fetch("http://localhost:9000/testAPI")
             .then(res => res.text())
             .then(res => this.setState({ apiResponse: res }));
     }
-    
+
     componentWillMount() {
         this.callAPI();
     }
@@ -35,12 +35,22 @@ class StartGame extends React.Component {
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
                     <p className="App-intro">;{this.state.apiResponse}</p>
-                    <Link to="/game">
-                        <button className="Start-Game" type="button"> Start Game! </button>
-                    </Link>
+
+                    <Row>
+                        <Col>
+                            <Link to="/game">
+                                <button className="Button" type="button"> Start Game! </button>
+                            </Link>
+                        </Col>
+                        <Col>
+                            <Link to="/home">
+                                <button className="Button" type="button"> Return to Start </button>
+                            </Link>
+                        </Col>
+                    </Row>
                 </Container>
-                <br/>
-                <br/>
+                <br />
+                <br />
             </div>
         );
     }

@@ -7,7 +7,7 @@ class Game extends React.Component {
 
         return(
             <div>
-                <h1>Game</h1>
+                <h1 className='titleStyle'>Game</h1>
             </div>
         );
     }

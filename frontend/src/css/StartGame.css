@@ -27,10 +27,8 @@
     margin-top: 5%;
 }
 
-.Start-Game {
-    margin-top: 30%;
+.Button {
     border-radius: 1vw;
-    margin-left: -10%;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;
@@ -40,7 +38,7 @@
     transition-duration: 0.4s;
 }
 
-.Start-Game:hover {
+.Button:hover {
     border-radius: 2vw;
     font-weight: bold;
 }

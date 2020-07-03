@@ -141,3 +141,5 @@ console.log(game.players);
 
 //check if can create images using src and img like this
 console.log(game.players[0].playerStack[0].image);
+
+export default Main;

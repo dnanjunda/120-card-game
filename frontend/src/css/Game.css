@@ -1,0 +1,14 @@
+.titleStyle {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+}
+
+.cardImage {
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: auto;
+}
