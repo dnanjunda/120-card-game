@@ -135,15 +135,19 @@ class Game {
     }
 }
 
+sampleArray = [2];
+sampleArray.push("Hello");
+sampleArray.push("World");
+
 function dumb() {
     console.log("hi");
 }
 
 let game = new Game();
-game.start("anu", "dhanush", "anshul", "shree", "ashley");
-console.log(game.players);
+// game.startGame("anu", "dhanush", "anshul", "shree", "ashley");
+// console.log(game.players);
 
-//check if can create images using src and img like this
-console.log(game.players[0].playerStack[0].image);
+// //check if can create images using src and img like this
+// console.log(game.players[0].playerStack[0].image);
 
-export default Main;
+module.exports = {dumb, sampleArray};
