@@ -135,6 +135,10 @@ class Game {
     }
 }
 
+function dumb() {
+    console.log("hi");
+}
+
 let game = new Game();
 game.start("anu", "dhanush", "anshul", "shree", "ashley");
 console.log(game.players);
