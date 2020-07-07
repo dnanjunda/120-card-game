@@ -11,6 +11,7 @@
     text-align: center;
     margin-top: 15%;
     margin-bottom: 2%;
+    font-family: Impact, fantasy;
 }
 
 .Start-Game {
@@ -24,6 +25,7 @@
     border: 0.4vw solid black;
     width: 20vw;
     transition-duration: 0.4s;
+    font-family: Impact, fantasy;
 }
 
 .Start-Game:hover {
