@@ -11,7 +11,7 @@ router.post('/start', function(req, res, next) {
 });
 
 router.get('/array', function(req, res, next) {
-    res.send(Game.sampleArray);
+    res.send(Game.p1StartingCards);
 });
 
 module.exports = router;

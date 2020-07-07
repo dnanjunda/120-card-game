@@ -34,7 +34,6 @@ class StartGame extends React.Component {
                         <li>Waiting</li>
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
-                    <p className="App-intro">;{this.state.apiResponse}</p>
 
                     <Row>
                         <Col>
