@@ -1,10 +1,10 @@
-.titleStyle {
+.Title-Style {
     font-size: 50px;
     text-align: center;
     color: white;
 }
 
-.cardImage {
+.Card {
     text-align: center;
     display: block;
     justify-content: center;

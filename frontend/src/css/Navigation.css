@@ -1,8 +1,13 @@
-.NavLogo {
-    width: 45;
-    height: 45;
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
 }
 
-.NavButtons {
-    color: black;
+.navbar-expand .navbar-nav .nav-link {
+    padding-right: 0.9rem !important;
+    padding-left: 0.9rem !important;
+}
+
+.Links {
+    font-size: 25px;
+    font-family: impact, fantasy;
 }
