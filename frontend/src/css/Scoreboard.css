@@ -1,19 +1,11 @@
-.Title-Style {
+.titleStyle {
     font-size: 50px;
     text-align: center;
     color: white;
+    font-family: American Typewriter, serif;
 }
 
-.Card {
-    text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: auto;
-}
-
-.End-Game {
+.Button {
     margin-top: 30%;
     border-radius: 1vw;
     margin-left: -10%;
@@ -27,7 +19,7 @@
     font-family: Impact, fantasy;
 }
 
-.End-Game:hover {
+.Button:hover {
     border-radius: 2vw;
     font-weight: bold;
 }

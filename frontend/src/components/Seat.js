@@ -12,9 +12,9 @@ class Seat extends Component {
     render() {
 
         return (
-            <svg width="280" height="250">
+            <svg width="200" height="250">
                 <circle
-                    cx={'140'}
+                    cx={'100'}
                     cy={'125'}
                     r={'75'}
                     fill={"#E1C699"}

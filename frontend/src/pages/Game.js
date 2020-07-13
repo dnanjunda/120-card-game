@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
+import React, { Component, Text } from 'react';
+import {Container, Row, Col} from 'react-bootstrap';
 import '../css/Game.css';
 import Seat from '../components/Seat.js';
+import Table from '../components/Table.js';
 
 class Game extends React.Component {
 
@@ -30,11 +32,46 @@ class Game extends React.Component {
                     <script type="text/javascript" src="../../../backend/logic/Main.js"></script>
                 </head>
                 {/*<h1 className='Title-Style'>Game</h1>*/}
-                <Seat playerName={"Anoushka"}/>
-                <Seat playerName={"Dhanush"}/>
-                <Seat playerName={"Anshul"}/>
-                <Seat playerName={"Shreenithi"}/>
-                <Seat playerName={"Ashley"}/>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Seat playerName={"Player 2"}/>
+                        </Col>
+                        <Col>
+                            <Seat playerName={"Player 3"}/>
+                        </Col>
+                        <Col>
+                            <Seat playerName={"Player 4"}/>
+                        </Col>
+                        <Col>
+                            <Seat playerName={"Player 5"}/>
+                        </Col>
+                        <Col></Col>
+                        <Col>
+                            <h1>Cutting Suit</h1>
+                        </Col>
+                        <Col>
+                            <h1>Partner Card</h1>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Table/>    
+                    </Row>
+                    <Row>
+                        <h1>Your Cards</h1>
+                    </Row>
+                    <Row>
+                        <Col></Col>
+                        <Col></Col>
+                        <Col></Col>
+                        <Col></Col>
+                        <Col>
+                            <Link to="/scoreboard">
+                                <button className="End-Game" type="button"> End Game </button>
+                            </Link>
+                        </Col>
+                    </Row>
+                </Container>
                 {/*<p>array: {this.state.apiResponse.slice(1,18)}</p>
                 <h1>{this.state.apiResponse.slice(1,18)}</h1>
                 <img src={require("../cards/KS.png")}></img>
