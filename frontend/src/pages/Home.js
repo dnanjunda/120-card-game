@@ -47,7 +47,7 @@ class Home extends React.Component {
            this.vars.string += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
 
-        const data = { code: "QyYQE4" };
+        const data = { code: this.vars.string };
         console.log('Code:', this.vars.string);
 
         fetch("http://localhost:9000/codes/addcode", {
@@ -73,7 +73,7 @@ class Home extends React.Component {
 
         this.props.history.push({pathname: '/startgame', 
             state: {
-                codes: "QyYQE4"
+                codes: this.vars.string
             }});
 
         // Default options are marked with *
