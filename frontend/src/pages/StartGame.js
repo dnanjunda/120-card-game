@@ -6,7 +6,7 @@ import '../css/StartGame.css';
 class StartGame extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { apiResponse: "" };
+        this.state = { apiResponse: "", code: "", sample: "abc" };
     }
 
     callAPI() {
@@ -16,7 +16,12 @@ class StartGame extends React.Component {
     }
 
     componentWillMount() {
-        this.callAPI();
+       // this.callAPI();
+    }
+
+    componentDidMount() {
+        const {codes} = this.props.location.state;
+        this.state.code = codes;
     }
 
     render() {
@@ -24,7 +29,7 @@ class StartGame extends React.Component {
             <div>
                 <Container>
                     <h1 className="Game-title">Starting new game...</h1>
-                    <h1 className="Game-code">Your game code is...</h1>
+                    <h1 className="Game-code">Your game code is {this.props.location.state.codes}.</h1>
                     <h2 className="Players-Title"> Players in your game:</h2>
                     <ol className="Players-list">
                         <li>Waiting</li>
