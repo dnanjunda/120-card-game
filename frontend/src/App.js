@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import StartGame from './pages/StartGame';
 import JoinGame from './pages/JoinGame';
 import Game from './pages/Game';
+import Scoreboard from './pages/Scoreboard'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +24,7 @@ class App extends Component {
         <Route path="/startgame" exact render={(props) => <StartGame {...props}/>}/>
         <Route path="/joingame" exact render={(props) => <JoinGame {...props}/>}/>
         <Route path="/game" exact render={(props) => <Game {...props}/>}/>
+        <Route path="/scoreboard" exact render={(props) => <Scoreboard {...props}/>}/>
       </div>
     );
   }

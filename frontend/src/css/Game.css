@@ -1,14 +1,33 @@
-.titleStyle {
+.Title-Style {
     font-size: 50px;
     text-align: center;
     color: white;
 }
 
-.cardImage {
+.Card {
     text-align: center;
     display: block;
     justify-content: center;
     align-items: center;
     margin: auto;
     width: auto;
+}
+
+.End-Game {
+    margin-top: 30%;
+    border-radius: 1vw;
+    margin-left: -10%;
+    background-color: black;
+    color: #5e715b;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 15vw;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+}
+
+.End-Game:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }

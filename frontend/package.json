@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.8.0",
     "bootstrap": "^4.5.0",
+    "create-react-class": "^15.6.3",
     "gh-pages": "^3.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
