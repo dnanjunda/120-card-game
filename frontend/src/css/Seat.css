@@ -1,9 +1,23 @@
-.Seat {
-    padding: 10;
-    margin: 20;
-    display: "inline-block";
-    background-color: #0000FF;
-    border-radius: 100/2;
-    width: 100;
-    height: 100;
+.Player-Two {
+    position: fixed;
+    top: 315px;
+    left: 40px;
+}
+
+.Player-Three {
+    position: fixed;
+    top: 75px;
+    left: 185px;
+}
+
+.Player-Four {
+    position: fixed;
+    top: 75px;
+    left: 465px;
+}
+
+.Player-Five {
+    position: fixed;
+    top: 315px;
+    left: 610px;
 }

@@ -6,12 +6,10 @@
 }
 
 .Button {
-    margin-top: 30%;
     border-radius: 1vw;
-    margin-left: -10%;
     background-color: black;
     color: #5e715b;
-    font-size: 2vw;
+    font-size: 1.5vw;
     padding: 0.5vw 1vw;
     border: 0.4vw solid black;
     width: 15vw;
