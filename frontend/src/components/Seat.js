@@ -1,4 +1,4 @@
-import React, { Component, View } from 'react';
+import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import '../App.css';
 import '../css/Seat.css';
@@ -12,14 +12,14 @@ class Seat extends Component {
     render() {
 
         return (
-            <svg width="200" height="250">
+            <svg width="100" height="100" className={this.props.className}>
                 <circle
-                    cx={'100'}
-                    cy={'125'}
-                    r={'75'}
-                    fill={"#E1C699"}
+                    cx={'50'}
+                    cy={'50'}
+                    r={'50'}
+                    fill={"#940000"}
                 />
-                <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="28px" font-family="Arial" dy=".3em">{this.props.playerName}</text>
+                <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="18px" font-family="Arial" dy=".3em">{this.props.playerName}</text>
             </svg>
         );
     }

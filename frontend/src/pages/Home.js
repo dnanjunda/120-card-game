@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import '../css/Home.css';
 import JoinDashboard from '../components/JoinDashboard.js';
 import { TextField } from '@material-ui/core';
@@ -26,22 +26,22 @@ class Home extends React.Component {
     }
 
     makeid() {
-        var result           = 'A2345c';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = 'A2345c';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
-        for ( var i = 0; i < 6; i++ ) {
-           result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        for (var i = 0; i < 6; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         return result;
     }
 
-    dec2hex (dec) {
+    dec2hex(dec) {
         return dec < 10
-          ? '0' + String(dec)
-          : dec.toString(16)
+            ? '0' + String(dec)
+            : dec.toString(16)
     }
 
-    generateId (len) {
+    generateId(len) {
         var arr = new Uint8Array((len || 6) / 2)
         window.crypto.getRandomValues(arr)
         return Array.from(arr).map(() => this.dec2hex).join('')
@@ -53,37 +53,38 @@ class Home extends React.Component {
         // console.log(this.vars.string);
 
         //var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
-        for ( var i = 0; i < 6; i++ ) {
-           this.vars.string += characters.charAt(Math.floor(Math.random() * charactersLength));
+        for (var i = 0; i < 6; i++) {
+            this.vars.string += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
 
         const data = { code: this.vars.string };
         console.log('Code:', this.vars.string);
 
         fetch("http://localhost:9000/codes/addcode", {
-        method: 'POST', // or 'PUT'
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
         })
-        .then(response => response.json())
-        .then(data => {
-        console.log('Success:', data);
-            if(data == "code already exists") {
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data == "code already exists") {
+                    this.vars.string = '';
+                    this.postData();
+                }
+            })
+            .catch((error) => {
                 this.vars.string = '';
                 this.postData();
-            }
-        })
-        .catch((error) => {
-            this.vars.string = '';
-            this.postData();
-            console.error('Error:', error);
-        });
+                console.error('Error:', error);
+            });
 
-        this.props.history.push({pathname: '/startgame', 
+        this.props.history.push({
+            pathname: '/startgame',
             state: {
                 codes: this.vars.string,
                 user: this.state.username
@@ -119,13 +120,13 @@ class Home extends React.Component {
                     {/* <h1 className="Home-Title">Welcome to 120!</h1>
                     <p className="Description"> An Original, Online, Multiplayer Card Game!</p> */}
                     <Row>
-                    <Col>
-                    <img className="Logo"
-                        src={require("../images/homeLogo.png")}></img>
+                        <Col>
+                            <img className="Logo"
+                                src={require("../images/homeLogo.png")}></img>
                         </Col>
                         <Col>
-                        {/* <h1 className="Home-Title">Welcome to 120!</h1> */}
-                    <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
+                            {/* <h1 className="Home-Title">Welcome to 120!</h1> */}
+                            <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
                     {/* <form noValidate autoComplete="off">
                         <TextField id="standard-basic" label="Standard" />
                         <TextField id="filled-basic" label="Filled" variant="filled" />
@@ -134,28 +135,28 @@ class Home extends React.Component {
                     <form >
                         <input className="Name-Box" type="text" placeholder="Enter your name" value={this.state.username} name="username" onChange={this.inputHandler} />
                     </form>
-                    <Row>
-                        <Col>
-                    {/* <Link to={{
+                            <Row>
+                                <Col>
+                                    {/* <Link to={{
                         pathname: "/startgame",
                         state: {
                         codes: this.vars.sample }}}> */}
-                        <button className="Start-Game" type="button" onClick={this.postData} > Start New Game! </button>
-                    {/*</Link> */}
+                                    <button className="Start-Game" type="button" onClick={this.postData} > Start New Game! </button>
+                                    {/*</Link> */}
 
-                    </Col>
-                    <Col>
-                    <JoinDashboard/>
-                    </Col>
-                    </Row>
-                    </Col>
+                                </Col>
+                                <Col>
+                                    <JoinDashboard />
+                                </Col>
+                            </Row>
+                        </Col>
                     </Row>
                     {/* <Link to="/joingame">
                         <button className="Join-Game" type="button"> Join A Game! </button>
                     </Link> */}
                 </Container>
-                <br/>
-                <br/>
+                <br />
+                <br />
             </div>
         );
     }
