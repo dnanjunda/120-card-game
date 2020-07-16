@@ -1,5 +1,5 @@
 .Join-Button {
-    margin-top: 30%;
+    margin-top: 15%;
     border-radius: 1vw;
     margin-left: 5%;
     background-color: black;
@@ -42,6 +42,11 @@
 #Join-Button {
     background-color: white;
     width: 7vw;
+}
+
+#Join-Button:hover {
+    background-color: red;
+    color: white;
 }
 
 #Cancel-Button {

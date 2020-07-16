@@ -3,14 +3,26 @@ import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import '../css/Home.css';
 import JoinDashboard from '../components/JoinDashboard.js';
+import { TextField } from '@material-ui/core';
 
 class Home extends React.Component {
 
     constructor(props) {
         super(props);
-        this.vars = { string: '', sample: 'this is the code' };
+        this.vars = { string: '', sample: 'this is the code'};
         this.postData = this.postData.bind(this);
         this.makeid = this.makeid.bind(this);
+    }
+    state = {
+        username: ''
+      }
+
+    inputHandler=(e)=>{
+        if(e){
+            this.setState({
+                username: e.target.value
+            })
+        }
     }
 
     makeid() {
@@ -73,7 +85,8 @@ class Home extends React.Component {
 
         this.props.history.push({pathname: '/startgame', 
             state: {
-                codes: this.vars.string
+                codes: this.vars.string,
+                user: this.state.username
             }});
 
         // Default options are marked with *
@@ -113,6 +126,14 @@ class Home extends React.Component {
                         <Col>
                         {/* <h1 className="Home-Title">Welcome to 120!</h1> */}
                     <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
+                    {/* <form noValidate autoComplete="off">
+                        <TextField id="standard-basic" label="Standard" />
+                        <TextField id="filled-basic" label="Filled" variant="filled" />
+                        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                    </form> */}
+                    <form >
+                        <input className="Name-Box" type="text" placeholder="Enter your name" value={this.state.username} name="username" onChange={this.inputHandler} />
+                    </form>
                     <Row>
                         <Col>
                     {/* <Link to={{

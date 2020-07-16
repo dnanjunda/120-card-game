@@ -15,7 +15,7 @@
 }
 
 .Start-Game {
-    margin-top: 30%;
+    margin-top: 15%;
     border-radius: 1vw;
     margin-left: -10%;
     background-color: black;
@@ -31,6 +31,19 @@
 .Start-Game:hover {
     border-radius: 2vw;
     font-weight: bold;
+}
+
+.Name-Box {
+    margin-top: 2vw;
+    width: 40vw;
+    height: 4vw;
+    background-color: #5e715b;
+    
+    border: 0.4vw solid black;
+    padding: 0.5vw 1vw;
+    border-radius: 1vw;
+    font-size: 2vw;
+    font-family: Impact, fantasy;
 }
 
 .Logo {

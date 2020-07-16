@@ -5,9 +5,43 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 
 class JoinDashboard extends Component {
-  state = {
-    open: false
+  constructor(props) {
+    super(props);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleJoin = this.handleJoin.bind(this);
   }
+  state = {
+    open: false,
+    joincode: ''
+  }
+
+  inputHandler=(e)=>{
+    if(e){
+        this.setState({
+            joincode: e.target.value
+        })
+    }
+  }
+
+  handleFocus() {
+    if(this.state.joincode == 'Enter game code') {
+      this.state.joincode = '';
+    }
+  }
+
+  handleJoin() {
+    if(this.state.joincode == '') {
+
+    } else {
+      console.log('Join Code:', this.state.joincode);
+      this.props.history.push({pathname: '/joingame',
+        state: {
+          joinedcode: this.state.joincode
+        }
+      });
+    }
+  }
+
 render() {
   let closeModal = () => this.setState({ open: false })
   let openModal = () => this.setState({open:true})
@@ -35,12 +69,12 @@ render() {
           </Modal.Header>
           <Modal.Body id="Body-Modal">
             <form>
-              <input id="Input-Box" type="text" value="Enter Game Code" name="gamecode" />
+              <input id="Input-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
             </form>
           </Modal.Body>
           <Modal.Footer id="Footer-Modal">
           <Link to="/joingame">
-            <button id="Join-Button">
+            <button onClick={this.handleJoin} id="Join-Button">
               Join
               </button>
             </Link>

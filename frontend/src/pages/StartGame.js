@@ -32,7 +32,7 @@ class StartGame extends React.Component {
                     <h1 className="Game-code">Your game code is {this.props.location.state.codes}.</h1>
                     <h2 className="Players-Title"> Players in your game:</h2>
                     <ol className="Players-list">
-                        <li>Waiting</li>
+                        <li>{this.props.location.state.user}</li>
                         <li>Waiting</li>
                         <li>Waiting</li>
                         <li>Waiting</li>
