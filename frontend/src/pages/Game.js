@@ -34,7 +34,7 @@ class Game extends React.Component {
                 </head>
 
                 {/*Seats*/}
-                <Seat playerName={"Player 2"} className={"Player-Two"} />
+                <Seat playerName={"Ashley"} className={"Player-Two"} />
                 <Seat playerName={"Player 3"} className={"Player-Three"} />
                 <Seat playerName={"Player 4"} className={"Player-Four"} />
                 <Seat playerName={"Player 5"} className={"Player-Five"} />
