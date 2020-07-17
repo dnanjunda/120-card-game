@@ -1,0 +1,227 @@
+.Main-Content {
+    background: #5e715b;
+    width: 1450px;
+    height: 720px;
+}
+
+.Card {
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: auto;
+}
+
+.End-Game {
+    position: fixed;
+    left: 1360px;
+    top: 745px;
+    border-radius: 1vw;
+    margin-left: -10%;
+    background-color: black;
+    color: white;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 15vw;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+}
+
+.End-Game:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
+
+.Current-Cutting {
+    position: fixed;
+    left: 965px;
+    top: 200px;
+    color: black;
+    font-size: 2vw;
+    width: 12vw;
+    font-family: Impact, fantasy;
+}
+
+.Current-Cutting-Images {
+    position: fixed;
+    left: 985px;
+    top: 250px;
+    width: 100px;
+    height: 150px;
+}
+
+.Current-Partner {
+    position: fixed;
+    left: 1165px;
+    top: 200px;
+    color: black;
+    font-size: 2vw;
+    width: 12vw;
+    font-family: Impact, fantasy;
+}
+
+.Current-Partner-Images {
+    position: fixed;
+    left: 1190px;
+    top: 250px;
+    width: 100px;
+    height: 150px;
+}
+
+.Card-Image-One {
+    position: relative;
+    left: 175px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-One:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Two {
+    position: relative;
+    left: 100px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Two:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Three {
+    position: relative;
+    left: 25px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Three:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Four {
+    position: relative;
+    left: -50px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Four:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Five {
+    position: relative;
+    left: -125px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Five:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Six {
+    position: relative;
+    left: -200px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Six:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Seven {
+    position: relative;
+    left: -275px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Seven:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Eight {
+    position: relative;
+    left: -350px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Eight:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Nine {
+    position: relative;
+    left: -425px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Nine:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Card-Image-Ten {
+    position: relative;
+    left: -500px;
+    top: 520px;
+    width: 120px;
+    height: 180px;
+}
+
+.Card-Image-Ten:hover {
+    z-index: 1;
+    top: 501.25px;
+    width: 125px;
+    height: 187.5px;
+}
+
+.Table {
+    position: fixed;
+    top: 150px;
+    left: 150px;
+}

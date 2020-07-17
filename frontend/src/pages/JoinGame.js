@@ -8,7 +8,7 @@ class JoinGame extends React.Component {
         return (
             <div>
                 <Container>
-                    <h1 className="Game-Title">Joined game...</h1>
+        <h1 className="Game-Title">Joined game...</h1>
                     <h2 className="Players"> Players in this game:</h2>
                     <ol className="Players-List">
                         <li>Waiting</li>

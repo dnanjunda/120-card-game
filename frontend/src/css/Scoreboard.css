@@ -1,0 +1,23 @@
+.titleStyle {
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    font-family: American Typewriter, serif;
+}
+
+.Button {
+    border-radius: 1vw;
+    background-color: black;
+    color: #5e715b;
+    font-size: 1.5vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 15vw;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+}
+
+.Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
