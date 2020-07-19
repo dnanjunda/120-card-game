@@ -1,3 +1,9 @@
+.Body {
+    background: #5e715b;
+    width: 1450px;
+    height: 720px;
+}
+
 .titleStyle {
     font-size: 50px;
     text-align: center;

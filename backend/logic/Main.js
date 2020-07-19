@@ -16,62 +16,62 @@ class Deck {
 
     createDeck() {
         //spades
-        this.cards.push(new Card("Spades", "A", "10", "../cards/AS.png"));
-        this.cards.push(new Card("Spades", "K", "0", "../cards/KS.png"));
-        this.cards.push(new Card("Spades", "Q", "0", "../cards/QS.png"));
-        this.cards.push(new Card("Spades", "J", "0", "../cards/JS.png"));
-        this.cards.push(new Card("Spades", "10", "10", "../cards/10S.png"));
-        this.cards.push(new Card("Spades", "9", "0", "../cards/9S.png"));
-        this.cards.push(new Card("Spades", "8", "0", "../cards/8S.png"));
-        this.cards.push(new Card("Spades", "7", "0", "../cards/7S.png"));
-        this.cards.push(new Card("Spades", "6", "0", "../cards/6S.png"));
-        this.cards.push(new Card("Spades", "5", "5", "../cards/5S.png"));
-        this.cards.push(new Card("Spades", "4", "0", "../cards/4S.png"));
-        this.cards.push(new Card("Spades", "3", "0", "../cards/3S.png"));
-        this.cards.push(new Card("Spades", "2", "20", "../cards/2S.png"));
+        this.cards.push(new Card("Spades", "A", "10", require("../cards/AS.png")));
+        this.cards.push(new Card("Spades", "K", "0", require("../cards/KS.png")));
+        this.cards.push(new Card("Spades", "Q", "0", require("../cards/QS.png")));
+        this.cards.push(new Card("Spades", "J", "0", require("../cards/JS.png")));
+        this.cards.push(new Card("Spades", "10", "10", require("../cards/10S.png")));
+        this.cards.push(new Card("Spades", "9", "0", require("../cards/9S.png")));
+        this.cards.push(new Card("Spades", "8", "0", require("../cards/8S.png")));
+        this.cards.push(new Card("Spades", "7", "0", require("../cards/7S.png")));
+        this.cards.push(new Card("Spades", "6", "0", require("../cards/6S.png")));
+        this.cards.push(new Card("Spades", "5", "5", require("../cards/5S.png")));
+        this.cards.push(new Card("Spades", "4", "0", require("../cards/4S.png")));
+        this.cards.push(new Card("Spades", "3", "0", require("../cards/3S.png")));
+        this.cards.push(new Card("Spades", "2", "20", require("../cards/2S.png")));
 
         //diamonds
-        this.cards.push(new Card("Diamonds", "A", "10", "../cards/AD.png"));
-        this.cards.push(new Card("Diamonds", "K", "0", "../cards/KD.png"));
-        this.cards.push(new Card("Diamonds", "Q", "0", "../cards/QD.png"));
-        this.cards.push(new Card("Diamonds", "J", "0", "../cards/JD.png"));
-        this.cards.push(new Card("Diamonds", "10", "10", "../cards/10D.png"));
-        this.cards.push(new Card("Diamonds", "9", "0", "../cards/9D.png"));
-        this.cards.push(new Card("Diamonds", "8", "0", "../cards/8D.png"));
-        this.cards.push(new Card("Diamonds", "7", "0", "../cards/7D.png"));
-        this.cards.push(new Card("Diamonds", "6", "0", "../cards/6D.png"));
-        this.cards.push(new Card("Diamonds", "5", "5", "../cards/5D.png"));
-        this.cards.push(new Card("Diamonds", "4", "0", "../cards/4D.png"));
-        this.cards.push(new Card("Diamonds", "3", "0", "../cards/3D.png"));
+        this.cards.push(new Card("Diamonds", "A", "10", require("../cards/AD.png")));
+        this.cards.push(new Card("Diamonds", "K", "0", require("../cards/KD.png")));
+        this.cards.push(new Card("Diamonds", "Q", "0", require("../cards/QD.png")));
+        this.cards.push(new Card("Diamonds", "J", "0", require("../cards/JD.png")));
+        this.cards.push(new Card("Diamonds", "10", "10", require("../cards/10D.png")));
+        this.cards.push(new Card("Diamonds", "9", "0", require("../cards/9D.png")));
+        this.cards.push(new Card("Diamonds", "8", "0", require("../cards/8D.png")));
+        this.cards.push(new Card("Diamonds", "7", "0", require("../cards/7D.png")));
+        this.cards.push(new Card("Diamonds", "6", "0", require("../cards/6D.png")));
+        this.cards.push(new Card("Diamonds", "5", "5", require("../cards/5D.png")));
+        this.cards.push(new Card("Diamonds", "4", "0", require("../cards/4D.png")));
+        this.cards.push(new Card("Diamonds", "3", "0", require("../cards/3D.png")));
 
         //clubs
-        this.cards.push(new Card("Clubs", "A", "10", "../cards/AC.png"));
-        this.cards.push(new Card("Clubs", "K", "0", "../cards/KC.png"));
-        this.cards.push(new Card("Clubs", "Q", "0", "../cards/QC.png"));
-        this.cards.push(new Card("Clubs", "J", "0", "../cards/JC.png"));
-        this.cards.push(new Card("Clubs", "10", "10", "../cards/10C.png"));
-        this.cards.push(new Card("Clubs", "9", "0", "../cards/9C.png"));
-        this.cards.push(new Card("Clubs", "8", "0", "../cards/8C.png"));
-        this.cards.push(new Card("Clubs", "7", "0", "../cards/7C.png"));
-        this.cards.push(new Card("Clubs", "6", "0", "../cards/6C.png"));
-        this.cards.push(new Card("Clubs", "5", "5", "../cards/5C.png"));
-        this.cards.push(new Card("Clubs", "4", "0", "../cards/4C.png"));
-        this.cards.push(new Card("Clubs", "3", "0", "../cards/3C.png"));
+        this.cards.push(new Card("Clubs", "A", "10", require("../cards/AC.png")));
+        this.cards.push(new Card("Clubs", "K", "0", require("../cards/KC.png")));
+        this.cards.push(new Card("Clubs", "Q", "0", require("../cards/QC.png")));
+        this.cards.push(new Card("Clubs", "J", "0", require("../cards/JC.png")));
+        this.cards.push(new Card("Clubs", "10", "10", require("../cards/10C.png")));
+        this.cards.push(new Card("Clubs", "9", "0", require("../cards/9C.png")));
+        this.cards.push(new Card("Clubs", "8", "0", require("../cards/8C.png")));
+        this.cards.push(new Card("Clubs", "7", "0", require("../cards/7C.png")));
+        this.cards.push(new Card("Clubs", "6", "0", require("../cards/6C.png")));
+        this.cards.push(new Card("Clubs", "5", "5", require("../cards/5C.png")));
+        this.cards.push(new Card("Clubs", "4", "0", require("../cards/4C.png")));
+        this.cards.push(new Card("Clubs", "3", "0", require("../cards/3C.png")));
 
         //hearts
-        this.cards.push(new Card("Hearts", "A", "10", "../cards/AH.png"));
-        this.cards.push(new Card("Hearts", "K", "0", "../cards/KH.png"));
-        this.cards.push(new Card("Hearts", "Q", "0", "../cards/QH.png"));
-        this.cards.push(new Card("Hearts", "J", "0", "../cards/JH.png"));
-        this.cards.push(new Card("Hearts", "10", "10", "../cards/10H.png"));
-        this.cards.push(new Card("Hearts", "9", "0", "../cards/9H.png"));
-        this.cards.push(new Card("Hearts", "8", "0", "../cards/8H.png"));
-        this.cards.push(new Card("Hearts", "7", "0", "../cards/7H.png"));
-        this.cards.push(new Card("Hearts", "6", "0", "../cards/6H.png"));
-        this.cards.push(new Card("Hearts", "5", "5", "../cards/5H.png"));
-        this.cards.push(new Card("Hearts", "4", "0", "../cards/4H.png"));
-        this.cards.push(new Card("Hearts", "3", "0", "../cards/3H.png"));
-        this.cards.push(new Card("Hearts", "2", "0", "../cards/2H.png"));
+        this.cards.push(new Card("Hearts", "A", "10", require("../cards/AH.png")));
+        this.cards.push(new Card("Hearts", "K", "0", require("../cards/KH.png")));
+        this.cards.push(new Card("Hearts", "Q", "0", require("../cards/QH.png")));
+        this.cards.push(new Card("Hearts", "J", "0", require("../cards/JH.png")));
+        this.cards.push(new Card("Hearts", "10", "10", require("../cards/10H.png")));
+        this.cards.push(new Card("Hearts", "9", "0", require("../cards/9H.png")));
+        this.cards.push(new Card("Hearts", "8", "0", require("../cards/8H.png")));
+        this.cards.push(new Card("Hearts", "7", "0", require("../cards/7H.png")));
+        this.cards.push(new Card("Hearts", "6", "0", require("../cards/6H.png")));
+        this.cards.push(new Card("Hearts", "5", "5", require("../cards/5H.png")));
+        this.cards.push(new Card("Hearts", "4", "0", require("../cards/4H.png")));
+        this.cards.push(new Card("Hearts", "3", "0", require("../cards/3H.png")));
+        this.cards.push(new Card("Hearts", "2", "0", require("../cards/2H.png")));
     }
 
     shuffleDeck() {

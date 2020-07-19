@@ -6,13 +6,13 @@ import '../css/Scoreboard.css';
 class Scoreboard extends React.Component {
     render() {
         return (
-            <div>
+            <div className="Body">
                 <Container>
                     <h1 className="titleStyle"> Scoreboard: </h1>
                     <Row>
                         <Col>
                             <Link to="/home">
-                                <button className="Button" type="button"> Return to Home </button>
+                                <button className="Button" type="button"> End Game </button>
                             </Link>
                         </Col>
                         <Col>

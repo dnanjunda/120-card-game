@@ -5,7 +5,7 @@ import '../css/Rules.css';
 class Rules extends React.Component {
     render() {
         return (
-            <div>
+            <div className="Body">
                 <h1 className="titleStyle"> How To Play: </h1>
             </div>
         );

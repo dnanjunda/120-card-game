@@ -45,10 +45,31 @@
     font-family: Impact, fantasy;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
+
 .Logo {
     text-align: center;
     display: block;
     justify-content: center;
     align-items: center;
     margin: auto;
+}
+
+.Body {
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    background: #5e715b;
+    width: 1450px;
+    height: 720px;
 }
