@@ -6,6 +6,8 @@ import '../css/Game.css';
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 
+import aces from '../cards/AS.png'; //test import
+
 class Game extends React.Component {
 
     constructor(props) {
@@ -46,7 +48,7 @@ class Game extends React.Component {
             leader: "Anoushka",
             bid: "75",
             cutting: require('../cards/AS.png'),
-            partner: require('../cards/2S.png')
+            partner: require('../cards/2S.png'),
         })
     }
 
@@ -89,7 +91,7 @@ class Game extends React.Component {
                     {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
                 </Row>
                 <Row>
-                    <img className="Card-Image-One" src={this.state.cards[0]}></img>
+                    <img className="Card-Image-One" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
@@ -105,7 +107,6 @@ class Game extends React.Component {
                         <button className="End-Game" type="button"> End Game </button>
                     </Link>
                 </Row>
-
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
                 </form> 

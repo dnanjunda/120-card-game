@@ -1,4 +1,4 @@
- import React, { Component, useState } from 'react';
+import React, { Component, useState } from 'react';
 import {Modal, ModalTitle, ModalBody, Button} from 'react-bootstrap';
 import '../css/JoinDashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
