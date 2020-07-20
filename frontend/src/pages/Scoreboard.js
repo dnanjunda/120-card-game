@@ -3,6 +3,8 @@ import React, { Component, Stylesheet } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../css/Scoreboard.css';
 
+import EndGameDashboard from '../components/EndGameDashboard.js';
+
 class Scoreboard extends React.Component {
     render() {
         return (
@@ -11,9 +13,7 @@ class Scoreboard extends React.Component {
                     <h1 className="titleStyle"> Scoreboard: </h1>
                     <Row>
                         <Col>
-                            <Link to="/home">
-                                <button className="Button" type="button"> End Game </button>
-                            </Link>
+                            <EndGameDashboard/>
                         </Col>
                         <Col>
                             <Link to="/game">
