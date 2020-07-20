@@ -91,7 +91,7 @@ class Player {
 
     constructor(playerName) {
         this.playerName = playerName;
-        this.playerStack = [10];
+        this.playerStack = []; //10 total cards
         this.playerHands = [];
     }
 }
@@ -122,6 +122,12 @@ class Game {
         this.players[2].playerStack = this.deck.cards.slice(20, 30);
         this.players[3].playerStack = this.deck.cards.slice(30, 40);
         this.players[4].playerStack = this.deck.cards.slice(40, 50);
+
+        this.players[0].playerStack = this.organizeStack(this.players[0].playerStack);
+        this.players[1].playerStack = this.organizeStack(this.players[1].playerStack);
+        this.players[2].playerStack = this.organizeStack(this.players[2].playerStack);
+        this.players[3].playerStack = this.organizeStack(this.players[3].playerStack);
+        this.players[4].playerStack = this.organizeStack(this.players[4].playerStack);
     }
 
     updateDealer() {
@@ -133,6 +139,362 @@ class Game {
             this.dealer = 0;
         }
     }
+
+    organizeStack(stack) {
+        let organizedStack = [];
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "A") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "K") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "Q") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "J") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "10") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "9") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "8") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "7") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "6") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "5") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "4") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "3") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Spades" && stack[i].rank == "2") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "A") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "K") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "Q") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "J") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "10") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "9") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "8") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "7") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "6") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "5") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "4") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Diamonds" && stack[i].rank == "3") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "A") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "K") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "Q") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "J") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "10") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "9") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "8") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "7") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "6") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "5") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "4") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Clubs" && stack[i].rank == "3") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "A") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "K") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "Q") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "J") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "10") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "9") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "8") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "7") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "6") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "5") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "4") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "3") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if (stack[i].suit == "Hearts" && stack[i].rank == "2") {
+                organizedStack.push(stack[i]);
+                break;
+            }
+        }
+
+        return (organizedStack);
+    }
 }
 
 sampleArray = [2];
@@ -141,82 +503,81 @@ sampleArray.push("World");
 
 function dumb() { }
 
-    let game = new Game();
+let game = new Game();
 
-    let playerOne = new Player("Anu");
-    let playerTwo = new Player("Dhanush");
-    let playerThree = new Player("Anshul");
-    let playerFour = new Player("Nidhi");
-    let playerFive = new Player("Ashley");
+let playerOne = new Player("Anu");
+let playerTwo = new Player("Dhanush");
+let playerThree = new Player("Anshul");
+let playerFour = new Player("Nidhi");
+let playerFive = new Player("Ashley");
 
-    game.startGame(playerOne, playerTwo, playerThree, playerFour, playerFive);
+game.startGame(playerOne, playerTwo, playerThree, playerFour, playerFive);
 
-    // starting card images
-    let p1StartingCards = []; //10 total cards
-    p1StartingCards.push(game.players[0].playerStack[0].image);
-    p1StartingCards.push(game.players[0].playerStack[1].image);
-    p1StartingCards.push(game.players[0].playerStack[2].image);
-    p1StartingCards.push(game.players[0].playerStack[3].image);
-    p1StartingCards.push(game.players[0].playerStack[4].image);
-    p1StartingCards.push(game.players[0].playerStack[5].image);
-    p1StartingCards.push(game.players[0].playerStack[6].image);
-    p1StartingCards.push(game.players[0].playerStack[7].image);
-    p1StartingCards.push(game.players[0].playerStack[8].image);
-    p1StartingCards.push(game.players[0].playerStack[9].image);
+// starting card images
+let p1StartingCards = []; //10 total cards
+p1StartingCards.push(game.players[0].playerStack[0].image);
+p1StartingCards.push(game.players[0].playerStack[1].image);
+p1StartingCards.push(game.players[0].playerStack[2].image);
+p1StartingCards.push(game.players[0].playerStack[3].image);
+p1StartingCards.push(game.players[0].playerStack[4].image);
+p1StartingCards.push(game.players[0].playerStack[5].image);
+p1StartingCards.push(game.players[0].playerStack[6].image);
+p1StartingCards.push(game.players[0].playerStack[7].image);
+p1StartingCards.push(game.players[0].playerStack[8].image);
+p1StartingCards.push(game.players[0].playerStack[9].image);
 
-    let p2StartingCards = []; //10 total cards
-    p2StartingCards.push(game.players[1].playerStack[0].image);
-    p2StartingCards.push(game.players[1].playerStack[1].image);
-    p2StartingCards.push(game.players[1].playerStack[2].image);
-    p2StartingCards.push(game.players[1].playerStack[3].image);
-    p2StartingCards.push(game.players[1].playerStack[4].image);
-    p2StartingCards.push(game.players[1].playerStack[5].image);
-    p2StartingCards.push(game.players[1].playerStack[6].image);
-    p2StartingCards.push(game.players[1].playerStack[7].image);
-    p2StartingCards.push(game.players[1].playerStack[8].image);
-    p2StartingCards.push(game.players[1].playerStack[9].image);
+let p2StartingCards = []; //10 total cards
+p2StartingCards.push(game.players[1].playerStack[0].image);
+p2StartingCards.push(game.players[1].playerStack[1].image);
+p2StartingCards.push(game.players[1].playerStack[2].image);
+p2StartingCards.push(game.players[1].playerStack[3].image);
+p2StartingCards.push(game.players[1].playerStack[4].image);
+p2StartingCards.push(game.players[1].playerStack[5].image);
+p2StartingCards.push(game.players[1].playerStack[6].image);
+p2StartingCards.push(game.players[1].playerStack[7].image);
+p2StartingCards.push(game.players[1].playerStack[8].image);
+p2StartingCards.push(game.players[1].playerStack[9].image);
 
-    let p3StartingCards = []; //10 total cards
-    p3StartingCards.push(game.players[2].playerStack[0].image);
-    p3StartingCards.push(game.players[2].playerStack[1].image);
-    p3StartingCards.push(game.players[2].playerStack[2].image);
-    p3StartingCards.push(game.players[2].playerStack[3].image);
-    p3StartingCards.push(game.players[2].playerStack[4].image);
-    p3StartingCards.push(game.players[2].playerStack[5].image);
-    p3StartingCards.push(game.players[2].playerStack[6].image);
-    p3StartingCards.push(game.players[2].playerStack[7].image);
-    p3StartingCards.push(game.players[2].playerStack[8].image);
-    p3StartingCards.push(game.players[2].playerStack[9].image);
+let p3StartingCards = []; //10 total cards
+p3StartingCards.push(game.players[2].playerStack[0].image);
+p3StartingCards.push(game.players[2].playerStack[1].image);
+p3StartingCards.push(game.players[2].playerStack[2].image);
+p3StartingCards.push(game.players[2].playerStack[3].image);
+p3StartingCards.push(game.players[2].playerStack[4].image);
+p3StartingCards.push(game.players[2].playerStack[5].image);
+p3StartingCards.push(game.players[2].playerStack[6].image);
+p3StartingCards.push(game.players[2].playerStack[7].image);
+p3StartingCards.push(game.players[2].playerStack[8].image);
+p3StartingCards.push(game.players[2].playerStack[9].image);
 
-    let p4StartingCards = []; //10 total cards
-    p4StartingCards.push(game.players[3].playerStack[0].image);
-    p4StartingCards.push(game.players[3].playerStack[1].image);
-    p4StartingCards.push(game.players[3].playerStack[2].image);
-    p4StartingCards.push(game.players[3].playerStack[3].image);
-    p4StartingCards.push(game.players[3].playerStack[4].image);
-    p4StartingCards.push(game.players[3].playerStack[5].image);
-    p4StartingCards.push(game.players[3].playerStack[6].image);
-    p4StartingCards.push(game.players[3].playerStack[7].image);
-    p4StartingCards.push(game.players[3].playerStack[8].image);
-    p4StartingCards.push(game.players[3].playerStack[9].image);
+let p4StartingCards = []; //10 total cards
+p4StartingCards.push(game.players[3].playerStack[0].image);
+p4StartingCards.push(game.players[3].playerStack[1].image);
+p4StartingCards.push(game.players[3].playerStack[2].image);
+p4StartingCards.push(game.players[3].playerStack[3].image);
+p4StartingCards.push(game.players[3].playerStack[4].image);
+p4StartingCards.push(game.players[3].playerStack[5].image);
+p4StartingCards.push(game.players[3].playerStack[6].image);
+p4StartingCards.push(game.players[3].playerStack[7].image);
+p4StartingCards.push(game.players[3].playerStack[8].image);
+p4StartingCards.push(game.players[3].playerStack[9].image);
 
-    let p5StartingCards = []; //10 total cards
-    p5StartingCards.push(game.players[4].playerStack[0].image);
-    p5StartingCards.push(game.players[4].playerStack[1].image);
-    p5StartingCards.push(game.players[4].playerStack[2].image);
-    p5StartingCards.push(game.players[4].playerStack[3].image);
-    p5StartingCards.push(game.players[4].playerStack[4].image);
-    p5StartingCards.push(game.players[4].playerStack[5].image);
-    p5StartingCards.push(game.players[4].playerStack[6].image);
-    p5StartingCards.push(game.players[4].playerStack[7].image);
-    p5StartingCards.push(game.players[4].playerStack[8].image);
-    p5StartingCards.push(game.players[4].playerStack[9].image);
+let p5StartingCards = []; //10 total cards
+p5StartingCards.push(game.players[4].playerStack[0].image);
+p5StartingCards.push(game.players[4].playerStack[1].image);
+p5StartingCards.push(game.players[4].playerStack[2].image);
+p5StartingCards.push(game.players[4].playerStack[3].image);
+p5StartingCards.push(game.players[4].playerStack[4].image);
+p5StartingCards.push(game.players[4].playerStack[5].image);
+p5StartingCards.push(game.players[4].playerStack[6].image);
+p5StartingCards.push(game.players[4].playerStack[7].image);
+p5StartingCards.push(game.players[4].playerStack[8].image);
+p5StartingCards.push(game.players[4].playerStack[9].image);
 
-    //console.log(game.deck);
-    //console.log(game.players);
-    //console.log(game.players[0].playerStack[0].image);
-    console.log(game.players[0].playerStack);
-    console.log(p1StartingCards);
-
+console.log(game.deck);
+console.log(game.players);
+console.log(game.players[0].playerStack[0].image);
+console.log(game.players[0].playerStack);
+console.log(p1StartingCards);
 
 module.exports = { dumb, p1StartingCards };
