@@ -23,6 +23,8 @@ class Game extends React.Component {
             dealer: "",
             cutting: "",
             partner: "",
+            isBidding: false,
+            currentBidder: "",
         };
     }
 
@@ -51,6 +53,8 @@ class Game extends React.Component {
             dealer: "Shreenithi",
             cutting: require('../cards/AS.png'),
             partner: require('../cards/2S.png'),
+            isBidding: false,
+            currentBidder: "Anoushka",
         })
     }
 
@@ -74,8 +78,10 @@ class Game extends React.Component {
                         cx={'225'}
                         cy={'225'}
                         r={'225'}
-                        fill={"#4c2519"}
+                        fill={"#391f03"}
                     />
+                    {/*Only want this text if bidding is going on.*/}
+                    <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="24px" font-family="American Typewriter, serif" dy=".3em">Waiting for {this.state.currentBidder} to bid...</text>
                 </svg>
 
                 <Row>
