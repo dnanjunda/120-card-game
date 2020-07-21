@@ -72,7 +72,7 @@
 
 .Card-Image-One {
     position: relative;
-    left: 175px;
+    left: 225px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -87,7 +87,7 @@
 
 .Card-Image-Two {
     position: relative;
-    left: 100px;
+    left: 150px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -102,7 +102,7 @@
 
 .Card-Image-Three {
     position: relative;
-    left: 25px;
+    left: 75px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -117,7 +117,7 @@
 
 .Card-Image-Four {
     position: relative;
-    left: -50px;
+    left: 0px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -132,7 +132,7 @@
 
 .Card-Image-Five {
     position: relative;
-    left: -125px;
+    left: -75px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -147,7 +147,7 @@
 
 .Card-Image-Six {
     position: relative;
-    left: -200px;
+    left: -150px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -162,7 +162,7 @@
 
 .Card-Image-Seven {
     position: relative;
-    left: -275px;
+    left: -225px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -177,7 +177,7 @@
 
 .Card-Image-Eight {
     position: relative;
-    left: -350px;
+    left: -300px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -192,7 +192,7 @@
 
 .Card-Image-Nine {
     position: relative;
-    left: -425px;
+    left: -375px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -207,7 +207,7 @@
 
 .Card-Image-Ten {
     position: relative;
-    left: -500px;
+    left: -450px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -223,5 +223,5 @@
 .Table {
     position: fixed;
     top: 150px;
-    left: 150px;
+    left: 250px;
 }

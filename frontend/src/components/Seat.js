@@ -19,7 +19,7 @@ class Seat extends Component {
                     r={'50'}
                     fill={"#940000"}
                 />
-                <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="18px" font-family="Arial" dy=".3em">{this.props.playerName}</text>
+                <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="18px" font-family="American Typewriter, serif" dy=".3em">{this.props.playerName}</text>
             </svg>
         );
     }

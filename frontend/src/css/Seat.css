@@ -1,23 +1,23 @@
 .Player-Two {
     position: fixed;
     top: 315px;
-    left: 40px;
+    left: 140px;
 }
 
 .Player-Three {
     position: fixed;
     top: 75px;
-    left: 185px;
+    left: 285px;
 }
 
 .Player-Four {
     position: fixed;
     top: 75px;
-    left: 465px;
+    left: 565px;
 }
 
 .Player-Five {
     position: fixed;
     top: 315px;
-    left: 610px;
+    left: 710px;
 }
