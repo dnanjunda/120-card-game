@@ -20,6 +20,7 @@ class Game extends React.Component {
             playerFour: "",
             leader: "",
             bid: "",
+            dealer: "",
             cutting: "",
             partner: "",
         };
@@ -47,6 +48,7 @@ class Game extends React.Component {
             playerFour: "Anshul",
             leader: "Anoushka",
             bid: "75",
+            dealer: "Shreenithi",
             cutting: require('../cards/AS.png'),
             partner: require('../cards/2S.png'),
         })
@@ -82,6 +84,9 @@ class Game extends React.Component {
                     </Col>
                     <Col>
                         <GameButton buttonText='Bid' text={this.state.bid} className="Bid-Button" />
+                    </Col>
+                    <Col>
+                        <GameButton buttonText='Dealer' text={this.state.dealer} className="Dealer-Button" />
                     </Col>
                 </Row>
                 <Row>
