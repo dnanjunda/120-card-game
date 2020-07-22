@@ -1,8 +1,9 @@
-.Home-Title {
-    font-size: 7vw;
-    color: white;
-    text-align: center;
-    margin-bottom: 1%;
+.Body {
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    background: #5e715b;
 }
 
 .Description {
@@ -66,12 +67,4 @@
     display: block;
     justify-content: center;
     align-items: center;
-}
-
-.Body {
-    -webkit-overflow-scrolling: touch;
-    overflow: hidden;
-    background: #5e715b;
-    width: 1450px;
-    height: 720px;
 }
