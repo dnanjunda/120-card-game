@@ -1,6 +1,6 @@
 #Leader-Button {
     position: fixed;
-    left: 850px;
+    left: 58.62069vw;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;
@@ -19,7 +19,7 @@
 
 #Bid-Button {
     position: fixed;
-    left: 1050px;
+    left: 72.413793vw;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;
@@ -38,7 +38,7 @@
 
 #Dealer-Button {
     position: fixed;
-    left: 1250px;
+    left: 86.206897vw;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;

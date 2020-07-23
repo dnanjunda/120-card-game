@@ -5,40 +5,10 @@
     height: 100%;
 }
 
-.Card {
-    text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: auto;
-}
-
-.End-Game {
-    position: fixed;
-    left: 1360px;
-    top: 745px;
-    border-radius: 1vw;
-    margin-left: -10%;
-    background-color: black;
-    color: white;
-    font-size: 2vw;
-    padding: 0.5vw 1vw;
-    border: 0.4vw solid black;
-    width: 15vw;
-    transition-duration: 0.4s;
-    font-family: Impact, fantasy;
-}
-
-.End-Game:hover {
-    border-radius: 2vw;
-    font-weight: bold;
-}
-
 .Current-Cutting {
     position: fixed;
-    left: 965px;
-    top: 200px;
+    left: 66.551724vw;
+    top: 13.888889vw;
     color: black;
     font-size: 2vw;
     width: 12vw;
@@ -47,16 +17,16 @@
 
 .Current-Cutting-Images {
     position: fixed;
-    left: 985px;
-    top: 250px;
+    left: 67.931034vw;
+    top: 17.361111vw;
     width: 100px;
     height: 150px;
 }
 
 .Current-Partner {
     position: fixed;
-    left: 1165px;
-    top: 200px;
+    left: 80.344828vw;
+    top: 13.888889vw;
     color: black;
     font-size: 2vw;
     width: 12vw;
@@ -65,8 +35,8 @@
 
 .Current-Partner-Images {
     position: fixed;
-    left: 1190px;
-    top: 250px;
+    left: 82.068966vw;
+    top: 17.361111vw;
     width: 100px;
     height: 150px;
 }
@@ -223,6 +193,26 @@
 
 .Table {
     position: fixed;
-    top: 200px;
-    left: 250px;
+    left: 17.241379vw;
+    top: 13.888889vw;
+}
+
+.End-Game {
+    position: fixed;
+    left: 84vw;
+    top: 51vw;
+    border-radius: 1vw;
+    background-color: black;
+    color: white;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 15vw;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+}
+
+.End-Game:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }
