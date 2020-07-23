@@ -1,7 +1,6 @@
 .Body {
     background: #5e715b;
-    width: 1450px;
-    height: 720px;
+    overflow-y: scroll;
 }
 
 .titleStyle {
