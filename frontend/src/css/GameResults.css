@@ -154,17 +154,13 @@
 }
 
 .Card-Scroll {
-    overflow: hidden;
-
-    /*position: relative;
-    width: 12vw;
-    height: 5vw;
-    overflow-x: 'hidden';
-    overflow-y: 'hidden';
+    overflow: scroll;
+    position: relative;
+    width: 100vw;
+    height: 8vw;
+    margin-top: 15%;
     word-wrap: break-word;
-    border-style: solid;
-    border-width: 2px;
-    border-color: red;*/
+    white-space: nowrap;
 
     /*position: relative;
     width: 12vw;
@@ -178,6 +174,10 @@
     border-color: red;*/
 }
 
+/*.first {
+    margin-top: 0 !important;
+}*/
+
 /*.Card-Scroll > div {
     width: 50%;
     float: none;
@@ -186,3 +186,8 @@
     display: inline-block;
     zoom: 1;
 }*/
+
+.Card {
+    width: 75px;
+    height: 112.5px;
+}

@@ -68,49 +68,68 @@ class GameResults extends React.Component {
                             </Row>
                             <Row>
                                 <div className="Card-Scroll">
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
-                                    <div><h2>Card</h2></div>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
                                 </div>
                             </Row>
                             <Row>
-                                {/*PUT SCROLLVIEW*/}
+                                <div className="Card-Scroll">
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                </div>
                             </Row>
                             <Row>
-                                {/*PUT SCROLLVIEW*/}
+                                <div className="Card-Scroll">
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                </div>
                             </Row>
                             <Row>
-                                {/*PUT SCROLLVIEW*/}
+                                <div className="Card-Scroll">
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                </div>
                             </Row>
                             <Row>
-                                {/*PUT SCROLLVIEW*/}
+                                <div className="Card-Scroll">
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                    <img className="Card" src={require("../cards/AS.png")}></img>
+                                </div>
                             </Row>
                         </Col>
 
