@@ -4,9 +4,9 @@ import { Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-import '../css/EndGameDashboard.css';
+import '../css/RanksDashboard.css';
 
-class EndGameDashboard extends Component {
+class RanksDashboard extends Component {
 
     constructor(props) {
         super(props);
@@ -59,4 +59,4 @@ class EndGameDashboard extends Component {
     }
 }
 
-export default EndGameDashboard
+export default RanksDashboard
