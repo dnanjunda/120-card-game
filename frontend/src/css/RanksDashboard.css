@@ -1,4 +1,7 @@
-.EndGame-Button {
+.End-Game {
+    position: fixed;
+    left: 84vw;
+    top: 51vw;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;
@@ -10,7 +13,27 @@
     font-family: Impact, fantasy;
 }
 
-.EndGame-Button:hover {
+.End-Game:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
+
+.Next-Game {
+    position: fixed;
+    left: 68vw;
+    top: 51vw;
+    border-radius: 1vw;
+    background-color: black;
+    color: #5e715b;
+    font-size: 1.5vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 15vw;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+}
+
+.Next-Game:hover {
     border-radius: 2vw;
     font-weight: bold;
 }

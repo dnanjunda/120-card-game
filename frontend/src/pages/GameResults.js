@@ -39,15 +39,88 @@ class GameResults extends React.Component {
                 </Modal>
 
                 <Container>
-                    <h1 className="Title-Style"> Game Results: </h1>
+                    <h1 className="Page-Title"> Game Results: </h1>
                     <Row>
                         <Col>
-                            <RanksDashboard/>
+                            <Row className="Player-Title">
+                                Player
+                            </Row>
+                            <Row className="Player-One">
+                                Anoushka <span>{'\u{1F451}'}</span>
+                            </Row>
+                            <Row className="Player-Two">
+                                Ashley
+                            </Row>
+                            <Row className="Player-Three">
+                                Dhanush
+                            </Row>
+                            <Row className="Player-Four">
+                                Shreenithi <span>{'\u{1F451}'}</span>
+                            </Row>
+                            <Row className="Player-Five">
+                                Anshul
+                            </Row>
+                        </Col>
+
+                        <Col>
+                            <Row className="Card-Title">
+                                Cards
+                            </Row>
+                            <Row>
+                                {/*PUT SCROLLVIEW*/}
+                            </Row>
+                            <Row>
+                                {/*PUT SCROLLVIEW*/}
+                            </Row>
+                            <Row>
+                                {/*PUT SCROLLVIEW*/}
+                            </Row>
+                            <Row>
+                                {/*PUT SCROLLVIEW*/}
+                            </Row>
+                            <Row>
+                                {/*PUT SCROLLVIEW*/}
+                            </Row>
+                        </Col>
+
+                        <Col>
+                            <Row className="Point-Title">
+                                Points
+                            </Row>
+                            <Row className="Points-One">
+                                50
+                            </Row>
+                            <Row className="Points-Two">
+                                10
+                            </Row>
+                            <Row className="Points-Three">
+                                10
+                            </Row>
+                            <Row className="Points-Four">
+                                30
+                            </Row>
+                            <Row className="Points-Five">
+                                20
+                            </Row>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <RanksDashboard
+                                buttonTitle="End Game"
+                                modalTitle="Final Ranks"
+                                path="/home"
+                                className="End-Game"
+                            />
                         </Col>
                         <Col>
-                            <Link to="/game">
-                                <button className="Button" type="button"> Start Next Game </button>
-                            </Link>
+                            <RanksDashboard
+                                buttonTitle="Start Next Game"
+                                modalTitle="Current Ranks"
+                                path="/game"
+                                className="Next-Game"
+                            />
                         </Col>
                     </Row>
                 </Container>

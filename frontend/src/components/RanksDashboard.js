@@ -22,7 +22,7 @@ class RanksDashboard extends Component {
 
         return (
             <div>
-                <button className="EndGame-Button" onClick={openModal}>End Game</button>
+                <button className={this.props.className} onClick={openModal}>{this.props.buttonTitle}</button>
 
                 <Modal
                     show={this.state.open}
@@ -34,20 +34,20 @@ class RanksDashboard extends Component {
                 >
 
                     <Modal.Header>
-                        <Modal.Title id="Title-Modal">Final Ranks</Modal.Title>
+                        <Modal.Title id="Title-Modal">{this.props.modalTitle}</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body id="Body-Modal">
-                        <h1>Player</h1>
-                        <h1>Games Won</h1>
-                        <h1>Total Points</h1>
-                        <h1>Rank</h1>
+                        Rank
+                        Player
+                        Games Won
+                        Total Points
                     </Modal.Body>
 
                     <Modal.Footer id="Footer-Modal">
 
-                        <Link to="/home">
-                            <button className="Home-Button">Home</button>
+                        <Link to={this.props.path}>
+                            <button className="Continue-Button">Continue</button>
                         </Link>
 
                         <button onClick={closeModal} className="Cancel-Button">Cancel</button>
