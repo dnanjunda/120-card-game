@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom';
 import React, { Component, Stylesheet } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import '../css/Scoreboard.css';
+import '../css/GameResults.css';
 
 import RanksDashboard from '../components/RanksDashboard';
 
-class Scoreboard extends React.Component {
+class GameResults extends React.Component {
     render() {
         return (
             <div className="Body">
                 <Container>
-                    <h1 className="titleStyle"> Scoreboard: </h1>
+                    <h1 className="titleStyle"> Game Results: </h1>
                     <Row>
                         <Col>
                             <RanksDashboard/>
@@ -27,4 +27,4 @@ class Scoreboard extends React.Component {
     }
 }
 
-export default Scoreboard
+export default GameResults

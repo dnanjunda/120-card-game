@@ -114,7 +114,7 @@ class Game extends React.Component {
                     <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
                 </Row>
                 <Row>
-                    <Link to="/scoreboard">
+                    <Link to="/results">
                         <button className="End-Game" type="button"> End Game </button>
                     </Link>
                 </Row>
