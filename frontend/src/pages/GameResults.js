@@ -45,19 +45,19 @@ class GameResults extends React.Component {
                             <Row className="Player-Title">
                                 Player
                             </Row>
-                            <Row className="Player-One">
+                            <Row className="Name-One">
                                 Anoushka <span>{'\u{1F451}'}</span>
                             </Row>
-                            <Row className="Player-Two">
+                            <Row className="Name-Two">
                                 Ashley
                             </Row>
-                            <Row className="Player-Three">
+                            <Row className="Name-Three">
                                 Dhanush
                             </Row>
-                            <Row className="Player-Four">
+                            <Row className="Name-Four">
                                 Shreenithi <span>{'\u{1F451}'}</span>
                             </Row>
-                            <Row className="Player-Five">
+                            <Row className="Name-Five">
                                 Anshul
                             </Row>
                         </Col>

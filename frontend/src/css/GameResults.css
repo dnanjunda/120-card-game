@@ -6,7 +6,7 @@
 }
 
 .Win-Modal {
-
+    
 }
 
 .Page-Title {
@@ -16,19 +16,156 @@
     font-family: American Typewriter, serif;
 }
 
-.Button {
-    border-radius: 1vw;
-    background-color: black;
-    color: #5e715b;
-    font-size: 1.5vw;
-    padding: 0.5vw 1vw;
-    border: 0.4vw solid black;
-    width: 15vw;
-    transition-duration: 0.4s;
+.Player-Title {
+    position: fixed;
+    left: 14vw;
+    font-size: 45px;
+    text-align: center;
+    text-decoration: underline;
+    color: white;
     font-family: Impact, fantasy;
 }
 
-.Button:hover {
-    border-radius: 2vw;
-    font-weight: bold;
+.Card-Title {
+    position: fixed;
+    left: 46vw;
+    font-size: 45px;
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+    font-family: Impact, fantasy;
+}
+
+.Point-Title {
+    position: fixed;
+    left: 78vw;
+    font-size: 45px;
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+    font-family: Impact, fantasy;
+}
+
+.Name-One {
+    position: fixed;
+    top: 18vw;
+    left: 12vw;
+    width: 13vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Name-Two {
+    position: fixed;
+    top: 25vw;
+    left: 12vw;
+    width: 13vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Name-Three {
+    position: fixed;
+    top: 32vw;
+    left: 12vw;
+    width: 13vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Name-Four {
+    position: fixed;
+    top: 39vw;
+    left: 12vw;
+    width: 13vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Name-Five {
+    position: fixed;
+    top: 46vw;
+    left: 12vw;
+    width: 13vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Points-One {
+    position: fixed;
+    top: 18vw;
+    left: 79vw;
+    width: 5vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Points-Two {
+    position: fixed;
+    top: 25vw;
+    left: 79vw;
+    width: 5vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Points-Three {
+    position: fixed;
+    top: 32vw;
+    left: 79vw;
+    width: 5vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Points-Four {
+    position: fixed;
+    top: 39vw;
+    left: 79vw;
+    width: 5vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Points-Five {
+    position: fixed;
+    top: 46vw;
+    left: 79vw;
+    width: 5vw;
+    justify-content: center;
+    font-size: 30px;
+    color: black;
+    font-family: American Typewriter, serif;
+}
+
+.Card-Scroll {
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    border-width: 5vw;
+    border-color: red;
+    overflow-x: 'scroll';
+}
+
+.Card {
+    width: 100px;
+    height: 150px;
 }
