@@ -21,7 +21,6 @@
     left: 14vw;
     font-size: 45px;
     text-align: center;
-    text-decoration: underline;
     color: white;
     font-family: Impact, fantasy;
 }
@@ -31,7 +30,6 @@
     left: 46vw;
     font-size: 45px;
     text-align: center;
-    text-decoration: underline;
     color: white;
     font-family: Impact, fantasy;
 }
@@ -41,7 +39,6 @@
     left: 78vw;
     font-size: 45px;
     text-align: center;
-    text-decoration: underline;
     color: white;
     font-family: Impact, fantasy;
 }
@@ -157,15 +154,35 @@
 }
 
 .Card-Scroll {
-    position: relative;
-    width: 20vw;
-    height: 20vw;
-    border-width: 5vw;
-    border-color: red;
-    overflow-x: 'scroll';
+    overflow: hidden;
+
+    /*position: relative;
+    width: 12vw;
+    height: 5vw;
+    overflow-x: 'hidden';
+    overflow-y: 'hidden';
+    word-wrap: break-word;
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;*/
+
+    /*position: relative;
+    width: 12vw;
+    height: 5vw;
+    overflow-x: 'hidden';
+    overflow-y: 'hidden';
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: red;*/
 }
 
-.Card {
-    width: 100px;
-    height: 150px;
-}
+/*.Card-Scroll > div {
+    width: 50%;
+    float: none;
+    height: 90%;
+    margin: 0 0.25%;
+    display: inline-block;
+    zoom: 1;
+}*/

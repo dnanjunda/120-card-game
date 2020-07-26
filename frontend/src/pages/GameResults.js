@@ -67,7 +67,38 @@ class GameResults extends React.Component {
                                 Cards
                             </Row>
                             <Row>
-                                {/*PUT SCROLLVIEW*/}
+                                <div className="Card-Scroll">
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                    <div><h2>Card</h2></div>
+                                </div>
                             </Row>
                             <Row>
                                 {/*PUT SCROLLVIEW*/}
