@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal } from 'react-bootstrap';
+import { Modal, Container, Row, Col } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
@@ -31,17 +31,101 @@ class RanksDashboard extends Component {
                     keyboard={false}
                     centered
                     id="Ranks-Modal"
+                    //class="modal-dialog modal-xl"
+                    //class="modal-body modal-lg"
                 >
 
-                    <Modal.Header>
+                    <Modal.Header id="Header-Modal">
                         <Modal.Title id="Title-Modal">{this.props.modalTitle}</Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body id="Body-Modal">
-                        Rank
-                        Player
-                        Games Won
-                        Total Points
+                        <Container>
+                            <Row className="Rank-Titles">
+                                <Col>
+                                    Rank
+                                </Col>
+                                <Col>
+                                    Player
+                                </Col>
+                                <Col>
+                                    Games Won
+                                </Col>
+                                <Col>
+                                    Total Points
+                                </Col>
+                            </Row>
+                            <Row className="Rankings">
+                                <Col>
+                                    1
+                                </Col>
+                                <Col>
+                                    Anoushka
+                                </Col>
+                                <Col>
+                                    10
+                                </Col>
+                                <Col>
+                                    1000
+                                </Col>
+                            </Row>
+                            <Row className="Rankings">
+                                <Col>
+                                    1
+                                </Col>
+                                <Col>
+                                    Anoushka
+                                </Col>
+                                <Col>
+                                    10
+                                </Col>
+                                <Col>
+                                    1000
+                                </Col>
+                            </Row>
+                            <Row className="Rankings">
+                                <Col>
+                                    1
+                                </Col>
+                                <Col>
+                                    Anoushka
+                                </Col>
+                                <Col>
+                                    10
+                                </Col>
+                                <Col>
+                                    1000
+                                </Col>
+                            </Row>
+                            <Row className="Rankings">
+                                <Col>
+                                    1
+                                </Col>
+                                <Col>
+                                    Anoushka
+                                </Col>
+                                <Col>
+                                    10
+                                </Col>
+                                <Col>
+                                    1000
+                                </Col>
+                            </Row>
+                            <Row className="Rankings">
+                                <Col>
+                                    1
+                                </Col>
+                                <Col>
+                                    Anoushka
+                                </Col>
+                                <Col>
+                                    10
+                                </Col>
+                                <Col>
+                                    1000
+                                </Col>
+                            </Row>
+                        </Container>
                     </Modal.Body>
 
                     <Modal.Footer id="Footer-Modal">

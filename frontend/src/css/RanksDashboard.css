@@ -40,26 +40,91 @@
 
 #Ranks-Modal {
     margin: auto;
-    width: 50%;
-    height: 50%;
+    width: auto;
+    height: auto;
+    border-radius: 2vw;
+    border: 0.4vw solid black;
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+      width: 600px;
+      margin: 30px auto;
+    }
+
+    .modal-lg {
+        width: 900px;
+      }
+
+    .modal-xl {
+        width: 90%;
+       max-width:1200px;
+      }
+  }
+
+#Header-Modal {
+    background-color: #5e715b;
+    border-bottom: 0 none;
 }
 
 #Title-Modal {
-
+    background-color: #5e715b;
+    font-size: 3vw;
+    color: black;
+    margin-left: 25%;
+    font-family: Impact, fantasy;
 }
 
 #Body-Modal {
-    
+    width: auto;
+    height: auto;
+    background-color: #5e715b;
+    font-family: American Typewriter, serif;
+}
+
+.Rank-Titles {
+    font-size: 2vw;
+    text-decoration: underline;
+}
+
+.Rankings {
+    font-size: 1.5vw;
 }
 
 #Footer-Modal {
+    background-color: #5e715b;
+    border-top: 0 none;
     
 }
 
-.Home-Button {
+.Continue-Button {
+    background-color: black;
+    color: #5e715b;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
 
 }
 
-.Cancel-Button {
+.Continue-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
 
+.Cancel-Button {
+    background-color: black;
+    color: #5e715b;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
+
+}
+
+.Cancel-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }
