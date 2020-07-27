@@ -44,54 +44,31 @@
 }
 
 .Name-One {
-    position: fixed;
+    position: relative;
+    width: 13vw;
+    margin-top: 28%;
+    /*position: relative;
+    width: 100vw;
+    height: 6vw;
+    margin-top: 18%;*/
+    /*position: fixed;
     top: 18vw;
     left: 12vw;
-    width: 13vw;
+    width: 13vw;*/
     justify-content: center;
     font-size: 30px;
     color: black;
     font-family: American Typewriter, serif;
 }
 
-.Name-Two {
-    position: fixed;
+.Names {
+    position: relative;
+    width: 13vw;
+    margin-top: 15%;
+    /*position: fixed;
     top: 25vw;
     left: 12vw;
-    width: 13vw;
-    justify-content: center;
-    font-size: 30px;
-    color: black;
-    font-family: American Typewriter, serif;
-}
-
-.Name-Three {
-    position: fixed;
-    top: 32vw;
-    left: 12vw;
-    width: 13vw;
-    justify-content: center;
-    font-size: 30px;
-    color: black;
-    font-family: American Typewriter, serif;
-}
-
-.Name-Four {
-    position: fixed;
-    top: 39vw;
-    left: 12vw;
-    width: 13vw;
-    justify-content: center;
-    font-size: 30px;
-    color: black;
-    font-family: American Typewriter, serif;
-}
-
-.Name-Five {
-    position: fixed;
-    top: 46vw;
-    left: 12vw;
-    width: 13vw;
+    width: 13vw;*/
     justify-content: center;
     font-size: 30px;
     color: black;
@@ -153,41 +130,47 @@
     font-family: American Typewriter, serif;
 }
 
-.Card-Scroll {
+.Card-Scroll-First {
     overflow: scroll;
     position: relative;
     width: 100vw;
-    height: 8vw;
-    margin-top: 15%;
+    height: 6vw;
+    margin-top: 18%;
     word-wrap: break-word;
     white-space: nowrap;
-
     /*position: relative;
     width: 12vw;
     height: 5vw;
     overflow-x: 'hidden';
     overflow-y: 'hidden';
     -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
+    white-space: nowrap; 
     border-style: dashed;
     border-width: 2px;
-    border-color: red;*/
+    border-color: red; */
 }
 
-/*.first {
-    margin-top: 0 !important;
-}*/
-
-/*.Card-Scroll > div {
-    width: 50%;
-    float: none;
-    height: 90%;
-    margin: 0 0.25%;
-    display: inline-block;
-    zoom: 1;
-}*/
+.Card-Scroll {
+    overflow: scroll;
+    position: relative;
+    width: 100vw;
+    height: 6vw;
+    margin-top: 4%;
+    word-wrap: break-word;
+    white-space: nowrap;
+    /*position: relative;
+    width: 12vw;
+    height: 5vw;
+    overflow-x: 'hidden';
+    overflow-y: 'hidden';
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap; 
+    border-style: dashed;
+    border-width: 2px;
+    border-color: red; */
+}
 
 .Card {
-    width: 75px;
-    height: 112.5px;
+    width: 55px;
+    height: 82.5px;
 }

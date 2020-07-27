@@ -48,16 +48,16 @@ class GameResults extends React.Component {
                             <Row className="Name-One">
                                 Anoushka <span>{'\u{1F451}'}</span>
                             </Row>
-                            <Row className="Name-Two">
+                            <Row className="Names">
                                 Ashley
                             </Row>
-                            <Row className="Name-Three">
+                            <Row className="Names">
                                 Dhanush
                             </Row>
-                            <Row className="Name-Four">
+                            <Row className="Names">
                                 Shreenithi <span>{'\u{1F451}'}</span>
                             </Row>
-                            <Row className="Name-Five">
+                            <Row className="Names">
                                 Anshul
                             </Row>
                         </Col>
@@ -67,7 +67,7 @@ class GameResults extends React.Component {
                                 Cards
                             </Row>
                             <Row>
-                                <div className="Card-Scroll">
+                                <div className="Card-Scroll-First">
                                     <img className="Card" src={require("../cards/AS.png")}></img>
                                     <img className="Card" src={require("../cards/AS.png")}></img>
                                     <img className="Card" src={require("../cards/AS.png")}></img>
