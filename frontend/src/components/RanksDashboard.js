@@ -30,11 +30,9 @@ class RanksDashboard extends Component {
                     backdrop="static"
                     keyboard={false}
                     centered
+                    size="lg"
                     id="Ranks-Modal"
-                    //class="modal-dialog modal-xl"
-                    //class="modal-body modal-lg"
                 >
-
                     <Modal.Header id="Header-Modal">
                         <Modal.Title id="Title-Modal">{this.props.modalTitle}</Modal.Title>
                     </Modal.Header>

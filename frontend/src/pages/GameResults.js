@@ -28,12 +28,12 @@ class GameResults extends React.Component {
                     centered
                     id="Win-Modal"
                 >
-                    <Modal.Body id="Body-Modal">
+                    <Modal.Body id="Win-Body-Modal">
                         Leading Team (Anoushka, Shreenithi) won with 80 points!
                     </Modal.Body>
 
-                    <Modal.Footer id="Footer-Modal">
-                        <button onClick={closeModal} className="Close-Button">Close</button>
+                    <Modal.Footer id="Win-Footer-Modal">
+                        <button onClick={closeModal} className="Win-Close-Button">Close</button>
                     </Modal.Footer>
 
                 </Modal>

@@ -5,8 +5,35 @@
     height: 100%;
 }
 
-.Win-Modal {
+#Win-Modal {
     
+}
+
+#Win-Body-Modal {
+    width: auto;
+    height: auto;
+    background-color: #5e715b;
+    font-family: American Typewriter, serif;
+}
+
+#Win-Footer-Modal {
+    background-color: #5e715b;
+    border-top: 0 none;
+}
+
+.Win-Close-Button {
+    background-color: black;
+    color: #5e715b;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
+}
+
+.Win-Close-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }
 
 .Page-Title {
