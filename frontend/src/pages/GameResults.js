@@ -11,8 +11,44 @@ class GameResults extends React.Component {
         super(props);
         this.state = {
             open: true,
+            playerOne: "",
+            playerTwo: "",
+            playerThree: "",
+            playerFour: "",
+            playerFive: "",
+            pointsOne: "",
+            pointsTwo: "",
+            pointsThree: "",
+            pointsFour: "",
+            pointsFive: "",
+            winningTeam: "",
+            winningTotal: "",
+            winningPlayers: "",
         }
     }
+
+    componentDidMount() {
+        this.setGameResults();
+    }
+
+    setGameResults() {
+        this.setState({
+            playerOne: "Anoushka",
+            playerTwo: "Ashley",
+            playerThree: "Dhanush",
+            playerFour: "Shreenithi",
+            playerFive: "Anshul",
+            pointsOne: "50",
+            pointsTwo: "10",
+            pointsThree: "10",
+            pointsFour: "30",
+            pointsFive: "20",
+            winningTeam: "Leading",
+            winningTotal: "80",
+            winningPlayers: "Anoushka, Shreenithi",
+        })
+    }
+
 
     render() {
 
@@ -29,7 +65,7 @@ class GameResults extends React.Component {
                     id="Win-Modal"
                 >
                     <Modal.Body id="Win-Body-Modal">
-                        Leading Team (Anoushka, Shreenithi) won with 80 points!
+                        {this.state.winningTeam} Team ({this.state.winningPlayers}) won with {this.state.winningTotal} points!
                     </Modal.Body>
 
                     <Modal.Footer id="Win-Footer-Modal">
@@ -46,19 +82,19 @@ class GameResults extends React.Component {
                                 Player
                             </Row>
                             <Row className="Name-One">
-                                Anoushka <span>{'\u{1F451}'}</span>
+                                {this.state.playerOne} <span>{'\u{1F451}'}</span>
                             </Row>
                             <Row className="Names">
-                                Ashley
+                                {this.state.playerTwo}
                             </Row>
                             <Row className="Names">
-                                Dhanush
+                                {this.state.playerThree}
                             </Row>
                             <Row className="Names">
-                                Shreenithi <span>{'\u{1F451}'}</span>
+                                {this.state.playerFour} <span>{'\u{1F451}'}</span>
                             </Row>
                             <Row className="Names">
-                                Anshul
+                                {this.state.playerFive}
                             </Row>
                         </Col>
 
@@ -138,19 +174,19 @@ class GameResults extends React.Component {
                                 Points
                             </Row>
                             <Row className="Points-One">
-                                50
+                                {this.state.pointsOne}
                             </Row>
                             <Row className="Points-Two">
-                                10
+                                {this.state.pointsTwo}
                             </Row>
                             <Row className="Points-Three">
-                                10
+                                {this.state.pointsThree}
                             </Row>
                             <Row className="Points-Four">
-                                30
+                                {this.state.pointsFour}
                             </Row>
                             <Row className="Points-Five">
-                                20
+                                {this.state.pointsFive}
                             </Row>
                         </Col>
                     </Row>
