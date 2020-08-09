@@ -28,7 +28,7 @@ class StartGame extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="Body">
                 <Container>
                     <h1 className="Game-title">Starting new game...</h1>
                     <h1 className="Game-code">Your game code is {this.props.location.state.codes}.</h1>

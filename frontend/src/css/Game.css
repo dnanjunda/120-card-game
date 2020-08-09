@@ -1,43 +1,14 @@
-.Main-Content {
+.Body {
     background: #5e715b;
-    width: 1450px;
-    height: 720px;
-}
-
-.Card {
-    text-align: center;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: auto;
-}
-
-.End-Game {
     position: fixed;
-    left: 1360px;
-    top: 745px;
-    border-radius: 1vw;
-    margin-left: -10%;
-    background-color: black;
-    color: white;
-    font-size: 2vw;
-    padding: 0.5vw 1vw;
-    border: 0.4vw solid black;
-    width: 15vw;
-    transition-duration: 0.4s;
-    font-family: Impact, fantasy;
-}
-
-.End-Game:hover {
-    border-radius: 2vw;
-    font-weight: bold;
+    width: 100%;
+    height: 100%;
 }
 
 .Current-Cutting {
     position: fixed;
-    left: 965px;
-    top: 200px;
+    left: 66.551724vw;
+    top: 13.888889vw;
     color: black;
     font-size: 2vw;
     width: 12vw;
@@ -46,16 +17,16 @@
 
 .Current-Cutting-Images {
     position: fixed;
-    left: 985px;
-    top: 250px;
+    left: 67.931034vw;
+    top: 17.361111vw;
     width: 100px;
     height: 150px;
 }
 
 .Current-Partner {
     position: fixed;
-    left: 1165px;
-    top: 200px;
+    left: 80.344828vw;
+    top: 13.888889vw;
     color: black;
     font-size: 2vw;
     width: 12vw;
@@ -64,15 +35,15 @@
 
 .Current-Partner-Images {
     position: fixed;
-    left: 1190px;
-    top: 250px;
+    left: 82.068966vw;
+    top: 17.361111vw;
     width: 100px;
     height: 150px;
 }
 
 .Card-Image-One {
     position: relative;
-    left: 175px;
+    left: 225px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -87,7 +58,7 @@
 
 .Card-Image-Two {
     position: relative;
-    left: 100px;
+    left: 150px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -102,7 +73,7 @@
 
 .Card-Image-Three {
     position: relative;
-    left: 25px;
+    left: 75px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -117,7 +88,7 @@
 
 .Card-Image-Four {
     position: relative;
-    left: -50px;
+    left: 0px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -132,7 +103,7 @@
 
 .Card-Image-Five {
     position: relative;
-    left: -125px;
+    left: -75px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -147,7 +118,7 @@
 
 .Card-Image-Six {
     position: relative;
-    left: -200px;
+    left: -150px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -162,7 +133,7 @@
 
 .Card-Image-Seven {
     position: relative;
-    left: -275px;
+    left: -225px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -177,7 +148,7 @@
 
 .Card-Image-Eight {
     position: relative;
-    left: -350px;
+    left: -300px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -192,7 +163,7 @@
 
 .Card-Image-Nine {
     position: relative;
-    left: -425px;
+    left: -375px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -207,7 +178,7 @@
 
 .Card-Image-Ten {
     position: relative;
-    left: -500px;
+    left: -450px;
     top: 520px;
     width: 120px;
     height: 180px;
@@ -222,6 +193,26 @@
 
 .Table {
     position: fixed;
-    top: 150px;
-    left: 150px;
+    left: 17.241379vw;
+    top: 13.888889vw;
+}
+
+.End-Game {
+    position: fixed;
+    left: 84vw;
+    top: 51vw;
+    border-radius: 1vw;
+    background-color: black;
+    color: white;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 15vw;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+}
+
+.End-Game:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }

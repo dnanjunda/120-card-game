@@ -1,4 +1,4 @@
- import React, { Component, useState } from 'react';
+import React, { Component, useState } from 'react';
 import {Modal, ModalTitle, ModalBody, Button} from 'react-bootstrap';
 import '../css/JoinDashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -64,21 +64,21 @@ render() {
           centered
           id="Join-Modal"
         >
-          <Modal.Header>
-            <Modal.Title id="Title-Modal">Joining A Game</Modal.Title>
+          <Modal.Header id="Join-Header-Modal">
+            <Modal.Title id="Join-Title-Modal">Joining A Game</Modal.Title>
           </Modal.Header>
-          <Modal.Body id="Body-Modal">
+          <Modal.Body id="Join-Body-Modal">
             <form>
               <input id="Input-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
             </form>
           </Modal.Body>
-          <Modal.Footer id="Footer-Modal">
+          <Modal.Footer id="Join-Footer-Modal">
           <Link to="/joingame">
-            <button onClick={this.handleJoin} id="Join-Button">
+            <button onClick={this.handleJoin} className="Modal-Join-Button">
               Join
               </button>
             </Link>
-            <button onClick={closeModal} id="Cancel-Button">
+            <button onClick={closeModal} className="Modal-Cancel-Button">
               Cancel
             </button>
           </Modal.Footer>

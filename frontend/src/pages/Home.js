@@ -121,17 +121,13 @@ class Home extends React.Component {
     render() {
         
         return (
-            <div>
+            <div className="Body">
                 <Container>
-                    {/* <h1 className="Home-Title">Welcome to 120!</h1>
-                    <p className="Description"> An Original, Online, Multiplayer Card Game!</p> */}
                     <Row>
                         <Col>
-                            <img className="Logo"
-                                src={require("../images/homeLogo.png")}></img>
+                            <img className="Logo" src={require("../images/homeLogo.png")}></img>
                         </Col>
                         <Col>
-                            {/* <h1 className="Home-Title">Welcome to 120!</h1> */}
                             <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
                     {/* <form noValidate autoComplete="off">
                         <TextField id="standard-basic" label="Standard" />
