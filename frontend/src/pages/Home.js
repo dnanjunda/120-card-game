@@ -4,7 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import '../css/Home.css';
 import JoinDashboard from '../components/JoinDashboard.js';
 import { TextField } from '@material-ui/core';
+import socketIOClient from "socket.io-client";
 
+export var socket;
 class Home extends React.Component {
 
     constructor(props) {
@@ -12,10 +14,12 @@ class Home extends React.Component {
         this.vars = { string: '', sample: 'this is the code'};
         this.postData = this.postData.bind(this);
         this.makeid = this.makeid.bind(this);
+        this.state = {
+            username: '',
+        endpoint: 'http://localhost:9000/'
+        }
+        socket = socketIOClient(this.state.endpoint);
     }
-    state = {
-        username: ''
-      }
 
     inputHandler=(e)=>{
         if(e){
@@ -107,13 +111,15 @@ class Home extends React.Component {
         //return response.json(); // parses JSON response into native JavaScript objects
     }
 
-    // sendData() {
-    //     var 
-    //     fetch();
+    // callFunc() {
+    //     io.sockets.on('connection', function(socket){
+    //         console.log("new client connected");
+    //     });
     // }
 
 
     render() {
+        
         return (
             <div className="Body">
                 <Container>

@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
+var socketIO = require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -20,14 +21,31 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = socketIO(server);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, () => console.log(`Listening on port ${port}`));
 server.on('error', onError);
 server.on('listening', onListening);
+
+io.on("connection", socket => {
+  console.log("New client connected " + socket.id);
+
+  //Here we listen on a new namespace called "incoming data"
+  socket.on("incoming_data", (data)=>{
+      //Here we broadcast it out to all other sockets EXCLUDING the socket which sent us the data
+      console.log(data + " joined");
+     //socket.broadcast.emit("outgoing data", {num: data});
+  });
+
+  
+
+  //A special namespace "disconnect" for when a client disconnects
+  socket.on("disconnect", () => console.log("Client disconnected"));
+});
 
 /**
  * Normalize a port into a number, string, or false.

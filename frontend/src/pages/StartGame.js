@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../css/StartGame.css';
+import {socket} from "../pages/Home.js";
 
 class StartGame extends React.Component {
     constructor(props) {
@@ -22,6 +23,7 @@ class StartGame extends React.Component {
     componentDidMount() {
         const {codes} = this.props.location.state;
         this.state.code = codes;
+        socket.emit("incoming_data", this.props.location.state.user);
     }
 
     render() {
