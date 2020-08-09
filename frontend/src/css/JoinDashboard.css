@@ -18,45 +18,69 @@
 }
 
 #Join-Modal {
-    margin-left: 35%;
-    width: 30%;
-    height: 30%;
+    margin-left: auto;
+    width: auto;
+    height: auto;
 }
 
-#Title-Modal {
+#Join-Header-Modal {
+    background-color: #5e715b;
+    border-bottom: 0 none;
+}
+
+#Join-Title-Modal {
+    background-color: #5e715b;
     font-size: 3vw;
-    color: red;
-    margin-left: 10%;
+    color: black;
+    margin-left: 22%;
+    font-family: Impact, fantasy;
 }
 
-#Body-Modal {
+#Join-Body-Modal {
+    width: auto;
+    height: auto;
+    background-color: #5e715b;
+    font-family: American Typewriter, serif;
 }
 
 #Input-Box {
     margin-left: 30%;
-    width: 11vw;
-}
-#Footer-Modal {
-}
-
-#Join-Button {
-    background-color: white;
-    width: 7vw;
+    width: 12vw;
+    height: 3vw;
+    background-color: #5e715b;
 }
 
-#Join-Button:hover {
-    background-color: red;
-    color: white;
+#Join-Footer-Modal {
+    background-color: #5e715b;
+    border-top: 0 none;
 }
 
-#Cancel-Button {
-    margin-left: 15%;
-    margin-right: 15%;
-    background-color: white;
-    width: 7vw;
+.Modal-Join-Button {
+    background-color: black;
+    color: #5e715b;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
 }
 
-#Cancel-Button:hover {
-    background-color: red;
-    color: white;
+.Modal-Join-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }
+
+.Modal-Cancel-Button {
+    background-color: black;
+    color: #5e715b;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
+}
+
+.Modal-Cancel-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}   

@@ -1,8 +1,9 @@
-.Home-Title {
-    font-size: 7vw;
-    color: white;
-    text-align: center;
-    margin-bottom: 1%;
+.Body {
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    background: #5e715b;
 }
 
 .Description {
@@ -17,7 +18,7 @@
 .Start-Game {
     margin-top: 15%;
     border-radius: 1vw;
-    margin-left: -10%;
+    margin-left: -2vw;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;
@@ -35,6 +36,7 @@
 
 .Name-Box {
     margin-top: 2vw;
+    margin-left: -1vw;
     width: 40vw;
     height: 4vw;
     background-color: #5e715b;
@@ -45,10 +47,24 @@
     font-family: Impact, fantasy;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
+
 .Logo {
+    margin-top: auto;
+    margin-left: -4vw;
     text-align: center;
     display: block;
     justify-content: center;
     align-items: center;
-    margin: auto;
 }
