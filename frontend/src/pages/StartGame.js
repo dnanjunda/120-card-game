@@ -2,28 +2,36 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../css/StartGame.css';
-import {socket} from "../pages/Home.js";
+import {socket} from "../App.js";
 
 class StartGame extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { apiResponse: "", code: "", sample: "abc" };
+        this.state = { apiResponse: [], code: "", sample: "abc" };
     }
 
     callAPI() {
-        fetch("http://localhost:9000/testAPI")
-            .then(res => res.text())
+        fetch("http://localhost:9000/codes/getplayers")
             .then(res => this.setState({ apiResponse: res }));
     }
 
     componentWillMount() {
+        socket.emit("incoming_data", this.props.location.state.user);
        // this.callAPI();
     }
 
     componentDidMount() {
+        var returnData = [];
         const {codes} = this.props.location.state;
         this.state.code = codes;
-        socket.emit("incoming_data", this.props.location.state.user);
+        socket.on("received_data", function(data) {
+            console.log(data);
+            returnData[0] = data[0];
+        });
+        console.log(returnData);
+        this.state.apiResponse[0] = returnData[0];
+        console.log(this.state.apiResponse);
+        //this.callAPI();
     }
 
     render() {
@@ -34,11 +42,11 @@ class StartGame extends React.Component {
                     <h1 className="Game-code">Your game code is {this.props.location.state.codes}.</h1>
                     <h2 className="Players-Title"> Players in your game:</h2>
                     <ol className="Players-list">
-                        <li>{this.props.location.state.user}</li>
-                        <li>Waiting</li>
-                        <li>Waiting</li>
-                        <li>Waiting</li>
-                        <li>Waiting</li>
+                        <li>{this.state.apiResponse[0]}</li>
+                        <li>{this.state.apiResponse}</li>
+                        <li>{this.state.apiResponse}</li>
+                        <li>{this.state.apiResponse}</li>
+                        <li>{this.state.apiResponse}</li>
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
 

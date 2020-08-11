@@ -4,9 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import '../css/Home.css';
 import JoinDashboard from '../components/JoinDashboard.js';
 import { TextField } from '@material-ui/core';
-import socketIOClient from "socket.io-client";
 
-export var socket;
 class Home extends React.Component {
 
     constructor(props) {
@@ -16,10 +14,19 @@ class Home extends React.Component {
         this.makeid = this.makeid.bind(this);
         this.state = {
             username: '',
-        endpoint: 'http://localhost:9000/'
+            joinedcode: ''
         }
-        socket = socketIOClient(this.state.endpoint);
     }
+
+    // callbackFunction=(childData)=>{
+    //     this.setState({joinedcode: childData});
+    //     this.props.history.push({
+    //         pathname: '/joingame',
+    //         state: {
+    //             codes: this.state.joinedcode,
+    //             user: this.state.username
+    //         }});
+    // }
 
     inputHandler=(e)=>{
         if(e){
@@ -27,6 +34,7 @@ class Home extends React.Component {
                 username: e.target.value
             })
         }
+        console.log("Username:", this.state.username);
     }
 
     makeid() {
@@ -148,7 +156,7 @@ class Home extends React.Component {
 
                                 </Col>
                                 <Col>
-                                    <JoinDashboard />
+                                    <JoinDashboard user={this.state.username} history={this.props.history}/>
                                 </Col>
                             </Row>
                         </Col>

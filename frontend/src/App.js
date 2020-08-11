@@ -13,13 +13,15 @@ import GameResults from './pages/GameResults';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+export var socket;
 class App extends Component {
   constructor() {
     super();
     this.state = {
         response: 0,
-        endpoint: "http://127.0.0.1:9000"
-    };
+        endpoint: 'http://localhost:9000/'
+    }
+    socket = socketIOClient(this.state.endpoint);
   }
 
   componentDidMount() {

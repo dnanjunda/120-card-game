@@ -3,16 +3,25 @@ import {Modal, ModalTitle, ModalBody, Button} from 'react-bootstrap';
 import '../css/JoinDashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router';
 
+export var joinCode;
+export var user;
 class JoinDashboard extends Component {
   constructor(props) {
     super(props);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleJoin = this.handleJoin.bind(this);
+    this.state = {
+      open: false,
+      joincode: '',
+      username: "abc"
+    }
   }
-  state = {
-    open: false,
-    joincode: ''
+
+  sendCode=()=>{
+    console.log('Join Code:', this.state.joincode);
+    this.props.parentCallback(this.state.joincode);
   }
 
   inputHandler=(e)=>{
@@ -34,9 +43,34 @@ class JoinDashboard extends Component {
 
     } else {
       console.log('Join Code:', this.state.joincode);
-      this.props.history.push({pathname: '/joingame',
+      const data = {code: this.state.joincode};
+
+      fetch("http://localhost:9000/codes/getcode", {
+            method: 'GET', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data == "code doesn't exist") {
+                    this.state.joincode = '';
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+            joinCode = this.state.joincode;
+            user = this.props.user;
+
+      this.props.history.push(
+        {pathname: '/joingame',
         state: {
-          joinedcode: this.state.joincode
+          codes: this.state.joincode,
+          user: this.state.username
         }
       });
     }
@@ -73,7 +107,7 @@ render() {
             </form>
           </Modal.Body>
           <Modal.Footer id="Join-Footer-Modal">
-          <Link to="/joingame">
+          <Link>
             <button onClick={this.handleJoin} className="Modal-Join-Button">
               Join
               </button>
@@ -92,51 +126,3 @@ render() {
 }
 
 export default JoinDashboard;
-
-// var Modal = require('react-bootstrap-modal')
- 
-// class JoinDashboard extends React.Component {
-//   state = {
-//     open: false
-//   }
-//   render(){
-//     let closeModal = () => this.setState({ open: false })
- 
-    // let saveAndClose = () => {
-    //   api.saveData()
-    //     .then(() => this.setState({ open: false }))
-    // }
- 
-//     return (
-//       <div>
-//         <button type='button' onClick={() => this.setState({ open: true }) }>Launch modal</button>
- 
-//         <Modal
-//           show={this.state.open}
-//           onHide={closeModal}
-//           aria-labelledby="ModalHeader"
-//         >
-//           <Modal.Header closeButton>
-//             <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
-//           </Modal.Header>
-//           <Modal.Body>
-//             <p>Some Content here</p>
-//           </Modal.Body>
-//           <Modal.Footer>
-//             // If you don't have anything fancy to do you can use
-//             // the convenient `Dismiss` component, it will
-//             // trigger `onHide` when clicked
-//             <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
- 
-//             // Or you can create your own dismiss buttons
-//             {/* <button className='btn btn-primary' onClick={saveAndClose}>
-//               Save
-//             </button> */}
-//           </Modal.Footer>
-//         </Modal>
-//       </div>
-//     )
-//   }
-// }
-
-// export default JoinDashboard;
