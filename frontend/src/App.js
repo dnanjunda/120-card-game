@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Navigation from './components/Navigation';
 import StartGame from './pages/StartGame';
+import JoinGame from './pages/JoinGame';
 import Game from './pages/Game';
 import socketIOClient from "socket.io-client";
 import GameResults from './pages/GameResults';
@@ -38,6 +39,7 @@ class App extends Component {
 				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/rules" exact render={(props) => <Rules {...props}/>}/>
         <Route path="/startgame" exact render={(props) => <StartGame {...props}/>}/>
+        <Route path="/joingame" exact render={(props) => <JoinGame {...props}/>}/>
         <Route path="/game" exact render={(props) => <Game {...props}/>}/>
         <Route path="/results" exact render={(props) => <GameResults {...props}/>}/>
       </div>

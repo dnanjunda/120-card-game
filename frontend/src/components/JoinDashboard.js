@@ -50,7 +50,7 @@ class JoinDashboard extends Component {
     } else {
       console.log('Join Code:', this.state.joincode);
       this.props.history.push({
-        pathname: '/startgame',
+        pathname: '/joingame',
         state: {
           joinedcode: this.state.joincode
         }
@@ -74,7 +74,7 @@ class JoinDashboard extends Component {
           </div>
           <div>
             <div className="Join-Modal-Buttons">
-              <Link to="/startgame">
+              <Link to="/joingame">
                 <button onClick={this.handleCancelClick} className="Join-Modal-Join-Button">Join</button>
               </Link>
             </div>

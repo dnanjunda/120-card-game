@@ -30,7 +30,7 @@ class StartGame extends React.Component {
     componentDidMount() {
         const {codes} = this.props.location.state;
         this.state.code = codes;
-        //socket.emit("incoming_data", this.props.location.state.user);
+        socket.emit("incoming_data", this.props.location.state.user);
     }
 
     render() {
@@ -52,12 +52,12 @@ class StartGame extends React.Component {
                     <Row>
                         <Col>
                             <Link to="/game">
-                                <button className="Button" type="button"> Start Game! </button>
+                                <button className="Button" type="button">Start Game!</button>
                             </Link>
                         </Col>
                         <Col>
                             <Link to="/home">
-                                <button className="Button" type="button"> Return to Start </button>
+                                <button className="Button" type="button">Return to Start</button>
                             </Link>
                         </Col>
                     </Row>
