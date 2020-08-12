@@ -5,7 +5,9 @@ import React from 'react';
 import {Container} from 'react-bootstrap';
 
 class JoinGame extends React.Component {
+    
     render() {
+
         return (
             <div className="Body">
                 <Container>

@@ -12,6 +12,7 @@ import '../css/StartGame.css';
 import {socket} from "../pages/Home.js";
 
 class StartGame extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = { apiResponse: "", code: "", sample: "abc" };
@@ -34,6 +35,7 @@ class StartGame extends React.Component {
     }
 
     render() {
+        
         return (
             <div className="Body">
                 <Container>
