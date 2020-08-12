@@ -1,8 +1,14 @@
-import { Link } from 'react-router-dom';
+/* react imports */
 import React, { Component, Stylesheet } from 'react';
+
+/* react router & bootstrap imports */
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, Modal } from 'react-bootstrap';
+
+/* css imports */
 import '../css/GameResults.css';
 
+/* components imports */
 import RanksDashboard from '../components/RanksDashboard';
 
 class GameResults extends React.Component {

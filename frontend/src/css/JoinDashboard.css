@@ -1,3 +1,40 @@
+.Join-Modal-Font {
+    font-family: American Typewriter, serif;
+}
+
+.Join-Modal-Container {
+    /* centers modal on page */
+    margin-left: -30em;
+    margin-top: -20em;
+
+    /*background-color: #ED8A68;*/
+    background-color: #f97c7c;
+    width: 25em;
+    height: 20em;
+    border: 0.3vw solid black;
+    border-radius: 2vw;
+}
+
+.Join-Modal-Title {
+    padding-top: 0.2em;
+    text-align: center;
+    font-size: 2.8em;
+    color: black;
+}
+
+.Join-Code-Box {
+    margin-left: 5.2em;
+    margin-top: 3em;
+    width: 10em;
+    height: 3em;
+    background-color: #f97c7c;
+    border: 0.15vw solid black;
+    /*font-family: Impact, fantasy;*/
+    font-size: 1.2em;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
 .Join-Button {
     margin-top: 15%;
     border-radius: 1vw;
@@ -17,47 +54,16 @@
     font-weight: bold;
 }
 
-#Join-Modal {
-    margin-left: auto;
-    width: auto;
-    height: auto;
+.Join-Modal-Buttons {
+    width: 0.01em;
+    float: left;
 }
 
-#Join-Header-Modal {
-    background-color: #5e715b;
-    border-bottom: 0 none;
-}
-
-#Join-Title-Modal {
-    background-color: #5e715b;
-    font-size: 3vw;
-    color: black;
-    margin-left: 22%;
-    font-family: Impact, fantasy;
-}
-
-#Join-Body-Modal {
-    width: auto;
-    height: auto;
-    background-color: #5e715b;
-    font-family: American Typewriter, serif;
-}
-
-#Input-Box {
-    margin-left: 30%;
-    width: 12vw;
-    height: 3vw;
-    background-color: #5e715b;
-}
-
-#Join-Footer-Modal {
-    background-color: #5e715b;
-    border-top: 0 none;
-}
-
-.Modal-Join-Button {
+.Join-Modal-Join-Button {
+    margin-left: 12em;
+    margin-top: 4.5em;
     background-color: black;
-    color: #5e715b;
+    color: #f97c7c;
     font-family: Impact, fantasy;
     border-radius: 0.8vw;
     border: 0.4vw solid black;
@@ -65,14 +71,16 @@
     transition-duration: 0.4s;
 }
 
-.Modal-Join-Button:hover {
+.Join-Modal-Join-Button:hover {
     border-radius: 2vw;
     font-weight: bold;
 }
 
-.Modal-Cancel-Button {
+.Join-Modal-Cancel-Button {
+    margin-left: 18em;
+    margin-top: 4.5em;
     background-color: black;
-    color: #5e715b;
+    color: #f97c7c;
     font-family: Impact, fantasy;
     border-radius: 0.8vw;
     border: 0.4vw solid black;
@@ -80,7 +88,7 @@
     transition-duration: 0.4s;
 }
 
-.Modal-Cancel-Button:hover {
+.Join-Modal-Cancel-Button:hover {
     border-radius: 2vw;
     font-weight: bold;
-}   
+} 

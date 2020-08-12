@@ -1,6 +1,11 @@
-import {Link} from 'react-router-dom';
+/* react imports */
 import React, { Component } from 'react';
+
+/* react router & bootstrap imports */
+import {Link} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
+
+/* css imports */
 import '../css/JoinGame.css';
 
 class JoinGame extends React.Component {

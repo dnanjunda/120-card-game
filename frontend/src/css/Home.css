@@ -60,6 +60,43 @@
     color: black;
 }
 
+.Join-Box {
+    margin-top: 15%;
+    border-radius: 1vw;
+    margin-left: 1%;
+    width: 20vw;
+    height: 4vw;
+    background-color: black;
+    color: #5e715b;
+    border: 0.4vw solid black;
+    padding: 0.5vw 1vw;
+    font-size: 2vw;
+    font-family: Impact, fantasy;
+    transition-duration: 0.4s;
+}
+
+.Join-Box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    border-radius: 1vw;
+    border: 0.4vw solid black;
+    background-color: black;
+    color: #5e715b;
+    opacity: 1; /* Firefox */
+}
+  
+.Join-Box:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    border-radius: 1vw;
+    border: 0.4vw solid black;
+    background-color: black;
+    color: #5e715b;
+}
+  
+.Join-Box::-ms-input-placeholder { /* Microsoft Edge */
+    border-radius: 1vw;
+    border: 0.4vw solid black;
+    background-color: black;
+    color: #5e715b;
+}
+
 .Logo {
     margin-top: auto;
     margin-left: -4vw;

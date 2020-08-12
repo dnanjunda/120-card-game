@@ -1,40 +1,56 @@
-import React, { Component, useState } from 'react';
-import {Modal, ModalTitle, ModalBody, Button} from 'react-bootstrap';
+/* react imports */
+import React, { Component } from 'react';
+
+/* react router imports */
+import { Link } from 'react-router-dom';
+
+/* css imports */
 import '../css/JoinDashboard.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from 'react-router-dom';
 
 class JoinDashboard extends Component {
   constructor(props) {
     super(props);
+    this.handleModalClick = this.handleModalClick.bind(this);
+    this.handleCancelClick = this.handleCancelClick.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleJoin = this.handleJoin.bind(this);
   }
   state = {
-    open: false,
-    joincode: ''
+    visible: false,
+    joincode: '',
   }
 
-  inputHandler=(e)=>{
-    if(e){
-        this.setState({
-            joincode: e.target.value
-        })
+  handleModalClick = () => {
+    this.setState({ visible: true });
+  }
+
+  handleCancelClick = () => {
+    this.setState({ visible: false });
+  }
+
+  inputHandler = (e) => {
+    if (e) {
+      this.setState({
+        joincode: e.target.value
+      })
     }
   }
 
   handleFocus() {
-    if(this.state.joincode == 'Enter game code') {
+    if (this.state.joincode == 'Enter game code') {
       this.state.joincode = '';
     }
   }
 
   handleJoin() {
-    if(this.state.joincode == '') {
-
+    if (this.state.joincode == '') {
+      this.setState({
+        valid: false,
+      })
     } else {
       console.log('Join Code:', this.state.joincode);
-      this.props.history.push({pathname: '/joingame',
+      this.props.history.push({
+        pathname: '/joingame',
         state: {
           joinedcode: this.state.joincode
         }
@@ -42,101 +58,41 @@ class JoinDashboard extends Component {
     }
   }
 
-render() {
-  let closeModal = () => this.setState({ open: false })
-  let openModal = () => this.setState({open:true})
-    // const [show, setShow] = useState(false);
-  
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-  
-    return (
-        <div>
-        <button onClick={openModal} className="Join-Button">
-          Join A Game!
-        </button>
-  
-        <Modal
-          show={this.state.open}
-          onHide={closeModal}
-          backdrop="static"
-          keyboard={false}
-          centered
-          id="Join-Modal"
-        >
-          <Modal.Header id="Join-Header-Modal">
-            <Modal.Title id="Join-Title-Modal">Joining A Game</Modal.Title>
-          </Modal.Header>
-          <Modal.Body id="Join-Body-Modal">
+  render() {
+
+    if (this.state.visible) return (
+      <div className="Join-Modal-Font">
+        <button onClick={this.handleModalClick} className="Join-Button">Join A Game!</button>
+        <div className="Join-Modal-Container">
+          <div className="Join-Modal-Title">
+            Join A Game!
+                </div>
+          <div className="Join-Modal-Content">
             <form>
-              <input id="Input-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
+              <input className="Join-Code-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
             </form>
-          </Modal.Body>
-          <Modal.Footer id="Join-Footer-Modal">
-          <Link to="/joingame">
-            <button onClick={this.handleJoin} className="Modal-Join-Button">
-              Join
-              </button>
-            </Link>
-            <button onClick={closeModal} className="Modal-Cancel-Button">
-              Cancel
-            </button>
-          </Modal.Footer>
-        </Modal>
-        <br/>
-        <br/>
-
+          </div>
+          <div>
+            <div className="Join-Modal-Buttons">
+              <Link to="/joingame">
+                <button onClick={this.handleCancelClick} className="Join-Modal-Join-Button">Join</button>
+              </Link>
+            </div>
+            <div className="Join-Modal-Buttons">
+              <button onClick={this.handleCancelClick} className="Join-Modal-Cancel-Button">Cancel</button>
+            </div>
+          </div>
         </div>
+      </div>
     );
+
+    else return (
+      <div className="Modal-Font">
+        <button onClick={this.handleModalClick} className="Join-Button">Join A Game!</button>
+      </div>
+    );
+  }
+
 }
-}
 
-export default JoinDashboard;
-
-// var Modal = require('react-bootstrap-modal')
- 
-// class JoinDashboard extends React.Component {
-//   state = {
-//     open: false
-//   }
-//   render(){
-//     let closeModal = () => this.setState({ open: false })
- 
-    // let saveAndClose = () => {
-    //   api.saveData()
-    //     .then(() => this.setState({ open: false }))
-    // }
- 
-//     return (
-//       <div>
-//         <button type='button' onClick={() => this.setState({ open: true }) }>Launch modal</button>
- 
-//         <Modal
-//           show={this.state.open}
-//           onHide={closeModal}
-//           aria-labelledby="ModalHeader"
-//         >
-//           <Modal.Header closeButton>
-//             <Modal.Title id='ModalHeader'>A Title Goes here</Modal.Title>
-//           </Modal.Header>
-//           <Modal.Body>
-//             <p>Some Content here</p>
-//           </Modal.Body>
-//           <Modal.Footer>
-//             // If you don't have anything fancy to do you can use
-//             // the convenient `Dismiss` component, it will
-//             // trigger `onHide` when clicked
-//             <Modal.Dismiss className='btn btn-default'>Cancel</Modal.Dismiss>
- 
-//             // Or you can create your own dismiss buttons
-//             {/* <button className='btn btn-primary' onClick={saveAndClose}>
-//               Save
-//             </button> */}
-//           </Modal.Footer>
-//         </Modal>
-//       </div>
-//     )
-//   }
-// }
-
-// export default JoinDashboard;
+export default JoinDashboard

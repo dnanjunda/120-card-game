@@ -1,12 +1,16 @@
+/* react imports */
+import React, { Component } from 'react';
+
+/* react router & bootstrap imports */
 import { Link } from 'react-router-dom';
-import React, { Component, Text } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+
+/* css imports */
 import '../css/Game.css';
 
+/* component imports */
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
-
-import aces from '../cards/AS.png'; //test import
 
 class Game extends React.Component {
 

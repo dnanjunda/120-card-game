@@ -1,9 +1,12 @@
+/* react imports */
 import React, { Component } from 'react';
+
+/* react router & bootstrap imports */
+import { Link } from 'react-router-dom';
 import { Modal, Container, Row, Col } from 'react-bootstrap';
 
+/* css imports */
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
-
 import '../css/RanksDashboard.css';
 
 class RanksDashboard extends Component {

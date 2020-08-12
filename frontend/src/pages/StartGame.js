@@ -1,7 +1,14 @@
-import { Link } from 'react-router-dom';
+/* react imports */
 import React, { Component } from 'react';
+
+/* react router & bootstrap imports */
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+
+/* css imports */
 import '../css/StartGame.css';
+
+/* backend imports */
 import {socket} from "../pages/Home.js";
 
 class StartGame extends React.Component {
@@ -23,7 +30,7 @@ class StartGame extends React.Component {
     componentDidMount() {
         const {codes} = this.props.location.state;
         this.state.code = codes;
-        socket.emit("incoming_data", this.props.location.state.user);
+        //socket.emit("incoming_data", this.props.location.state.user);
     }
 
     render() {

@@ -1,5 +1,10 @@
+/* react imports */
+import React, { Component } from 'react';
+
+/* react router imports */
 import {Link} from 'react-router-dom';
-import React, { Component, Stylesheet } from 'react';
+
+/* css imports */
 import '../css/Rules.css';
 
 class Rules extends React.Component {
