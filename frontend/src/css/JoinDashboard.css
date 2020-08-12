@@ -6,8 +6,6 @@
     /* centers modal on page */
     margin-left: -30em;
     margin-top: -20em;
-
-    /*background-color: #ED8A68;*/
     background-color: #f97c7c;
     width: 25em;
     height: 20em;
@@ -29,7 +27,6 @@
     height: 3em;
     background-color: #f97c7c;
     border: 0.15vw solid black;
-    /*font-family: Impact, fantasy;*/
     font-size: 1.2em;
     letter-spacing: 0.01em;
     text-align: center;

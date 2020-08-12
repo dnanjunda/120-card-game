@@ -9,7 +9,8 @@ import { Container, Row, Col, Modal } from 'react-bootstrap';
 import '../css/GameResults.css';
 
 /* components imports */
-import RanksDashboard from '../components/RanksDashboard';
+import RanksDashboard from '../components/RanksDashboard.js';
+import FooterButtons from '../components/FooterButtons.js';
 
 class GameResults extends React.Component {
 
@@ -81,7 +82,6 @@ class GameResults extends React.Component {
                 </Modal>
 
                 <Container>
-                    <h1 className="Page-Title"> Game Results: </h1>
                     <Row>
                         <Col>
                             <Row className="Player-Title">
@@ -197,24 +197,13 @@ class GameResults extends React.Component {
                         </Col>
                     </Row>
 
-                    <Row>
-                        <Col>
-                            <RanksDashboard
-                                buttonTitle="End Game"
-                                modalTitle="Final Ranks"
-                                path="/home"
-                                className="End-Game"
-                            />
-                        </Col>
-                        <Col>
-                            <RanksDashboard
-                                buttonTitle="Start Next Game"
-                                modalTitle="Current Ranks"
-                                path="/game"
-                                className="Next-Game"
-                            />
-                        </Col>
-                    </Row>
+                    <FooterButtons
+                        leftButtonTitle="Ranks"
+                        leftPath="/ranks"
+                        rightButtonTitle="Return to Home"
+                        rightPath="/home"
+                        className="Game-Results"
+                    />
                 </Container>
             </div>
         );

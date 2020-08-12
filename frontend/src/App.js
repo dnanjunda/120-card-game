@@ -47,7 +47,7 @@ class App extends Component {
         <Navigation/>
         <Route path="/120-card-game" exact render={(props) => <Home {...props}/>}/>
         <Route path="/" exact render={(props) => <Home {...props}/>}/>
-		<Route path="/home" exact render={(props) => <Home {...props}/>}/>
+		    <Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/rules" exact render={(props) => <Rules {...props}/>}/>
         <Route path="/startgame" exact render={(props) => <StartGame {...props}/>}/>
         <Route path="/joingame" exact render={(props) => <JoinGame {...props}/>}/>

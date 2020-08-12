@@ -10,16 +10,15 @@ import '../css/JoinDashboard.css';
 class JoinDashboard extends Component {
 
     constructor(props) {
-
         super(props);
         this.handleModalClick = this.handleModalClick.bind(this);
         this.handleCancelClick = this.handleCancelClick.bind(this);
         this.handleFocus = this.handleFocus.bind(this);
         this.handleJoin = this.handleJoin.bind(this);
-    }
-    state = {
-        visible: false,
-        joincode: '',
+        this.state = {
+            visible: false,
+            joincode: '',
+        }
     }
 
     handleModalClick = () => {

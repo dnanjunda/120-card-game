@@ -15,25 +15,6 @@
     font-family: American Typewriter, serif;
 }
 
-.Start-Game {
-    margin-top: 15%;
-    border-radius: 1vw;
-    margin-left: -2vw;
-    background-color: black;
-    color: #5e715b;
-    font-size: 2vw;
-    padding: 0.5vw 1vw;
-    border: 0.4vw solid black;
-    width: 20vw;
-    transition-duration: 0.4s;
-    font-family: Impact, fantasy;
-}
-
-.Start-Game:hover {
-    border-radius: 2vw;
-    font-weight: bold;
-}
-
 .Name-Box {
     margin-top: 2vw;
     margin-left: -1vw;
@@ -60,41 +41,23 @@
     color: black;
 }
 
-.Join-Box {
+.Start-Game {
     margin-top: 15%;
     border-radius: 1vw;
-    margin-left: 1%;
-    width: 20vw;
-    height: 4vw;
+    margin-left: -2vw;
     background-color: black;
     color: #5e715b;
-    border: 0.4vw solid black;
-    padding: 0.5vw 1vw;
     font-size: 2vw;
-    font-family: Impact, fantasy;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 20vw;
     transition-duration: 0.4s;
+    font-family: Impact, fantasy;
 }
 
-.Join-Box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    border-radius: 1vw;
-    border: 0.4vw solid black;
-    background-color: black;
-    color: #5e715b;
-    opacity: 1; /* Firefox */
-}
-  
-.Join-Box:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    border-radius: 1vw;
-    border: 0.4vw solid black;
-    background-color: black;
-    color: #5e715b;
-}
-  
-.Join-Box::-ms-input-placeholder { /* Microsoft Edge */
-    border-radius: 1vw;
-    border: 0.4vw solid black;
-    background-color: black;
-    color: #5e715b;
+.Start-Game:hover {
+    border-radius: 2vw;
+    font-weight: bold;
 }
 
 .Logo {

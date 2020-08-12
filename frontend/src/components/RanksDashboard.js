@@ -3,31 +3,61 @@ import React, { Component } from 'react';
 
 /* react router & bootstrap imports */
 import { Link } from 'react-router-dom';
-import { Modal, Container, Row, Col } from 'react-bootstrap';
 
 /* css imports */
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/RanksDashboard.css';
 
 class RanksDashboard extends Component {
 
     constructor(props) {
         super(props);
+        this.handleModalClick = this.handleModalClick.bind(this);
+        this.handleCancelClick = this.handleCancelClick.bind(this);
         this.state = {
-            open: false,
+            visible: false,
         }
+    }
+
+    handleModalClick = () => {
+        this.setState({ visible: true });
+    }
+
+    handleCancelClick = () => {
+        this.setState({ visible: false });
     }
 
     render() {
 
-        let closeModal = () => this.setState({ open: false })
-        let openModal = () => this.setState({ open: true })
+        if (this.state.visible) return (
+            <div className="Ranks-Modal-Font">
+                <button onClick={this.handleModalClick} className={`${this.props.className}-Ranks-Button`}>Ranks</button>
+                <div className={`${this.props.className}-Ranks-Modal-Container`}>
+                    <div className="Ranks-Modal-Title">
+                        Ranks
+                    </div>
+                    <div className="Ranks-Modal-Content">
+                        
+                    </div>
+                    <div>
+                        <div className="Ranks-Modal-Buttons">
+                            <button onClick={this.handleCancelClick} className="Ranks-Modal-Cancel-Button">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
 
-        return (
-            <div>
-                <button className={this.props.className} onClick={openModal}>{this.props.buttonTitle}</button>
+        else return (
+            <div className="Ranks-Modal-Font">
+                <button onClick={this.handleModalClick} className={`${this.props.className}-Ranks-Button`}>Ranks</button>
+            </div>
+        );
+    }
+}
 
-                <Modal
+export default RanksDashboard
+
+/*<Modal
                     show={this.state.open}
                     onHide={closeModal}
                     backdrop="static"
@@ -138,10 +168,4 @@ class RanksDashboard extends Component {
                         <button onClick={closeModal} className="Cancel-Button">Cancel</button>
                     </Modal.Footer>
 
-                </Modal>
-            </div>
-        );
-    }
-}
-
-export default RanksDashboard
+                </Modal> */

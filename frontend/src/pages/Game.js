@@ -11,6 +11,7 @@ import '../css/Game.css';
 /* component imports */
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
+import FooterButtons from '../components/FooterButtons';
 
 class Game extends React.Component {
 
@@ -117,11 +118,14 @@ class Game extends React.Component {
                     <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
                 </Row>
-                <Row>
-                    <Link to="/results">
-                        <button className="End-Game" type="button"> End Game </button>
-                    </Link>
-                </Row>
+                
+                <FooterButtons
+                    leftButtonTitle="Game Results"
+                    leftPath="/results"
+                    rightButtonTitle="Ranks"
+                    rightPath="/ranks"
+                    className="Game"
+                />
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
                 </form> 
