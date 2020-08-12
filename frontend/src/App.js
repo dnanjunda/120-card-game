@@ -1,17 +1,27 @@
-import logo from './logo.svg';
-import React, { Component, View, Text } from 'react';
-import './App.css';
+/* react imports */
+import React, { Component } from 'react';
+
+/* react router imports */
 import { Route } from "react-router-dom";
+
+/* page imports */
 import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Navigation from './components/Navigation';
 import StartGame from './pages/StartGame';
 import JoinGame from './pages/JoinGame';
 import Game from './pages/Game';
-import socketIOClient from "socket.io-client";
 import GameResults from './pages/GameResults';
 
+/* css imports */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+/* image imports */
+import logo from './logo.svg';
+
+/* backend imports */
+import socketIOClient from "socket.io-client";
 
 class App extends Component {
   constructor() {

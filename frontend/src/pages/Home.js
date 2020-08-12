@@ -1,5 +1,5 @@
 /* react imports */
-import React, { Component } from 'react';
+import React from 'react';
 
 /* bootstrap imports */
 import { Container, Row, Col } from 'react-bootstrap';

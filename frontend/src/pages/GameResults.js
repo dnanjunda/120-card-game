@@ -1,5 +1,5 @@
 /* react imports */
-import React, { Component, Stylesheet } from 'react';
+import React from 'react';
 
 /* react router & bootstrap imports */
 import { Link } from 'react-router-dom';
