@@ -167,7 +167,7 @@ class Results extends React.Component {
 
                     <div className="Rows">
                         <Col className="Player">
-                            {this.state.players[3]}
+                            {this.state.players[3]} <span>{'\u{1F451}'}</span>
                         </Col>
                         <Col className="Player">
                             <div className="Card-Scroll">
@@ -198,7 +198,7 @@ class Results extends React.Component {
 
                     <div className="Rows">
                         <Col className="Player">
-                            {this.state.players[4]}
+                            {this.state.players[4]} 
                         </Col>
                         <Col className="Player">
                             <div className="Card-Scroll">
