@@ -1,0 +1,48 @@
+.Body {
+    background: #5e715b;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.Results-Container {
+    z-index: 0;
+}
+
+.Rows {
+    display: flex;
+    justify-content: flex;
+}
+
+.Title {
+    text-align: center; 
+    text-decoration: underline;
+    color: white;
+    font-family: Impact, fantasy;
+    font-size: 45px;
+    float: left;
+}
+
+.Player {
+    margin-top: 0.3em;
+    text-align: center; 
+    color: black;
+    font-family: American Typewriter, serif;
+    font-size: 30px;
+    float: left;
+}
+
+.Card-Scroll {
+    overflow: scroll;
+    position: relative;
+    width: 10em;
+    height: 6vw;
+    margin-left: -1em;
+    word-wrap: break-word;
+    white-space: nowrap;
+}
+
+.Card {
+    width: 55px;
+    height: 82.5px;
+}

@@ -1,0 +1,69 @@
+.Winner-Modal-Font {
+    font-family: American Typewriter, serif;
+}
+
+.Winner-Modal-Container {
+    /* centers modal on page */
+    position: absolute; 
+    margin-left: 28em;
+    margin-top: 10em;
+    background-color: #f97c7c;
+    width: 35em;
+    height: 15em;
+    border: 0.3vw solid black;
+    border-radius: 2vw;
+    z-index: 1;
+}
+
+.Winner-Modal-Leading-Text {
+    padding-top: 1.5em;
+    text-align: center;
+    font-size: 2em;
+    color: black;
+}
+
+.Winner-Modal-Defending-Text {
+    padding-top: 1em;
+    text-align: center;
+    font-size: 2em;
+    color: black;
+}
+
+.Winner-Modal-Buttons {
+    width: 0.01em;
+    float: left;
+}
+
+.Winner-Modal-Leading-Close-Button {
+    margin-left: 28em;
+    margin-top: 2em;
+    background-color: black;
+    color: #f97c7c;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
+}
+
+.Winner-Modal-Leading-Close-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+} 
+
+.Winner-Modal-Defending-Close-Button {
+    margin-left: 28em;
+    margin-top: 0.5em;
+    background-color: black;
+    color: #f97c7c;
+    font-family: Impact, fantasy;
+    border-radius: 0.8vw;
+    border: 0.4vw solid black;
+    width: 6vw;
+    transition-duration: 0.4s;
+}
+
+.Winner-Modal-Defending-Close-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+} 

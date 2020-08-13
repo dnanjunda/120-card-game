@@ -7,9 +7,6 @@ import { Link } from 'react-router-dom';
 /* css imports */
 import '../css/FooterButtons.css';
 
-/* component imports */
-import RanksDashboard from './RanksDashboard.js';
-
 class FooterButtons extends Component {
 
     constructor(props) {
@@ -18,31 +15,12 @@ class FooterButtons extends Component {
 
     render() {
 
-        /* Game Results Page */
-        if (this.props.leftPath === "/ranks") return (
-            <div>
-                <div className="Horizontal-Buttons">
-                    <RanksDashboard className={this.props.className}/>
-                </div>
-                <div className="Horizontal-Buttons">
-                    <Link to={this.props.rightPath}>
-                        <button className={`${this.props.className}-Right-Button`}>{this.props.rightButtonTitle}</button>
-                    </Link>
-                </div>
-            </div>
-        );
-
         /* Game Page */
-        else if (this.props.rightPath === "/ranks") return (
-            <div>
-                <div className="Horizontal-Buttons">
-                    <Link to={this.props.leftPath}>
-                        <button className={`${this.props.className}-Left-Button`}>{this.props.leftButtonTitle}</button>
-                    </Link>
-                </div>
-                <div className="Horizontal-Buttons">
-                    <RanksDashboard className={this.props.className}/>
-                </div>
+        if (this.props.buttonsCount === "1") return (
+            <div className="Horizontal-Buttons">
+                <Link to={this.props.buttonPath}>
+                        <button className={`${this.props.className}-Button Button-Format`}>{this.props.buttonTitle}</button>
+                </Link>
             </div>
         );
 
@@ -50,12 +28,12 @@ class FooterButtons extends Component {
             <div>
                 <div className="Horizontal-Buttons">
                     <Link to={this.props.leftPath}>
-                        <button className={`${this.props.className}-Left-Button`}>{this.props.leftButtonTitle}</button>
+                        <button className={`${this.props.className}-Left-Button Button-Format`}>{this.props.leftButtonTitle}</button>
                     </Link>
                 </div>
                 <div className="Horizontal-Buttons">
                     <Link to={this.props.rightPath}>
-                        <button className={`${this.props.className}-Right-Button`}>{this.props.rightButtonTitle}</button>
+                        <button className={`${this.props.className}-Right-Button Button-Format`}>{this.props.rightButtonTitle}</button>
                     </Link>
                 </div>
             </div>

@@ -19,10 +19,7 @@ class Game extends React.Component {
         super(props);
         this.state = {
             cards: "",
-            playerOne: "",
-            playerTwo: "",
-            playerThree: "",
-            playerFour: "",
+            players: "",
             leader: "",
             bid: "",
             dealer: "",
@@ -49,10 +46,7 @@ class Game extends React.Component {
 
     setGame() {
         this.setState({
-            playerOne: "Ashley",
-            playerTwo: "Dhanush",
-            playerThree: "Shreenithi",
-            playerFour: "Anshul",
+            players: ["Anoushka", "Ashley", "Dhanush", "Shreenithi", "Anshul"],
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
@@ -72,10 +66,10 @@ class Game extends React.Component {
                 </head>
 
                 {/*Seats*/}
-                <Seat playerName={this.state.playerOne} className={"Player-Two"} />
-                <Seat playerName={this.state.playerTwo} className={"Player-Three"} />
-                <Seat playerName={this.state.playerThree} className={"Player-Four"} />
-                <Seat playerName={this.state.playerFour} className={"Player-Five"} />
+                <Seat playerName={this.state.players[1]} className={"Player-Two"} />
+                <Seat playerName={this.state.players[2]} className={"Player-Three"} />
+                <Seat playerName={this.state.players[3]} className={"Player-Four"} />
+                <Seat playerName={this.state.players[4]} className={"Player-Five"} />
 
                 {/*Table*/}
                 <svg width="450" height="450" className="Table">
@@ -120,10 +114,9 @@ class Game extends React.Component {
                 </Row>
                 
                 <FooterButtons
-                    leftButtonTitle="Game Results"
-                    leftPath="/results"
-                    rightButtonTitle="Ranks"
-                    rightPath="/ranks"
+                    buttonsCount="1"
+                    buttonTitle="End Game"
+                    buttonPath="/results"
                     className="Game"
                 />
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
