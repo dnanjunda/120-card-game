@@ -1,12 +1,11 @@
 #Leader-Button {
-    position: fixed;
-    left: 58.62069vw;
+    margin-left: 29em;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;
     border: 0.4vw solid black;
-    width: 12vw;
+    width: 6em;
     transition-duration: 0.4s;
     font-family: Impact, fantasy;
     display: inline-block;
@@ -18,14 +17,13 @@
 }
 
 #Bid-Button {
-    position: fixed;
-    left: 72.413793vw;
+    margin-left: 19em;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;
     border: 0.4vw solid black;
-    width: 12vw;
+    width: 6em;
     transition-duration: 0.4s;
     font-family: Impact, fantasy;
     display: inline-block;
@@ -37,14 +35,13 @@
 }
 
 #Dealer-Button {
-    position: fixed;
-    left: 86.206897vw;
+    margin-left: 9em;
     border-radius: 1vw;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;
     border: 0.4vw solid black;
-    width: 12vw;
+    width: 6em;
     transition-duration: 0.4s;
     font-family: Impact, fantasy;
     display: inline-block;
