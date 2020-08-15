@@ -91,6 +91,7 @@ class Player {
 
     constructor(playerName) {
         this.playerName = playerName;
+        this.playerBid = 0;
         this.playerStack = []; //10 total cards
         this.playerHands = [];
     }
@@ -102,6 +103,7 @@ class Game {
         this.hands = [10][5]; //2D array of 10 hands of 5 cards each
         this.players = []; //5 total players
         this.dealer = 0;
+        this.leader = 0;
         this.deck = new Deck();
     }
 
@@ -128,16 +130,6 @@ class Game {
         this.players[2].playerStack = this.organizeStack(this.players[2].playerStack);
         this.players[3].playerStack = this.organizeStack(this.players[3].playerStack);
         this.players[4].playerStack = this.organizeStack(this.players[4].playerStack);
-    }
-
-    updateDealer() {
-        if (this.dealer < 4) {
-            this.dealer++;
-        }
-
-        else {
-            this.dealer = 0;
-        }
     }
 
     organizeStack(stack) {
@@ -494,6 +486,47 @@ class Game {
         }
 
         return (organizedStack);
+    }
+
+    updateDealer() {
+        if (this.dealer < 4) {
+            this.dealer++;
+        }
+
+        else {
+            this.dealer = 0;
+        }
+    }
+
+    setLeader() {
+
+        let remainingBidders = this.players;
+        let leadingBid = 70;
+        let leadingPlayerIndex = this.dealer;
+        let currentBidder = this.dealer;
+
+        while (remainingBidders.length() > 1) {
+
+            let bid = window.prompt("Enter your bid: ");
+            this.players[currentBidder].playerBid = bid;
+
+            if (bid > leadingBid) {
+                leadingBid = bid;
+                leadingPlayerIndex = currentBidder;
+            }
+
+            else {
+                remainingBidders.splice(index, 1);
+            }
+
+            currentBidder++;
+
+            if (currentBidder > 4) {
+                currentBidder = 0;
+            }
+        }
+
+        return [leadingPlayerIndex, leadingBid];
     }
 }
 
