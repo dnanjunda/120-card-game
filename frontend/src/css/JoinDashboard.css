@@ -11,6 +11,8 @@
     height: 20em;
     border: 0.3vw solid black;
     border-radius: 2vw;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+    pointer-events: none;
 }
 
 .Join-Modal-Title {

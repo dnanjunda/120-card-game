@@ -13,7 +13,9 @@
     border: 0.3vw solid black;
     border-radius: 2vw;
     z-index: 1;
-}
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+    pointer-events: none;
+}   
 
 .Winner-Modal-Text {
     padding-top: 1.5em;
