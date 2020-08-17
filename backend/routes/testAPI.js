@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Game = require('../logic/Main');
+var Game = require('../logic/Main.js');
 
 router.get('/', function(req, res, next) {
     res.send('API is working properly');
