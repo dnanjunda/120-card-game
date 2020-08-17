@@ -34,7 +34,6 @@ class Home extends React.Component {
                 username: e.target.value
             })
         }
-        console.log("Username:", this.state.username);
     }
 
     makeid() {

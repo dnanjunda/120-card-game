@@ -41,10 +41,13 @@ io.on("connection", socket => {
       console.log(data + " joined");
       dataHolder.addPlayer(data);
       console.log(dataHolder.getPlayers());
-      var dataToSend = dataHolder.getPlayers();
+      var players = dataHolder.getPlayers();
+      const dataToSend = {
+        names: players
+      }
 
-      socket.emit("received_data", dataToSend);
-     //socket.broadcast.emit("outgoing data", {num: data});
+      io.sockets.emit("received_data", dataToSend);
+     socket.broadcast.emit("received_data", dataToSend);
   });
 
   //A special namespace "disconnect" for when a client disconnects

@@ -19,6 +19,9 @@ class JoinDashboard extends Component {
     }
   }
 
+  closeModal = () => this.setState({ open: false })
+  openModal = () => this.setState({open:true})
+
   sendCode=()=>{
     console.log('Join Code:', this.state.joincode);
     this.props.parentCallback(this.state.joincode);
@@ -46,39 +49,38 @@ class JoinDashboard extends Component {
       const data = {code: this.state.joincode};
 
       fetch("http://localhost:9000/codes/getcode", {
-            method: 'GET', // or 'PUT'
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        })
+      })
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
                 if (data == "code doesn't exist") {
                     this.state.joincode = '';
+                    this.closeModal();
+                } else {
+                  joinCode = this.state.joincode;
+                  user = this.props.user;
+      
+                  this.props.history.push(
+                    {pathname: '/joingame',
+                    state: {
+                      codes: this.state.joincode,
+                      user: this.state.username
+                    }
+                  });
                 }
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-
-            joinCode = this.state.joincode;
-            user = this.props.user;
-
-      this.props.history.push(
-        {pathname: '/joingame',
-        state: {
-          codes: this.state.joincode,
-          user: this.state.username
-        }
-      });
     }
   }
 
 render() {
-  let closeModal = () => this.setState({ open: false })
-  let openModal = () => this.setState({open:true})
     // const [show, setShow] = useState(false);
   
     // const handleClose = () => setShow(false);
@@ -86,13 +88,13 @@ render() {
   
     return (
         <div>
-        <button onClick={openModal} className="Join-Button">
+        <button onClick={this.openModal} className="Join-Button">
           Join A Game!
         </button>
   
         <Modal
           show={this.state.open}
-          onHide={closeModal}
+          onHide={this.closeModal}
           backdrop="static"
           keyboard={false}
           centered
@@ -112,7 +114,7 @@ render() {
               Join
               </button>
             </Link>
-            <button onClick={closeModal} className="Modal-Cancel-Button">
+            <button onClick={this.closeModal} className="Modal-Cancel-Button">
               Cancel
             </button>
           </Modal.Footer>

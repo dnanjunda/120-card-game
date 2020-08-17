@@ -23,15 +23,15 @@ class JoinGame extends React.Component {
     }
 
     componentDidMount() {
-        var returnData;
-        socket.on("received_data", function(data) {
-            returnData = data;
-        });
-        console.log(returnData);
-        this.state.apiResponse = returnData;
+        socket.on("received_data", this.assignData); 
+        
         // const {codes} = this.props.location.state;
         // this.state.code = codes;
         //this.callAPI();
+    }
+
+    assignData = playerNames => {
+        this.setState({apiResponse: [...this.state.apiResponse, playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
     }
 
     render() {
@@ -41,11 +41,11 @@ class JoinGame extends React.Component {
                     <h1 className="Game-Title">Joined game {joinCode} </h1>
                     <h2 className="Players"> Players in this game:</h2>
                     <ol className="Players-List">
-                        <li>{this.state.players}</li>
-                        <li>{this.state.players}</li>
-                        <li>{this.state.apiResponse}</li>
-                        <li>{this.state.apiResponse}</li>
-                        <li>{this.state.apiResponse}</li>
+                        <li>{this.state.apiResponse[0]}</li>
+                        <li>{this.state.apiResponse[1]}</li>
+                        <li>{this.state.apiResponse[2]}</li>
+                        <li>{this.state.apiResponse[3]}</li>
+                        <li>{this.state.apiResponse[4]}</li>
                     </ol>
                     <h2 className="Waiting">Waiting for five players to join...</h2>
                 </Container>
