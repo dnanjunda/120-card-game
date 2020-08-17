@@ -1,12 +1,17 @@
+/* react imports */
+import React from 'react';
+
+/* react router & bootstrap imports */
 import { Link } from 'react-router-dom';
-import React, { Component, Text } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+
+/* css imports */
 import '../css/Game.css';
 
+/* component imports */
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
-
-import aces from '../cards/AS.png'; //test import
+import FooterButtons from '../components/FooterButtons';
 
 class Game extends React.Component {
 
@@ -14,10 +19,7 @@ class Game extends React.Component {
         super(props);
         this.state = {
             cards: "",
-            playerOne: "",
-            playerTwo: "",
-            playerThree: "",
-            playerFour: "",
+            players: "",
             leader: "",
             bid: "",
             dealer: "",
@@ -44,10 +46,7 @@ class Game extends React.Component {
 
     setGame() {
         this.setState({
-            playerOne: "Ashley",
-            playerTwo: "Dhanush",
-            playerThree: "Shreenithi",
-            playerFour: "Anshul",
+            players: ["Anoushka", "Ashley", "Dhanush", "Shreenithi", "Anshul"],
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
@@ -67,10 +66,10 @@ class Game extends React.Component {
                 </head>
 
                 {/*Seats*/}
-                <Seat playerName={this.state.playerOne} className={"Player-Two"} />
-                <Seat playerName={this.state.playerTwo} className={"Player-Three"} />
-                <Seat playerName={this.state.playerThree} className={"Player-Four"} />
-                <Seat playerName={this.state.playerFour} className={"Player-Five"} />
+                <Seat playerName={this.state.players[1]} className={"Player-Two"} />
+                <Seat playerName={this.state.players[2]} className={"Player-Three"} />
+                <Seat playerName={this.state.players[3]} className={"Player-Four"} />
+                <Seat playerName={this.state.players[4]} className={"Player-Five"} />
 
                 {/*Table*/}
                 <svg width="450" height="450" className="Table">
@@ -113,11 +112,13 @@ class Game extends React.Component {
                     <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
                 </Row>
-                <Row>
-                    <Link to="/results">
-                        <button className="End-Game" type="button"> End Game </button>
-                    </Link>
-                </Row>
+                
+                <FooterButtons
+                    buttonsCount="1"
+                    buttonTitle="End Game"
+                    buttonPath="/results"
+                    className="Game"
+                />
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
                 </form> 

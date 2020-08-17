@@ -1,5 +1,10 @@
+/* react imports */
 import React, { Component } from 'react';
+
+/* bootstrap imports */
 import Button from 'react-bootstrap/Button';
+
+/* css imports */
 import '../App.css';
 import '../css/GameButton.css';
 

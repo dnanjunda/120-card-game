@@ -1,30 +1,47 @@
-import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
+/* react imports */
+import React from 'react';
+
+/* bootstrap imports */
 import { Container, Row, Col } from 'react-bootstrap';
+
+/* css imports */
 import '../css/Home.css';
+
+/* component imports */
 import JoinDashboard from '../components/JoinDashboard.js';
-import { TextField } from '@material-ui/core';
+
+/* backend imports */
 import socketIOClient from "socket.io-client";
 
 export var socket;
+
 class Home extends React.Component {
 
     constructor(props) {
         super(props);
-        this.vars = { string: '', sample: 'this is the code'};
+        this.vars = { string: '', sample: 'this is the code' };
         this.postData = this.postData.bind(this);
         this.makeid = this.makeid.bind(this);
         this.state = {
             username: '',
-        endpoint: 'http://localhost:9000/'
+            joincode: '',
+            endpoint: 'http://localhost:9000/'
         }
         socket = socketIOClient(this.state.endpoint);
     }
 
-    inputHandler=(e)=>{
-        if(e){
+    inputHandlerName = (e) => {
+        if (e) {
             this.setState({
                 username: e.target.value
+            })
+        }
+    }
+
+    inputHandlerJoinCode = (e) => {
+        if (e) {
+            this.setState({
+                joincode: e.target.value
             })
         }
     }
@@ -92,7 +109,8 @@ class Home extends React.Component {
             state: {
                 codes: this.vars.string,
                 user: this.state.username
-            }});
+            }
+        });
 
         // Default options are marked with *
         // const response = fetch(url, {
@@ -119,7 +137,7 @@ class Home extends React.Component {
 
 
     render() {
-        
+
         return (
             <div className="Body">
                 <Container>
@@ -129,33 +147,19 @@ class Home extends React.Component {
                         </Col>
                         <Col>
                             <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
-                    {/* <form noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Standard" />
-                        <TextField id="filled-basic" label="Filled" variant="filled" />
-                        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                    </form> */}
-                    <form >
-                        <input className="Name-Box" type="text" placeholder="Enter your name" value={this.state.username} name="username" onChange={this.inputHandler} />
-                    </form>
+                            <form >
+                                <input className="Name-Box" type="text" placeholder="Enter your name" value={this.state.username} name="username" onChange={this.inputHandlerName} />
+                            </form>
                             <Row>
                                 <Col>
-                                    {/* <Link to={{
-                        pathname: "/startgame",
-                        state: {
-                        codes: this.vars.sample }}}> */}
-                                    <button className="Start-Game" type="button" onClick={this.postData} > Start New Game! </button>
-                                    {/*</Link> */}
-
+                                    <button className="Start-Game" type="button" onClick={this.postData}> Start New Game! </button>
                                 </Col>
                                 <Col>
-                                    <JoinDashboard />
+                                    <JoinDashboard/>
                                 </Col>
                             </Row>
                         </Col>
                     </Row>
-                    {/* <Link to="/joingame">
-                        <button className="Join-Game" type="button"> Join A Game! </button>
-                    </Link> */}
                 </Container>
                 <br />
                 <br />

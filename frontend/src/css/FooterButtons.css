@@ -1,0 +1,47 @@
+.Horizontal-Buttons {
+    width: 0.01em;
+    float: left;
+}
+
+.Button-Format {
+    border-radius: 1vw;
+    background-color: black;
+    color: #5e715b;
+    font-size: 2vw;
+    padding: 0.5vw 1vw;
+    border: 0.4vw solid black;
+    width: 20vw;
+    transition-duration: 0.4s;
+    font-family: impact, fantasy;
+}
+
+.Button-Format:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
+
+.Start-Game-Left-Button {
+    margin-left: 22em;
+    margin-top: 3em;
+}
+
+.Start-Game-Right-Button {
+    margin-left: 33em;
+    margin-top: 3em;
+}
+
+.Game-Button {
+    margin-left: 39em;
+    margin-top: 15.5em;
+}
+
+
+.Results-Left-Button {
+    margin-left: 28em;
+    margin-top: 0.8em;
+}
+
+.Results-Right-Button {
+    margin-left: 39em;
+    margin-top: 0.8em;
+}

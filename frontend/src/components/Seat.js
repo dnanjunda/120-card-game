@@ -1,5 +1,7 @@
+/* react imports */
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+
+/* css imports */
 import '../App.css';
 import '../css/Seat.css';
 

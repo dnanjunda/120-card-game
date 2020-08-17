@@ -195,24 +195,6 @@
     position: fixed;
     left: 17.241379vw;
     top: 13.888889vw;
-}
-
-.End-Game {
-    position: fixed;
-    left: 84vw;
-    top: 51vw;
-    border-radius: 1vw;
-    background-color: black;
-    color: white;
-    font-size: 2vw;
-    padding: 0.5vw 1vw;
-    border: 0.4vw solid black;
-    width: 15vw;
-    transition-duration: 0.4s;
-    font-family: Impact, fantasy;
-}
-
-.End-Game:hover {
-    border-radius: 2vw;
-    font-weight: bold;
+    /*margin-left: -58.5em;
+    margin-top: 6em;*/
 }

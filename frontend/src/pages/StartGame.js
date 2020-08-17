@@ -1,10 +1,21 @@
+/* react imports */
+import React from 'react';
+
+/* react router & bootstrap imports */
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+
+/* css imports */
 import '../css/StartGame.css';
+
+/* component imports */
+import FooterButtons from '../components/FooterButtons.js';
+
+/* backend imports */
 import {socket} from "../pages/Home.js";
 
 class StartGame extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = { apiResponse: "", code: "", sample: "abc" };
@@ -27,6 +38,7 @@ class StartGame extends React.Component {
     }
 
     render() {
+        
         return (
             <div className="Body">
                 <Container>
@@ -42,18 +54,14 @@ class StartGame extends React.Component {
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
 
-                    <Row>
-                        <Col>
-                            <Link to="/game">
-                                <button className="Button" type="button"> Start Game! </button>
-                            </Link>
-                        </Col>
-                        <Col>
-                            <Link to="/home">
-                                <button className="Button" type="button"> Return to Start </button>
-                            </Link>
-                        </Col>
-                    </Row>
+                    <FooterButtons
+                        leftButtonTitle="Return to Home"
+                        leftPath="/home"
+                        rightButtonTitle="Start Game!"
+                        rightPath="/game"
+                        className="Start-Game"
+                    />
+
                 </Container>
                 <br />
                 <br />

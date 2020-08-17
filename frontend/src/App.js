@@ -1,19 +1,30 @@
-import logo from './logo.svg';
-import React, { Component, View, Text } from 'react';
-import './App.css';
+/* react imports */
+import React, { Component } from 'react';
+
+/* react router imports */
 import { Route } from "react-router-dom";
+
+/* page imports */
 import Home from './pages/Home';
 import Rules from './pages/Rules';
 import Navigation from './components/Navigation';
 import StartGame from './pages/StartGame';
 import JoinGame from './pages/JoinGame';
 import Game from './pages/Game';
-import socketIOClient from "socket.io-client";
-import GameResults from './pages/GameResults';
+import Results from './pages/Results';
 
+/* css imports */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+/* image imports */
+import logo from './logo.svg';
+
+/* backend imports */
+import socketIOClient from "socket.io-client";
 
 class App extends Component {
+    
   constructor() {
     super();
     this.state = {
@@ -36,12 +47,12 @@ class App extends Component {
         <Navigation/>
         <Route path="/120-card-game" exact render={(props) => <Home {...props}/>}/>
         <Route path="/" exact render={(props) => <Home {...props}/>}/>
-				<Route path="/home" exact render={(props) => <Home {...props}/>}/>
+		    <Route path="/home" exact render={(props) => <Home {...props}/>}/>
         <Route path="/rules" exact render={(props) => <Rules {...props}/>}/>
         <Route path="/startgame" exact render={(props) => <StartGame {...props}/>}/>
         <Route path="/joingame" exact render={(props) => <JoinGame {...props}/>}/>
         <Route path="/game" exact render={(props) => <Game {...props}/>}/>
-        <Route path="/results" exact render={(props) => <GameResults {...props}/>}/>
+        <Route path="/results" exact render={(props) => <Results {...props}/>}/>
       </div>
     );
   }

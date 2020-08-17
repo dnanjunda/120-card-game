@@ -1,3 +1,6 @@
+const prompt = require('prompt');
+prompt.start();
+
 class Card {
 
     constructor(suit, rank, points, image) {
@@ -91,6 +94,8 @@ class Player {
 
     constructor(playerName) {
         this.playerName = playerName;
+        this.playerBid = 0;
+        this.bidComplete = false;
         this.playerStack = []; //10 total cards
         this.playerHands = [];
     }
@@ -102,6 +107,8 @@ class Game {
         this.hands = [10][5]; //2D array of 10 hands of 5 cards each
         this.players = []; //5 total players
         this.dealer = 0;
+        this.leader = 0;
+        this.leadingBid = 70;
         this.deck = new Deck();
     }
 
@@ -128,16 +135,6 @@ class Game {
         this.players[2].playerStack = this.organizeStack(this.players[2].playerStack);
         this.players[3].playerStack = this.organizeStack(this.players[3].playerStack);
         this.players[4].playerStack = this.organizeStack(this.players[4].playerStack);
-    }
-
-    updateDealer() {
-        if (this.dealer < 4) {
-            this.dealer++;
-        }
-
-        else {
-            this.dealer = 0;
-        }
     }
 
     organizeStack(stack) {
@@ -495,13 +492,81 @@ class Game {
 
         return (organizedStack);
     }
+
+    updateDealer() {
+        if (this.dealer < 4) {
+            this.dealer++;
+        }
+
+        else {
+            this.dealer = 0;
+        }
+    }
+
+    checkBiddingComplete() {
+
+        for (let i = 0; i < 5; i++) {
+            if(!(this.players[i].bidComplete)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    setLeader() {
+
+        let bidders = 5;
+        let currentBidder = this.dealer;
+
+        let leadingPlayerIndex = this.dealer;
+        let leadingBid = 70;
+
+        while (bidders > 1) {
+
+            // check if bidding is complete
+            if(this.checkBiddingComplete()) {
+                break;
+            }
+
+            prompt.get(['bid'], function(err, result) {
+                if (err) {
+                    console.log(err);
+                    return 1;
+                }
+                //this.players[currentBidder].playerBid = result.bid;
+                //console.log(this.players[currentBidder].playerName, result.bid);
+                console.log(result.bid);
+            })
+
+            if (this.players[currentBidder].playerBid > leadingBid) {
+                leadingBid = this.players[currentBidder].playerBid;
+                leadingPlayerIndex = currentBidder;
+            }
+
+            else {
+                this.players[currentBidder].bidComplete = true;
+                bidders--;
+            }
+
+            while (this.players[currentBidder].bidComplete) {
+                currentBidder++;
+
+                if (currentBidder > 4) {
+                    currentBidder = 0;
+                }
+            }
+        }
+
+        this.leader = leadingPlayerIndex;
+        this.leadingBid = leadingBid;
+    }
 }
+
+function dumb() { }
 
 sampleArray = [2];
 sampleArray.push("Hello");
 sampleArray.push("World");
-
-function dumb() { }
 
 let game = new Game();
 
@@ -574,10 +639,14 @@ p5StartingCards.push(game.players[4].playerStack[7].image);
 p5StartingCards.push(game.players[4].playerStack[8].image);
 p5StartingCards.push(game.players[4].playerStack[9].image);
 
-console.log(game.deck);
-console.log(game.players);
-console.log(game.players[0].playerStack[0].image);
-console.log(game.players[0].playerStack);
-console.log(p1StartingCards);
+game.setLeader();
+
+//console.log(game.leader);
+//console.log(game.leadingBid);
+
+//console.log(game.players);
+//console.log(game.players[0].playerStack[0].image);
+//console.log(game.players[0].playerStack);
+//console.log(p1StartingCards);
 
 module.exports = { dumb, p1StartingCards };

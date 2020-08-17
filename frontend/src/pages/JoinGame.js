@@ -1,10 +1,13 @@
+/* DELETE FILE */
+
 import {Link} from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import {Container} from 'react-bootstrap';
-import '../css/JoinGame.css';
 
 class JoinGame extends React.Component {
+    
     render() {
+
         return (
             <div className="Body">
                 <Container>
