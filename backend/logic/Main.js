@@ -1,5 +1,4 @@
 const prompt = require('prompt');
-prompt.start();
 
 class Card {
 
@@ -19,62 +18,62 @@ class Deck {
 
     createDeck() {
         //spades
-        this.cards.push(new Card("Spades", "A", "10", "../cards/AS.png"));
-        this.cards.push(new Card("Spades", "K", "0", "../cards/KS.png"));
-        this.cards.push(new Card("Spades", "Q", "0", "../cards/QS.png"));
-        this.cards.push(new Card("Spades", "J", "0", "../cards/JS.png"));
-        this.cards.push(new Card("Spades", "10", "10", "../cards/10S.png"));
-        this.cards.push(new Card("Spades", "9", "0", "../cards/9S.png"));
-        this.cards.push(new Card("Spades", "8", "0", "../cards/8S.png"));
-        this.cards.push(new Card("Spades", "7", "0", "../cards/7S.png"));
-        this.cards.push(new Card("Spades", "6", "0", "../cards/6S.png"));
-        this.cards.push(new Card("Spades", "5", "5", "../cards/5S.png"));
-        this.cards.push(new Card("Spades", "4", "0", "../cards/4S.png"));
-        this.cards.push(new Card("Spades", "3", "0", "../cards/3S.png"));
-        this.cards.push(new Card("Spades", "2", "20", "../cards/2S.png"));
+        this.cards.push(new Card("Spades", "A", 10, "../cards/AS.png"));
+        this.cards.push(new Card("Spades", "K", 0, "../cards/KS.png"));
+        this.cards.push(new Card("Spades", "Q", 0, "../cards/QS.png"));
+        this.cards.push(new Card("Spades", "J", 0, "../cards/JS.png"));
+        this.cards.push(new Card("Spades", "10", 10, "../cards/10S.png"));
+        this.cards.push(new Card("Spades", "9", 0, "../cards/9S.png"));
+        this.cards.push(new Card("Spades", "8", 0, "../cards/8S.png"));
+        this.cards.push(new Card("Spades", "7", 0, "../cards/7S.png"));
+        this.cards.push(new Card("Spades", "6", 0, "../cards/6S.png"));
+        this.cards.push(new Card("Spades", "5", 5, "../cards/5S.png"));
+        this.cards.push(new Card("Spades", "4", 0, "../cards/4S.png"));
+        this.cards.push(new Card("Spades", "3", 0, "../cards/3S.png"));
+        this.cards.push(new Card("Spades", "2", 20, "../cards/2S.png"));
 
         //diamonds
-        this.cards.push(new Card("Diamonds", "A", "10", "../cards/AD.png"));
-        this.cards.push(new Card("Diamonds", "K", "0", "../cards/KD.png"));
-        this.cards.push(new Card("Diamonds", "Q", "0", "../cards/QD.png"));
-        this.cards.push(new Card("Diamonds", "J", "0", "../cards/JD.png"));
-        this.cards.push(new Card("Diamonds", "10", "10", "../cards/10D.png"));
-        this.cards.push(new Card("Diamonds", "9", "0", "../cards/9D.png"));
-        this.cards.push(new Card("Diamonds", "8", "0", "../cards/8D.png"));
-        this.cards.push(new Card("Diamonds", "7", "0", "../cards/7D.png"));
-        this.cards.push(new Card("Diamonds", "6", "0", "../cards/6D.png"));
-        this.cards.push(new Card("Diamonds", "5", "5", "../cards/5D.png"));
-        this.cards.push(new Card("Diamonds", "4", "0", "../cards/4D.png"));
-        this.cards.push(new Card("Diamonds", "3", "0", "../cards/3D.png"));
+        this.cards.push(new Card("Diamonds", "A", 10, "../cards/AD.png"));
+        this.cards.push(new Card("Diamonds", "K", 0, "../cards/KD.png"));
+        this.cards.push(new Card("Diamonds", "Q", 0, "../cards/QD.png"));
+        this.cards.push(new Card("Diamonds", "J", 0, "../cards/JD.png"));
+        this.cards.push(new Card("Diamonds", "10", 10, "../cards/10D.png"));
+        this.cards.push(new Card("Diamonds", "9", 0, "../cards/9D.png"));
+        this.cards.push(new Card("Diamonds", "8", 0, "../cards/8D.png"));
+        this.cards.push(new Card("Diamonds", "7", 0, "../cards/7D.png"));
+        this.cards.push(new Card("Diamonds", "6", 0, "../cards/6D.png"));
+        this.cards.push(new Card("Diamonds", "5", 5, "../cards/5D.png"));
+        this.cards.push(new Card("Diamonds", "4", 0, "../cards/4D.png"));
+        this.cards.push(new Card("Diamonds", "3", 0, "../cards/3D.png"));
 
         //clubs
-        this.cards.push(new Card("Clubs", "A", "10", "../cards/AC.png"));
-        this.cards.push(new Card("Clubs", "K", "0", "../cards/KC.png"));
-        this.cards.push(new Card("Clubs", "Q", "0", "../cards/QC.png"));
-        this.cards.push(new Card("Clubs", "J", "0", "../cards/JC.png"));
-        this.cards.push(new Card("Clubs", "10", "10", "../cards/10C.png"));
-        this.cards.push(new Card("Clubs", "9", "0", "../cards/9C.png"));
-        this.cards.push(new Card("Clubs", "8", "0", "../cards/8C.png"));
-        this.cards.push(new Card("Clubs", "7", "0", "../cards/7C.png"));
-        this.cards.push(new Card("Clubs", "6", "0", "../cards/6C.png"));
-        this.cards.push(new Card("Clubs", "5", "5", "../cards/5C.png"));
-        this.cards.push(new Card("Clubs", "4", "0", "../cards/4C.png"));
-        this.cards.push(new Card("Clubs", "3", "0", "../cards/3C.png"));
+        this.cards.push(new Card("Clubs", "A", 10, "../cards/AC.png"));
+        this.cards.push(new Card("Clubs", "K", 0, "../cards/KC.png"));
+        this.cards.push(new Card("Clubs", "Q", 0, "../cards/QC.png"));
+        this.cards.push(new Card("Clubs", "J", 0, "../cards/JC.png"));
+        this.cards.push(new Card("Clubs", "10", 10, "../cards/10C.png"));
+        this.cards.push(new Card("Clubs", "9", 0, "../cards/9C.png"));
+        this.cards.push(new Card("Clubs", "8", 0, "../cards/8C.png"));
+        this.cards.push(new Card("Clubs", "7", 0, "../cards/7C.png"));
+        this.cards.push(new Card("Clubs", "6", 0, "../cards/6C.png"));
+        this.cards.push(new Card("Clubs", "5", 5, "../cards/5C.png"));
+        this.cards.push(new Card("Clubs", "4", 0, "../cards/4C.png"));
+        this.cards.push(new Card("Clubs", "3", 0, "../cards/3C.png"));
 
         //hearts
-        this.cards.push(new Card("Hearts", "A", "10", "../cards/AH.png"));
-        this.cards.push(new Card("Hearts", "K", "0", "../cards/KH.png"));
-        this.cards.push(new Card("Hearts", "Q", "0", "../cards/QH.png"));
-        this.cards.push(new Card("Hearts", "J", "0", "../cards/JH.png"));
-        this.cards.push(new Card("Hearts", "10", "10", "../cards/10H.png"));
-        this.cards.push(new Card("Hearts", "9", "0", "../cards/9H.png"));
-        this.cards.push(new Card("Hearts", "8", "0", "../cards/8H.png"));
-        this.cards.push(new Card("Hearts", "7", "0", "../cards/7H.png"));
-        this.cards.push(new Card("Hearts", "6", "0", "../cards/6H.png"));
-        this.cards.push(new Card("Hearts", "5", "5", "../cards/5H.png"));
-        this.cards.push(new Card("Hearts", "4", "0", "../cards/4H.png"));
-        this.cards.push(new Card("Hearts", "3", "0", "../cards/3H.png"));
-        this.cards.push(new Card("Hearts", "2", "0", "../cards/2H.png"));
+        this.cards.push(new Card("Hearts", "A", 10, "../cards/AH.png"));
+        this.cards.push(new Card("Hearts", "K", 0, "../cards/KH.png"));
+        this.cards.push(new Card("Hearts", "Q", 0, "../cards/QH.png"));
+        this.cards.push(new Card("Hearts", "J", 0, "../cards/JH.png"));
+        this.cards.push(new Card("Hearts", "10", 10, "../cards/10H.png"));
+        this.cards.push(new Card("Hearts", "9", 0, "../cards/9H.png"));
+        this.cards.push(new Card("Hearts", "8", 0, "../cards/8H.png"));
+        this.cards.push(new Card("Hearts", "7", 0, "../cards/7H.png"));
+        this.cards.push(new Card("Hearts", "6", 0, "../cards/6H.png"));
+        this.cards.push(new Card("Hearts", "5", 5, "../cards/5H.png"));
+        this.cards.push(new Card("Hearts", "4", 0, "../cards/4H.png"));
+        this.cards.push(new Card("Hearts", "3", 0, "../cards/3H.png"));
+        this.cards.push(new Card("Hearts", "2", 0, "../cards/2H.png"));
     }
 
     shuffleDeck() {
@@ -98,6 +97,7 @@ class Player {
         this.bidComplete = false;
         this.playerStack = []; //10 total cards
         this.playerHands = [];
+        this.totalPoints = 0;
     }
 }
 
@@ -108,6 +108,7 @@ class Game {
         this.players = []; //5 total players
         this.dealer = 0;
         this.leader = 0;
+        this.partner = 3;
         this.leadingBid = 70;
         this.deck = new Deck();
     }
@@ -513,6 +514,25 @@ class Game {
         return true;
     }
 
+    promptUser() {
+        prompt.start();
+
+        prompt.get(['bid'], function(err, result) {
+            if (err) {
+                return onErr(err);
+            }
+            //this.players[currentBidder].playerBid = result.bid;
+            //console.log(this.players[currentBidder].playerName, result.bid);
+            console.log(result.bid);
+            return result.bid;
+        });
+
+        function onErr(err) {
+            console.log(err);
+            return 1;
+        }
+    }
+
     setLeader() {
 
         let bidders = 5;
@@ -520,6 +540,7 @@ class Game {
 
         let leadingPlayerIndex = this.dealer;
         let leadingBid = 70;
+        
 
         while (bidders > 1) {
 
@@ -528,24 +549,21 @@ class Game {
                 break;
             }
 
-            prompt.get(['bid'], function(err, result) {
-                if (err) {
-                    console.log(err);
-                    return 1;
-                }
-                //this.players[currentBidder].playerBid = result.bid;
-                //console.log(this.players[currentBidder].playerName, result.bid);
-                console.log(result.bid);
-            })
+            this.players[currentBidder].playerBid = this.promptUser();
+
+            console.log(this.players[currentBidder].playerName);
+            console.log(this.players[currentBidder].playerBid);
 
             if (this.players[currentBidder].playerBid > leadingBid) {
                 leadingBid = this.players[currentBidder].playerBid;
                 leadingPlayerIndex = currentBidder;
+                console.log("entered if");
             }
 
             else {
                 this.players[currentBidder].bidComplete = true;
                 bidders--;
+                console.log("entered else");
             }
 
             while (this.players[currentBidder].bidComplete) {
@@ -559,6 +577,26 @@ class Game {
 
         this.leader = leadingPlayerIndex;
         this.leadingBid = leadingBid;
+    }
+
+    //determines winner
+    totalPoints() {
+        var i;
+        for(i = 0; i < 5; i++) {
+            var j;
+            for(j = 0; j < this.players[i].playerHands.length; j++) {
+                this.players[i].totalPoints += this.players[i].playerHands[j].points;
+            }
+            console.log(this.players[i].totalPoints);
+        }
+
+        let winningTotal = this.players[this.leader].totalPoints + this.players[this.partner].totalPoints;
+
+        if(winningTotal >= this.leadingBid) {
+            console.log("Leading team won!");
+        } else {
+            console.log("Defending team won!");
+        }
     }
 }
 
@@ -640,6 +678,8 @@ p5StartingCards.push(game.players[4].playerStack[8].image);
 p5StartingCards.push(game.players[4].playerStack[9].image);
 
 game.setLeader();
+
+//game.totalPoints();
 
 //console.log(game.leader);
 //console.log(game.leadingBid);
