@@ -99,7 +99,10 @@ class Player {
         this.bidComplete = false;
         this.playerStack = []; //10 total cards
         this.playerHands = [];
+        this.gamePoints = 0;
         this.totalPoints = 0;
+        this.gamesWon = 0;
+        this.rank = 0;
     }
 }
 
@@ -108,13 +111,14 @@ class Game {
     constructor() {
         this.deck = new Deck();
         this.hands = []; //2D array of 10 hands of 5 cards each with player that played card
-        this.players = []; //5 total players
+        this.players = []; // array of 5 total players
         this.dealer = 0;
         this.leader = 0;
         this.partner = 3; // assign once card is chosen
         this.leadingBid = 70;
         this.cuttingSuit;
         this.partnerCard;
+        this.winners = []; // winners of current game
     }
 
     // finds card in the deck
@@ -128,6 +132,7 @@ class Game {
 
     // begins game by dealing cards
     startGame(playerOne, playerTwo, playerThree, playerFour, playerFive) {
+
         //add 5 players to the game
         this.players.push(playerOne);
         this.players.push(playerTwo);
@@ -509,17 +514,6 @@ class Game {
         return (organizedStack);
     }
 
-    // updates dealer for each next game
-    updateDealer() {
-        if (this.dealer < 4) {
-            this.dealer++;
-        }
-
-        else {
-            this.dealer = 0;
-        }
-    }
-
     // checks if bidding complete
     checkBiddingComplete() {
 
@@ -707,23 +701,123 @@ class Game {
     }
 
     // determines winner
-    totalPoints() {
+    calculateGamePoints() {
 
-        for(let i = 0; i < 5; i++) {
-            for(let j = 0; j < this.players[i].playerHands.length; j++) {
-                this.players[i].totalPoints += this.players[i].playerHands[j].points;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < this.players[i].playerHands.length; j++) {
+                this.players[i].gamePoints += this.players[i].playerHands[j].points;
             }
                 
-            console.log(this.players[i].totalPoints);
+            console.log(this.players[i].gamePoints);
         }
         
-        let winningTotal = this.players[this.leader].totalPoints + this.players[this.partner].totalPoints;
+        let winningTotal = this.players[this.leader].gamePoints + this.players[this.partner].gamePoints;
         
-        if(winningTotal >= this.leadingBid) {
+        if (winningTotal >= this.leadingBid) {
+            this.winners.push(this.players[this.leader]);
+            this.winners.push(this.players[this.partner]);
             console.log("Leading team won!");
         } 
         else {
+            for (let i = 0; i < 5; i++) {
+                if (i != this.leader && i != this.partner) {
+                    this.winners.push(this.players[i]);
+                }
+            }
             console.log("Defending team won!");
+        }
+    }
+
+    // calculate total points, ranks for this ongoing game 
+    setGameResults() {
+        
+        // update their total points
+        for (let i = 0; i < 5; i++) {
+            this.players[i].totalPoints += this.players[i].gamePoints;
+            this.players[i].gamePoints = 0;
+        }
+
+        // update their games won
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < this.winners.length; j++) {
+                if (this.players[i] === this.winners[j]) {
+                    this.players[i].gamesWon++;
+                }
+            }
+        }
+
+        // update their ranks
+
+        // test values, DELETE LATER
+        this.players[0].totalPoints = 80;
+        this.players[1].totalPoints = 120;
+        this.players[2].totalPoints = 120;
+        this.players[3].totalPoints = 70;
+        this.players[4].totalPoints = 85;
+
+        // ranks currently contains totalPoints of each player unordered
+        // ranks should contain players ordered in order of their rank
+        let ranks = [[this.players[0], this.players[0].totalPoints], [this.players[1], this.players[1].totalPoints],
+                    [this.players[2], this.players[2].totalPoints], [this.players[3], this.players[3].totalPoints], 
+                    [this.players[4], this.players[4].totalPoints]];
+
+        // bubble sort to sort ranks
+        let swapped, temp;
+
+        for (let i = 0; i < 5; i++) {
+            swapped = false;
+
+            for (let j = 0; j < 5 - i - 1; j++) {
+                if (ranks[j][1] < ranks[j+1][1]) {
+                    temp = ranks[j];
+                    ranks[j] = ranks[j+1];
+                    ranks[j+1] = temp;
+                    swapped = true;
+                }
+            }
+
+            if (!swapped) {
+                break;   
+            }
+        }
+
+        // give each player their rank
+        for (let i = 0; i < 5; i++) {
+            ranks[i][0].rank = i + 1;
+        }
+
+        // MUST CHECK FOR TIES
+    }
+
+    // updates dealer for each next game
+    updateDealer() {
+        if (this.dealer < 4) {
+            this.dealer++;
+        }
+
+        else {
+            this.dealer = 0;
+        }
+    }
+
+    // clear all data for a new game with same players
+    setNextGame() {
+
+        // leader, partner, leading bid, cutting suit, and partner card will be set by setLeader()
+
+        // update the dealer
+        this.updateDealer();
+
+        // clear all current game data
+        this.deck.cards.splice(0, this.deck.length);
+        this.hands.splice(0, this.hands.length);
+        
+        // clear all player data
+        for (let i = 0; i < 5; i++) {
+            this.players[i].playerBid = 0;
+            this.players[i].bidComplete = false;
+            this.players[i].playerStack.splice(0, this.players[i].playerStack.length);
+            this.players[i].playerHands.splice(0, this.players[i].playerHands.length);
         }
     }
 
@@ -818,11 +912,15 @@ hand = [[playerOne, playerOne.playerStack[0]], [playerTwo, playerTwo.playerStack
 
 game.handPlay(hand);
 
+game.setNextGame();
+
 //console.log(game.leader);
 //console.log(game.leadingBid);
 //console.log(game.players);
 //console.log(game.players[0].playerStack[0].image);
 //console.log(game.players[0].playerStack);
-//console.log(p1StartingCards);
+//console.log(p1StartingCards); 
+
+game.setGameResults();
 
 module.exports = { p1StartingCards };
