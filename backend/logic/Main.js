@@ -727,13 +727,16 @@ class Game {
         }
     }
 
-    // must implement bidding and who won (leader, partner card, cutting suit)
+    // must implement bidding and who won (leader, partner card, cutting suit) and prompting
     // must implement logic for who wins each hand (using precendence)
     // must implement non cheating methods (must play suit if you have it etc)
     // must implement logic for who gets to start the next hand 
     // must announce who partners are when the partner card gets played (revealed)
     // must implement logic for who won each game based on points
     // after each game, must update ranks & update dealer and start next game, clear all last game info
+    // august 17-24 finish logic
+    // august 24-31 finish frontend to test logic, finish codes stuff
+    // september get provisional patent, server setup, deploy
 }
 
 let game = new Game();
