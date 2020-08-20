@@ -18,7 +18,7 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: "",
+            cards: [],
             players: "",
             leader: "",
             bid: "",
@@ -27,12 +27,13 @@ class Game extends React.Component {
             partner: "",
             isBidding: false,
             currentBidder: "",
+            testCard: "",
         };
     }
 
     callAPI() {
         fetch("http://localhost:9000/testAPI/array")
-            .then(res => res.text())
+            .then(res => res.json())
             .then(res => this.setState({ cards: res }));
     }
 
@@ -54,6 +55,7 @@ class Game extends React.Component {
             partner: require('../cards/2S.png'),
             isBidding: false,
             currentBidder: "Anoushka",
+            testCard: require(this.state.cards[0]),
         })
     }
 
@@ -121,10 +123,10 @@ class Game extends React.Component {
                     />
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
-                </form> 
-                <p>{this.state.cards}</p>
+        </form> */}
+                <p>{this.state.testCard}</p>
                 <p>array: {this.state.cards[0]}</p>
-                <h1>{this.state.cards.slice(1,18)}</h1>*/}
+                {/* <h1>{this.state.cards.slice(1,18)}</h1> */}
             </div>
         );
     }
