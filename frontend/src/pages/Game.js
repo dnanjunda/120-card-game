@@ -118,12 +118,13 @@ class Game extends React.Component {
                     buttonTitle="End Game"
                     buttonPath="/results"
                     className="Game"
-                />
+                    />
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
                 </form> 
+                <p>{this.state.cards}</p>
                 <p>array: {this.state.cards[0]}</p>
-                <h1>{this.state.cards.slice(1,18)}</h1> */}
+                <h1>{this.state.cards.slice(1,18)}</h1>*/}
             </div>
         );
     }
