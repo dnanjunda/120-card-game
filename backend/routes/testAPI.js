@@ -11,6 +11,9 @@ router.get('/', function(req, res, next) {
 });*/}
 
 router.get('/array', function(req, res, next) {
+    // var objToSend = {
+    //     array: Game.p1StartingCards,
+    // }
     res.send(Game.p1StartingCards);
 });
 
