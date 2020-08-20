@@ -183,7 +183,7 @@ class Results extends React.Component {
                     </Col>
                     <Col className="Player">
                         30
-                        </Col>
+                    </Col>
                     <Col className="Player">
                         1000
                         </Col>
