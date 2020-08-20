@@ -1,5 +1,4 @@
 const prompt = require('prompt');
-prompt.start();
 
 class Card {
 
@@ -118,6 +117,7 @@ class Game {
         this.leadingBid = 70;
         this.cuttingSuit;
         this.partnerCard;
+        this.handStarter;
         this.winners = []; // winners of current game
     }
 
@@ -525,6 +525,25 @@ class Game {
         return true;
     }
 
+    promptUser() {
+        prompt.start();
+
+        prompt.get(['bid'], function(err, result) {
+            if (err) {
+                return onErr(err);
+            }
+            //this.players[currentBidder].playerBid = result.bid;
+            //console.log(this.players[currentBidder].playerName, result.bid);
+            console.log(result.bid);
+            return result.bid;
+        });
+
+        function onErr(err) {
+            console.log(err);
+            return 1;
+        }
+    }
+
     // bidding method, also sets leader, cutting suit, and partner card
     setLeader() {
 
@@ -533,6 +552,7 @@ class Game {
 
         let leadingPlayerIndex = this.dealer;
         let leadingBid = 70;
+        
 
         while (bidders > 1) {
 
@@ -541,24 +561,21 @@ class Game {
                 break;
             }
 
-            prompt.get(['bid'], function(err, result) {
-                if (err) {
-                    console.log(err);
-                    return 1;
-                }
-                //this.players[currentBidder].playerBid = result.bid;
-                //console.log(this.players[currentBidder].playerName, result.bid);
-                console.log(result.bid);
-            })
+            this.players[currentBidder].playerBid = this.promptUser();
+
+            console.log(this.players[currentBidder].playerName);
+            console.log(this.players[currentBidder].playerBid);
 
             if (this.players[currentBidder].playerBid > leadingBid) {
                 leadingBid = this.players[currentBidder].playerBid;
                 leadingPlayerIndex = currentBidder;
+                console.log("entered if");
             }
 
             else {
                 this.players[currentBidder].bidComplete = true;
                 bidders--;
+                console.log("entered else");
             }
 
             while (this.players[currentBidder].bidComplete) {
@@ -586,6 +603,15 @@ class Game {
                 }
             }
         }
+    }
+
+    handContains(player, suit) {
+        for(let i = 0; i < this.players[player].playerStack.length; i++) {
+            if(this.players[player].playerStack[i].suit === suit) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // must set card precendence based on cutting suit and which card was played first for each hand
@@ -698,6 +724,9 @@ class Game {
         }
 
         this.players[handWinner].playerHands.push(hand);
+
+        //sets player who starts next hand
+        this.handStarter = this.players[handWinner];
     }
 
     // determines winner
@@ -905,6 +934,8 @@ p5StartingCards.push(game.players[4].playerStack[8].image);
 p5StartingCards.push(game.players[4].playerStack[9].image);
 
 game.setLeader();
+
+//game.totalPoints();
 
 // hardcoded what card they played
 hand = [[playerOne, playerOne.playerStack[0]], [playerTwo, playerTwo.playerStack[0]], [playerThree, playerThree.playerStack[0]], 
