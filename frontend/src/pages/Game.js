@@ -3,7 +3,7 @@ import React from 'react';
 
 /* react router & bootstrap imports */
 import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 
 /* css imports */
 import '../css/Game.css';
@@ -27,13 +27,14 @@ class Game extends React.Component {
             partner: "",
             isBidding: false,
             currentBidder: "",
+            test: "",
         };
     }
 
     callAPI() {
-        fetch("http://localhost:9000/testAPI/array")
+        fetch("http://localhost:9000/testAPI/testcard")
             .then(res => res.text())
-            .then(res => this.setState({ cards: res }));
+            .then(res => this.setState({ test: res }));
     }
 
     componentDidMount() {
@@ -121,10 +122,10 @@ class Game extends React.Component {
                     />
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
-                </form> 
+                </form> */}
                 <p>{this.state.cards}</p>
                 <p>array: {this.state.cards[0]}</p>
-                <h1>{this.state.cards.slice(1,18)}</h1>*/}
+                <p>{this.state.test}</p>
             </div>
         );
     }

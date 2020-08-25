@@ -14,4 +14,8 @@ router.get('/array', function(req, res, next) {
     res.send(Game.p1StartingCards);
 });
 
+router.get('/testcard', function(req, res, next) {
+    res.send(Game.testCard);
+});
+
 module.exports = router;

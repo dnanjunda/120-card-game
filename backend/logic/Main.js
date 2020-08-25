@@ -20,62 +20,62 @@ class Deck {
 
     createDeck() {
         //spades
-        this.cards.push(new Card(1, "Spades", "A", 10, "../cards/AS.png"));
-        this.cards.push(new Card(2, "Spades", "K", 0, "../cards/KS.png"));
-        this.cards.push(new Card(3, "Spades", "Q", 0, "../cards/QS.png"));
-        this.cards.push(new Card(4, "Spades", "J", 0, "../cards/JS.png"));
-        this.cards.push(new Card(5, "Spades", "10", 10, "../cards/10S.png"));
-        this.cards.push(new Card(6, "Spades", "9", 0, "../cards/9S.png"));
-        this.cards.push(new Card(7, "Spades", "8", 0, "../cards/8S.png"));
-        this.cards.push(new Card(8, "Spades", "7", 0, "../cards/7S.png"));
-        this.cards.push(new Card(9, "Spades", "6", 0, "../cards/6S.png"));
-        this.cards.push(new Card(10, "Spades", "5", 5, "../cards/5S.png"));
-        this.cards.push(new Card(11, "Spades", "4", 0, "../cards/4S.png"));
-        this.cards.push(new Card(12, "Spades", "3", 0, "../cards/3S.png"));
-        this.cards.push(new Card(13, "Spades", "2", 20, "../cards/2S.png"));
+        this.cards.push(new Card(1, "Spades", "A", 10, "'../cards/AS.png'"));
+        this.cards.push(new Card(2, "Spades", "K", 0, "'../cards/KS.png'"));
+        this.cards.push(new Card(3, "Spades", "Q", 0, "'../cards/QS.png'"));
+        this.cards.push(new Card(4, "Spades", "J", 0, "'../cards/JS.png'"));
+        this.cards.push(new Card(5, "Spades", "10", 10, "'../cards/10S.png'"));
+        this.cards.push(new Card(6, "Spades", "9", 0, "'../cards/9S.png'"));
+        this.cards.push(new Card(7, "Spades", "8", 0, "'../cards/8S.png'"));
+        this.cards.push(new Card(8, "Spades", "7", 0, "'../cards/7S.png'"));
+        this.cards.push(new Card(9, "Spades", "6", 0, "'../cards/6S.png'"));
+        this.cards.push(new Card(10, "Spades", "5", 5, "'../cards/5S.png'"));
+        this.cards.push(new Card(11, "Spades", "4", 0, "'../cards/4S.png'"));
+        this.cards.push(new Card(12, "Spades", "3", 0, "'../cards/3S.png'"));
+        this.cards.push(new Card(13, "Spades", "2", 20, "'../cards/2S.png'"));
 
         //diamonds
-        this.cards.push(new Card(14, "Diamonds", "A", 10, "../cards/AD.png"));
-        this.cards.push(new Card(15, "Diamonds", "K", 0, "../cards/KD.png"));
-        this.cards.push(new Card(16, "Diamonds", "Q", 0, "../cards/QD.png"));
-        this.cards.push(new Card(17, "Diamonds", "J", 0, "../cards/JD.png"));
-        this.cards.push(new Card(18, "Diamonds", "10", 10, "../cards/10D.png"));
-        this.cards.push(new Card(19, "Diamonds", "9", 0, "../cards/9D.png"));
-        this.cards.push(new Card(20, "Diamonds", "8", 0, "../cards/8D.png"));
-        this.cards.push(new Card(21, "Diamonds", "7", 0, "../cards/7D.png"));
-        this.cards.push(new Card(22, "Diamonds", "6", 0, "../cards/6D.png"));
-        this.cards.push(new Card(23, "Diamonds", "5", 5, "../cards/5D.png"));
-        this.cards.push(new Card(24, "Diamonds", "4", 0, "../cards/4D.png"));
-        this.cards.push(new Card(25, "Diamonds", "3", 0, "../cards/3D.png"));
+        this.cards.push(new Card(14, "Diamonds", "A", 10, "'../cards/AD.png'"));
+        this.cards.push(new Card(15, "Diamonds", "K", 0, "'../cards/KD.png'"));
+        this.cards.push(new Card(16, "Diamonds", "Q", 0, "'../cards/QD.png'"));
+        this.cards.push(new Card(17, "Diamonds", "J", 0, "'../cards/JD.png'"));
+        this.cards.push(new Card(18, "Diamonds", "10", 10, "'../cards/10D.png'"));
+        this.cards.push(new Card(19, "Diamonds", "9", 0, "'../cards/9D.png'"));
+        this.cards.push(new Card(20, "Diamonds", "8", 0, "'../cards/8D.png'"));
+        this.cards.push(new Card(21, "Diamonds", "7", 0, "'../cards/7D.png'"));
+        this.cards.push(new Card(22, "Diamonds", "6", 0, "'../cards/6D.png'"));
+        this.cards.push(new Card(23, "Diamonds", "5", 5, "'../cards/5D.png'"));
+        this.cards.push(new Card(24, "Diamonds", "4", 0, "'../cards/4D.png'"));
+        this.cards.push(new Card(25, "Diamonds", "3", 0, "'../cards/3D.png'"));
 
         //clubs
-        this.cards.push(new Card(26, "Clubs", "A", 10, "../cards/AC.png"));
-        this.cards.push(new Card(27, "Clubs", "K", 0, "../cards/KC.png"));
-        this.cards.push(new Card(28, "Clubs", "Q", 0, "../cards/QC.png"));
-        this.cards.push(new Card(29, "Clubs", "J", 0, "../cards/JC.png"));
-        this.cards.push(new Card(30, "Clubs", "10", 10, "../cards/10C.png"));
-        this.cards.push(new Card(31, "Clubs", "9", 0, "../cards/9C.png"));
-        this.cards.push(new Card(32, "Clubs", "8", 0, "../cards/8C.png"));
-        this.cards.push(new Card(33, "Clubs", "7", 0, "../cards/7C.png"));
-        this.cards.push(new Card(34, "Clubs", "6", 0, "../cards/6C.png"));
-        this.cards.push(new Card(35, "Clubs", "5", 5, "../cards/5C.png"));
-        this.cards.push(new Card(36, "Clubs", "4", 0, "../cards/4C.png"));
-        this.cards.push(new Card(37, "Clubs", "3", 0, "../cards/3C.png"));
+        this.cards.push(new Card(26, "Clubs", "A", 10, "'../cards/AC.png'"));
+        this.cards.push(new Card(27, "Clubs", "K", 0, "'../cards/KC.png'"));
+        this.cards.push(new Card(28, "Clubs", "Q", 0, "'../cards/QC.png'"));
+        this.cards.push(new Card(29, "Clubs", "J", 0, "'../cards/JC.png'"));
+        this.cards.push(new Card(30, "Clubs", "10", 10, "'../cards/10C.png'"));
+        this.cards.push(new Card(31, "Clubs", "9", 0, "'../cards/9C.png'"));
+        this.cards.push(new Card(32, "Clubs", "8", 0, "'../cards/8C.png'"));
+        this.cards.push(new Card(33, "Clubs", "7", 0, "'../cards/7C.png'"));
+        this.cards.push(new Card(34, "Clubs", "6", 0, "'../cards/6C.png'"));
+        this.cards.push(new Card(35, "Clubs", "5", 5, "'../cards/5C.png'"));
+        this.cards.push(new Card(36, "Clubs", "4", 0, "'../cards/4C.png'"));
+        this.cards.push(new Card(37, "Clubs", "3", 0, "'../cards/3C.png'"));
 
         //hearts
-        this.cards.push(new Card(38, "Hearts", "A", 10, "../cards/AH.png"));
-        this.cards.push(new Card(39, "Hearts", "K", 0, "../cards/KH.png"));
-        this.cards.push(new Card(40, "Hearts", "Q", 0, "../cards/QH.png"));
-        this.cards.push(new Card(41, "Hearts", "J", 0, "../cards/JH.png"));
-        this.cards.push(new Card(42, "Hearts", "10", 10, "../cards/10H.png"));
-        this.cards.push(new Card(43, "Hearts", "9", 0, "../cards/9H.png"));
-        this.cards.push(new Card(44, "Hearts", "8", 0, "../cards/8H.png"));
-        this.cards.push(new Card(45, "Hearts", "7", 0, "../cards/7H.png"));
-        this.cards.push(new Card(46, "Hearts", "6", 0, "../cards/6H.png"));
-        this.cards.push(new Card(47, "Hearts", "5", 5, "../cards/5H.png"));
-        this.cards.push(new Card(48, "Hearts", "4", 0, "../cards/4H.png"));
-        this.cards.push(new Card(49, "Hearts", "3", 0, "../cards/3H.png"));
-        this.cards.push(new Card(50, "Hearts", "2", 0, "../cards/2H.png"));
+        this.cards.push(new Card(38, "Hearts", "A", 10, "'../cards/AH.png'"));
+        this.cards.push(new Card(39, "Hearts", "K", 0, "'../cards/KH.png'"));
+        this.cards.push(new Card(40, "Hearts", "Q", 0, "'../cards/QH.png'"));
+        this.cards.push(new Card(41, "Hearts", "J", 0, "'../cards/JH.png'"));
+        this.cards.push(new Card(42, "Hearts", "10", 10, "'../cards/10H.png'"));
+        this.cards.push(new Card(43, "Hearts", "9", 0, "'../cards/9H.png'"));
+        this.cards.push(new Card(44, "Hearts", "8", 0, "'../cards/8H.png'"));
+        this.cards.push(new Card(45, "Hearts", "7", 0, "'../cards/7H.png'"));
+        this.cards.push(new Card(46, "Hearts", "6", 0, "'../cards/6H.png'"));
+        this.cards.push(new Card(47, "Hearts", "5", 5, "'../cards/5H.png'"));
+        this.cards.push(new Card(48, "Hearts", "4", 0, "'../cards/4H.png'"));
+        this.cards.push(new Card(49, "Hearts", "3", 0, "'../cards/3H.png'"));
+        this.cards.push(new Card(50, "Hearts", "2", 0, "'../cards/2H.png'"));
     }
 
     shuffleDeck() {
@@ -923,4 +923,6 @@ game.setNextGame();
 
 game.setGameResults();
 
-module.exports = { p1StartingCards };
+let testCard = "KH";
+
+module.exports = { p1StartingCards, testCard };

@@ -34,7 +34,7 @@ class StartGame extends React.Component {
     componentDidMount() {
         const {codes} = this.props.location.state;
         this.state.code = codes;
-        socket.emit("incoming_data", this.props.location.state.user);
+        //socket.emit("incoming_data", this.props.location.state.user);
     }
 
     render() {
