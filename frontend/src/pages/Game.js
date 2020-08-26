@@ -2,7 +2,7 @@
 import React from 'react';
 
 /* bootstrap imports */
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 /* css imports */
 import '../css/Game.css';
