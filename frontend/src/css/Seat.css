@@ -1,31 +1,20 @@
 .Player-Two {
-    /*margin-left: 8.5em;
-    margin-top: 6em;*/
-    position: fixed;
-    left: 9.655172vw;
-    top: 25.347222vw;
+    margin-top: 15vw;
+    margin-left: -10vw;
 }
 
 .Player-Three {
-    /*margin-left: 3em;
-    margin-top: -25em;*/
-    position: fixed;
-    left: 19.655172vw;
-    top: 8.680556vw;
+    margin-left: 2vw;
+    margin-top: -2vw;
 }
 
 .Player-Four {
-    /*margin-left: 14em;
-    margin-top: -25em;*/
-    position: fixed;
-    left: 38.965517vw;
-    top: 8.680556vw;
+    margin-top: -2vw;
+    margin-left: 12vw;
+
 }
 
 .Player-Five {
-    /*margin-left: 29.5em;
-    margin-top: 6em;*/
-    position: fixed;
-    left: 48.965517vw;
-    top: 25.347222vw;
+    margin-left: 2vw;
+    margin-top: 14.5vw;
 }

@@ -6,9 +6,8 @@
 }
 
 .Current-Cutting {
-    position: fixed;
-    left: 66.551724vw;
-    top: 13.888889vw;
+    margin-top: 2vw;
+    margin-left: 5vw;
     color: black;
     font-size: 2vw;
     width: 12vw;
@@ -16,17 +15,15 @@
 }
 
 .Current-Cutting-Images {
-    position: fixed;
-    left: 67.931034vw;
-    top: 17.361111vw;
-    width: 100px;
-    height: 150px;
+    margin-top: 1vw;
+    margin-left: 7vw;
+    width: 6.2vw;
+    height: 9.3vw;
 }
 
 .Current-Partner {
-    position: fixed;
-    left: 80.344828vw;
-    top: 13.888889vw;
+    margin-top: 2vw;
+    margin-left: 5vw;
     color: black;
     font-size: 2vw;
     width: 12vw;
@@ -34,167 +31,148 @@
 }
 
 .Current-Partner-Images {
-    position: fixed;
-    left: 82.068966vw;
-    top: 17.361111vw;
-    width: 100px;
-    height: 150px;
+    margin-top: 1vw;
+    margin-left: 7vw;
+    width: 6.2vw;
+    height: 9.3vw;
 }
 
 .Card-Image-One {
-    position: relative;
-    left: 225px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -3vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-One:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Two {
-    position: relative;
-    left: 150px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Two:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Three {
-    position: relative;
-    left: 75px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Three:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Four {
-    position: relative;
-    left: 0px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Four:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Five {
-    position: relative;
-    left: -75px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Five:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Six {
-    position: relative;
-    left: -150px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Six:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Seven {
-    position: relative;
-    left: -225px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Seven:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Eight {
-    position: relative;
-    left: -300px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Eight:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Nine {
-    position: relative;
-    left: -375px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Nine:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Card-Image-Ten {
-    position: relative;
-    left: -450px;
-    top: 520px;
-    width: 120px;
-    height: 180px;
+    margin-top: -3vw;
+    margin-left: -5vw;
+    width: 7.44vw;
+    height: 11.16vw;
 }
 
 .Card-Image-Ten:hover {
     z-index: 1;
-    top: 501.25px;
-    width: 125px;
-    height: 187.5px;
+    width: 7.75vw;
+    height: 11.63vw;
 }
 
 .Table {
-    position: fixed;
+    margin-top: -8vw;
+    margin-left: -3.5vw;
+    /* position: fixed;
     left: 17.241379vw;
-    top: 13.888889vw;
+    top: 13.888889vw; */
     /*margin-left: -58.5em;
     margin-top: 6em;*/
 }

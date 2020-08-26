@@ -44,4 +44,4 @@ class WinnerModal extends Component {
     }
 }
 
-export default WinnerModal
+export default WinnerModal;
