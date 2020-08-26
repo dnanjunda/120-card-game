@@ -11,23 +11,23 @@ class JoinDashboard extends Component {
 
     constructor(props) {
         super(props);
-        this.handleModalClick = this.handleModalClick.bind(this);
-        this.handleCancelClick = this.handleCancelClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        //this.handleCancelClick = this.handleCancelClick.bind(this);
         this.handleFocus = this.handleFocus.bind(this);
         this.handleJoin = this.handleJoin.bind(this);
         this.state = {
-            visible: false,
+            clicked: false,
             joincode: '',
         }
     }
 
-    handleModalClick = () => {
-        this.setState({ visible: true });
+    handleClick = () => {
+        this.setState({ clicked: true });
     }
 
-    handleCancelClick = () => {
+    /*handleCancelClick = () => {
         this.setState({ visible: false });
-    }
+    }*/
 
     inputHandler = (e) => {
         if (e) {
@@ -61,13 +61,13 @@ class JoinDashboard extends Component {
 
     render() {
 
-        if (this.state.visible) return (
+        {/*if (this.state.visible) return (
             <div className="Join-Modal-Font">
                 <button onClick={this.handleModalClick} className="Join-Button">Join A Game!</button>
                 <div className="Join-Modal-Container">
                     <div className="Join-Modal-Title">
                         Join A Game!
-      </div>
+                    </div>
                     <div className="Join-Modal-Content">
                         <form>
                             <input className="Join-Code-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
@@ -85,11 +85,22 @@ class JoinDashboard extends Component {
                     </div>
                 </div>
             </div>
+        ); */}
+
+        if (this.state.clicked) return (
+            <div className="Rows">
+                <form>
+                    <input className="Join-Code-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
+                </form>
+                <Link to="/joingame">
+                    <button onClick={this.handleClick} className="Join-Button-After">Join!</button>
+                </Link>
+            </div>
         );
 
         else return (
-            <div className="Modal-Font">
-                <button onClick={this.handleModalClick} className="Join-Button">Join A Game!</button>
+            <div>
+                <button onClick={this.handleClick} className="Join-Button-Before">Join A Game!</button>
             </div>
         );
     }

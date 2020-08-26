@@ -5,6 +5,13 @@
     height: 100%;
 }
 
+.Winner-Text {
+    padding-bottom: 0.5vw;
+    text-align: center;
+    color: white;
+    font-family: American Typewriter, serif;
+}
+
 .Rows {
     display: flex;
     justify-content: flex;
@@ -15,7 +22,7 @@
     text-decoration: underline;
     color: white;
     font-family: Impact, fantasy;
-    font-size: 42px;
+    font-size: 2.25vw;
     float: left;
 }
 
@@ -24,7 +31,7 @@
     text-align: center; 
     color: black;
     font-family: American Typewriter, serif;
-    font-size: 30px;
+    font-size: 2.1vw;
     font-weight: bold;
     float: left;
 }
@@ -33,7 +40,7 @@
     overflow: scroll;
     position: relative;
     width: 10em;
-    height: 6vw;
+    height: 5.5vw;
     margin-left: -1em;
     word-wrap: break-word;
     white-space: nowrap;

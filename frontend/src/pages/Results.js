@@ -9,7 +9,6 @@ import { Container, Row, Col, Modal } from 'react-bootstrap';
 import '../css/Results.css';
 
 /* components imports */
-import WinnerModal from '../components/WinnerModal.js';
 import FooterButtons from '../components/FooterButtons.js';
 
 class Results extends React.Component {
@@ -44,31 +43,26 @@ class Results extends React.Component {
 
         return (
             <div className="Body">
-                <WinnerModal
-                    winningTeam={this.state.winningTeam}
-                    winningPlayers={this.state.winningPlayers}
-                    winningTotal={this.state.winningTotal}
-                />
-
+                <h1 className="Winner-Text">{this.state.winningTeam} Team won with {this.state.winningTotal} points!</h1>
                 <div className="Rows">
                     <Col className="Title">
-                        Player
-                        </Col>
+                        <h2>Player</h2>
+                    </Col>
                     <Col className="Title">
-                        Cards
-                        </Col>
+                        <h2>Cards</h2>
+                    </Col>
                     <Col className="Title">
-                        Points
-                        </Col>
+                        <h2>Points</h2>
+                    </Col>
                     <Col className="Title">
-                        Total Points
-                        </Col>
+                        <h2>Total Points</h2>
+                    </Col>
                     <Col className="Title">
-                        Games Won
-                        </Col>
+                        <h2>Games Won</h2>
+                    </Col>
                     <Col className="Title">
-                        Rank
-                        </Col>
+                        <h2>Rank</h2>
+                    </Col>
                 </div>
 
                 <div className="Rows">
