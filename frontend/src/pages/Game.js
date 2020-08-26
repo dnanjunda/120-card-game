@@ -1,9 +1,8 @@
 /* react imports */
 import React from 'react';
 
-/* react router & bootstrap imports */
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+/* bootstrap imports */
+import { Row, Col } from 'react-bootstrap';
 
 /* css imports */
 import '../css/Game.css';
@@ -13,13 +12,17 @@ import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
 
+/* constant imports */
+import CardImages from '../constants/Cards.js';
+
 class Game extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            cards: "",
-            players: "",
+            playerCardImages: [],
+            playerCards: [],
+            players: [],
             leader: "",
             bid: "",
             dealer: "",
@@ -27,14 +30,13 @@ class Game extends React.Component {
             partner: "",
             isBidding: false,
             currentBidder: "",
-            test: "",
         };
     }
 
     callAPI() {
-        fetch("http://localhost:9000/testAPI/testcard")
-            .then(res => res.text())
-            .then(res => this.setState({ test: res }));
+        fetch("http://localhost:9000/testAPI/array")
+            .then(res => res.json())
+            .then(res => this.setState({ playerCardImages: res }));
     }
 
     componentDidMount() {
@@ -51,8 +53,8 @@ class Game extends React.Component {
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
-            cutting: require('../cards/AS.png'),
-            partner: require('../cards/2S.png'),
+            cutting: CardImages.AS,
+            partner: CardImages.TWOS,
             isBidding: false,
             currentBidder: "Anoushka",
         })
@@ -102,7 +104,7 @@ class Game extends React.Component {
                     {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
                 </Row>
                 <Row>
-                    <img className="Card-Image-One" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-One" src={this.state.playerCards[0]}></img>
                     <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
                     <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
@@ -120,12 +122,6 @@ class Game extends React.Component {
                     buttonPath="/results"
                     className="Game"
                     />
-                {/*<form method="post" action="http://localhost:9000/testAPI/start" >
-                    <input type="submit" value="Start" />
-                </form> */}
-                <p>{this.state.cards}</p>
-                <p>array: {this.state.cards[0]}</p>
-                <p>{this.state.test}</p>
             </div>
         );
     }
