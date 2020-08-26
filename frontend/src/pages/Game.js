@@ -55,7 +55,7 @@ class Game extends React.Component {
             partner: require('../cards/2S.png'),
             isBidding: false,
             currentBidder: "Anoushka",
-            testCard: require(this.state.cards[0]),
+            //testCard: require(this.state.cards[0]),
         })
     }
 
@@ -63,11 +63,14 @@ class Game extends React.Component {
 
         return (
             <div className="Body">
+                <Container>
                 <head>
                     <script type="text/javascript" src="../../../backend/logic/Main.js"></script>
                 </head>
-
                 {/*Seats*/}
+                <Row>
+                <Col>
+               
                 <Seat playerName={this.state.players[1]} className={"Player-Two"} />
                 <Seat playerName={this.state.players[2]} className={"Player-Three"} />
                 <Seat playerName={this.state.players[3]} className={"Player-Four"} />
@@ -84,7 +87,21 @@ class Game extends React.Component {
                     {/*Only want this text if bidding is going on.*/}
                     <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="24px" font-family="American Typewriter, serif" dy=".3em">Waiting for {this.state.currentBidder} to bid...</text>
                 </svg>
-
+                
+                <Row>
+                <img className="Card-Image-One" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Five" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Six" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Seven" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Eight" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
+                    <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
+                    </Row>
+                </Col>
+                <Col>
                 <Row>
                     <Col>
                         <GameButton buttonText='Leader' text={this.state.leader} className="Leader-Button" />
@@ -97,36 +114,32 @@ class Game extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <h1 className="Current-Cutting">Cutting Suit</h1>
-                    {this.state.cutting ? <img className="Current-Cutting-Images" src={this.state.cutting} responsive /> : null}
-                    <h1 className="Current-Partner">Partner Card</h1>
-                    {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
+                    <Col>
+                        <h1 className="Current-Cutting">Cutting Suit</h1>
+                        {this.state.cutting ? <img className="Current-Cutting-Images" src={this.state.cutting} responsive /> : null}
+                        </Col>
+                    <Col>
+                        <h1 className="Current-Partner">Partner Card</h1>
+                        {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
+                    </Col>
                 </Row>
                 <Row>
-                    <img className="Card-Image-One" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Five" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Six" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Seven" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Eight" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
-                    <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
-                </Row>
-                
                 <FooterButtons
                     buttonsCount="1"
                     buttonTitle="End Game"
                     buttonPath="/results"
                     className="Game"
                     />
+                </Row>
+                </Col>
+                </Row>
                 {/*<form method="post" action="http://localhost:9000/testAPI/start" >
                     <input type="submit" value="Start" />
         </form> */}
-                <p>{this.state.testCard}</p>
-                <p>array: {this.state.cards[0]}</p>
+                {/* <p>{this.state.testCard}</p> */}
+                {/* <p>array: {this.state.cards[0]}</p> */}
                 {/* <h1>{this.state.cards.slice(1,18)}</h1> */}
+                </Container>
             </div>
         );
     }
