@@ -2,7 +2,7 @@
 import React from 'react';
 
 /* bootstrap imports */
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 /* css imports */
 import '../css/Game.css';
@@ -12,8 +12,14 @@ import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
 
+//import AS from '../cards/AS.png';
+
+import _ from "lodash";
+
 /* constant imports */
 import CardImages from '../constants/Cards.js';
+
+export var cards = '';
 
 class Game extends React.Component {
 
@@ -31,17 +37,21 @@ class Game extends React.Component {
             isBidding: false,
             currentBidder: "",
             testCard: "",
+            test: ""
         };
     }
 
     callAPI() {
         fetch("http://localhost:9000/testAPI/array")
             .then(res => res.json())
+            .then(res => cards = res[0])
+            //.then(res => this.setState({ test: CardImages[res[0]]}))
             .then(res => this.setState({ playerCardImages: res }));
     }
 
     componentDidMount() {
         this.setGame();
+        
     }
 
     componentWillMount() {
@@ -49,6 +59,7 @@ class Game extends React.Component {
     }
 
     setGame() {
+        
         this.setState({
             players: ["Anoushka", "Ashley", "Dhanush", "Shreenithi", "Anshul"],
             leader: "Anoushka",
@@ -58,8 +69,13 @@ class Game extends React.Component {
             partner: CardImages.TWOS,
             isBidding: false,
             currentBidder: "Anoushka",
+            test: CardImages[cards]
             //testCard: require(this.state.cards[0]),
         })
+
+        console.log(eval(this.state.playerCardImages[0]));
+        //cards[0] = this.state.playerCardImages[0];
+        //console.log(cards[0]);
     }
 
     render() {
@@ -91,7 +107,7 @@ class Game extends React.Component {
                             </svg>
 
                             <Row>
-                                <img className="Card-Image-One" src={this.state.playerCards[0]}></img>
+                                <img className="Card-Image-One" src={this.state.test}></img>
                                 <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
                                 <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
                                 <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
@@ -123,6 +139,7 @@ class Game extends React.Component {
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
                                     {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
+                                    <p>{cards}</p>
                                 </Col>
                             </Row>
                             <Row>
