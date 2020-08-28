@@ -11,15 +11,10 @@ import '../css/Game.css';
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
-
-//import AS from '../cards/AS.png';
-
-import _ from "lodash";
+import Card from '../components/CardImage.js';
 
 /* constant imports */
 import CardImages from '../constants/Cards.js';
-
-export var cards = '';
 
 class Game extends React.Component {
 
@@ -36,16 +31,12 @@ class Game extends React.Component {
             partner: "",
             isBidding: false,
             currentBidder: "",
-            testCard: "",
-            test: ""
         };
     }
 
     callAPI() {
         fetch("http://localhost:9000/testAPI/array")
             .then(res => res.json())
-            .then(res => cards = res[0])
-            //.then(res => this.setState({ test: CardImages[res[0]]}))
             .then(res => this.setState({ playerCardImages: res }));
     }
 
@@ -65,17 +56,11 @@ class Game extends React.Component {
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
-            cutting: CardImages.AS,
-            partner: CardImages.TWOS,
+            cutting: "AS",
+            partner: "TWOS",
             isBidding: false,
             currentBidder: "Anoushka",
-            test: CardImages[cards]
-            //testCard: require(this.state.cards[0]),
         })
-
-        console.log(eval(this.state.playerCardImages[0]));
-        //cards[0] = this.state.playerCardImages[0];
-        //console.log(cards[0]);
     }
 
     render() {
@@ -107,16 +92,16 @@ class Game extends React.Component {
                             </svg>
 
                             <Row>
-                                <img className="Card-Image-One" src={this.state.test}></img>
-                                <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Five" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Six" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Seven" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Eight" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
+                                <Card className="Card-Image-One" test={this.state.playerCardImages[0]}/>
+                                <Card className="Card-Image-Two" test={this.state.playerCardImages[1]}/>
+                                <Card className="Card-Image-Three" test={this.state.playerCardImages[2]}/>
+                                <Card className="Card-Image-Four" test={this.state.playerCardImages[3]}/>
+                                <Card className="Card-Image-Five" test={this.state.playerCardImages[4]}/>
+                                <Card className="Card-Image-Six" test={this.state.playerCardImages[5]}/>
+                                <Card className="Card-Image-Seven" test={this.state.playerCardImages[6]}/>
+                                <Card className="Card-Image-Eight" test={this.state.playerCardImages[7]}/>
+                                <Card className="Card-Image-Nine" test={this.state.playerCardImages[8]}/>
+                                <Card className="Card-Image-Ten" test={this.state.playerCardImages[9]}/>
                             </Row>
                         </Col>
                         <Col>
@@ -134,12 +119,11 @@ class Game extends React.Component {
                             <Row>
                                 <Col>
                                     <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    {this.state.cutting ? <img className="Current-Cutting-Images" src={this.state.cutting} responsive /> : null}
+                                    <Card className="Current-Cutting-Images" test={this.state.cutting}/>
                                 </Col>
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
-                                    {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
-                                    <p>{cards}</p>
+                                    <Card className="Current-Partner-Images" test={this.state.partner}/>
                                 </Col>
                             </Row>
                             <Row>
