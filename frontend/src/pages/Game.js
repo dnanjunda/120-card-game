@@ -11,6 +11,8 @@ import '../css/Game.css';
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
+import Card from '../components/CardImage.js';
+import BiddingPopup from '../components/BiddingPopup.js';
 
 /* constant imports */
 import CardImages from '../constants/Cards.js';
@@ -28,9 +30,8 @@ class Game extends React.Component {
             dealer: "",
             cutting: "",
             partner: "",
-            isBidding: false,
+            isBidding: true,
             currentBidder: "",
-            testCard: "",
         };
     }
 
@@ -42,6 +43,7 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
+
     }
 
     componentWillMount() {
@@ -54,11 +56,10 @@ class Game extends React.Component {
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
-            cutting: CardImages.AS,
-            partner: CardImages.TWOS,
-            isBidding: false,
+            cutting: "AS",
+            partner: "TWOS",
+            isBidding: true,
             currentBidder: "Anoushka",
-            //testCard: require(this.state.cards[0]),
         })
     }
 
@@ -88,19 +89,20 @@ class Game extends React.Component {
                                 />
                                 {/*Only want this text if bidding is going on.*/}
                                 <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="24px" font-family="American Typewriter, serif" dy=".3em">Waiting for {this.state.currentBidder} to bid...</text>
+                                {/* need to figure out how to make this go away after (change isBidding to false) */}
                             </svg>
 
                             <Row>
-                                <img className="Card-Image-One" src={this.state.playerCards[0]}></img>
-                                <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Five" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Six" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Seven" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Eight" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
+                                <Card className="Card-Image-One" test={this.state.playerCardImages[0]} />
+                                <Card className="Card-Image-Two" test={this.state.playerCardImages[1]} />
+                                <Card className="Card-Image-Three" test={this.state.playerCardImages[2]} />
+                                <Card className="Card-Image-Four" test={this.state.playerCardImages[3]} />
+                                <Card className="Card-Image-Five" test={this.state.playerCardImages[4]} />
+                                <Card className="Card-Image-Six" test={this.state.playerCardImages[5]} />
+                                <Card className="Card-Image-Seven" test={this.state.playerCardImages[6]} />
+                                <Card className="Card-Image-Eight" test={this.state.playerCardImages[7]} />
+                                <Card className="Card-Image-Nine" test={this.state.playerCardImages[8]} />
+                                <Card className="Card-Image-Ten" test={this.state.playerCardImages[9]} />
                             </Row>
                         </Col>
                         <Col>
@@ -118,12 +120,18 @@ class Game extends React.Component {
                             <Row>
                                 <Col>
                                     <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    {this.state.cutting ? <img className="Current-Cutting-Images" src={this.state.cutting} responsive /> : null}
+                                    <Card className="Current-Cutting-Images" test={this.state.cutting} />
                                 </Col>
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
-                                    {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
+                                    <Card className="Current-Partner-Images" test={this.state.partner} />
                                 </Col>
+                            </Row>
+                            <Row>
+                                <BiddingPopup
+                                    isBidding={this.state.isBidding}
+                                    bidsAvailable={['70', '75', '80', '85', '90', '95', '100', '105', '110', '115', '120']}
+                                />
                             </Row>
                             <Row>
                                 <FooterButtons
