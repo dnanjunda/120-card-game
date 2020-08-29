@@ -12,6 +12,7 @@ import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
 import Card from '../components/CardImage.js';
+import BiddingPopup from '../components/BiddingPopup.js';
 
 /* constant imports */
 import CardImages from '../constants/Cards.js';
@@ -29,7 +30,7 @@ class Game extends React.Component {
             dealer: "",
             cutting: "",
             partner: "",
-            isBidding: false,
+            isBidding: true,
             currentBidder: "",
         };
     }
@@ -42,7 +43,7 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
-        
+
     }
 
     componentWillMount() {
@@ -50,7 +51,6 @@ class Game extends React.Component {
     }
 
     setGame() {
-        
         this.setState({
             players: ["Anoushka", "Ashley", "Dhanush", "Shreenithi", "Anshul"],
             leader: "Anoushka",
@@ -58,7 +58,7 @@ class Game extends React.Component {
             dealer: "Shreenithi",
             cutting: "AS",
             partner: "TWOS",
-            isBidding: false,
+            isBidding: true,
             currentBidder: "Anoushka",
         })
     }
@@ -89,19 +89,20 @@ class Game extends React.Component {
                                 />
                                 {/*Only want this text if bidding is going on.*/}
                                 <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="24px" font-family="American Typewriter, serif" dy=".3em">Waiting for {this.state.currentBidder} to bid...</text>
+                                {/* need to figure out how to make this go away after (change isBidding to false) */}
                             </svg>
 
                             <Row>
-                                <Card className="Card-Image-One" test={this.state.playerCardImages[0]}/>
-                                <Card className="Card-Image-Two" test={this.state.playerCardImages[1]}/>
-                                <Card className="Card-Image-Three" test={this.state.playerCardImages[2]}/>
-                                <Card className="Card-Image-Four" test={this.state.playerCardImages[3]}/>
-                                <Card className="Card-Image-Five" test={this.state.playerCardImages[4]}/>
-                                <Card className="Card-Image-Six" test={this.state.playerCardImages[5]}/>
-                                <Card className="Card-Image-Seven" test={this.state.playerCardImages[6]}/>
-                                <Card className="Card-Image-Eight" test={this.state.playerCardImages[7]}/>
-                                <Card className="Card-Image-Nine" test={this.state.playerCardImages[8]}/>
-                                <Card className="Card-Image-Ten" test={this.state.playerCardImages[9]}/>
+                                <Card className="Card-Image-One" test={this.state.playerCardImages[0]} />
+                                <Card className="Card-Image-Two" test={this.state.playerCardImages[1]} />
+                                <Card className="Card-Image-Three" test={this.state.playerCardImages[2]} />
+                                <Card className="Card-Image-Four" test={this.state.playerCardImages[3]} />
+                                <Card className="Card-Image-Five" test={this.state.playerCardImages[4]} />
+                                <Card className="Card-Image-Six" test={this.state.playerCardImages[5]} />
+                                <Card className="Card-Image-Seven" test={this.state.playerCardImages[6]} />
+                                <Card className="Card-Image-Eight" test={this.state.playerCardImages[7]} />
+                                <Card className="Card-Image-Nine" test={this.state.playerCardImages[8]} />
+                                <Card className="Card-Image-Ten" test={this.state.playerCardImages[9]} />
                             </Row>
                         </Col>
                         <Col>
@@ -119,12 +120,18 @@ class Game extends React.Component {
                             <Row>
                                 <Col>
                                     <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    <Card className="Current-Cutting-Images" test={this.state.cutting}/>
+                                    <Card className="Current-Cutting-Images" test={this.state.cutting} />
                                 </Col>
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
-                                    <Card className="Current-Partner-Images" test={this.state.partner}/>
+                                    <Card className="Current-Partner-Images" test={this.state.partner} />
                                 </Col>
+                            </Row>
+                            <Row>
+                                <BiddingPopup
+                                    isBidding={this.state.isBidding}
+                                    bidsAvailable={['70', '75', '80', '85', '90', '95', '100', '105', '110', '115', '120']}
+                                />
                             </Row>
                             <Row>
                                 <FooterButtons

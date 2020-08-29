@@ -1,7 +1,11 @@
 /* react imports */
 import React, { Component } from 'react';
-import Cards from '../constants/Cards.js';
+
+/* css imports */
 import '../css/Game.css';
+
+/* constant imports */
+import Cards from '../constants/Cards.js';
 
 class CardImage extends Component {
 
