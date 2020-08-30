@@ -27,7 +27,7 @@ class Deck {
         this.cards.push(new Card("NINES", "Spades", "9", 0));
         this.cards.push(new Card("EIGHTS", "Spades", "8", 0));
         this.cards.push(new Card("SEVENS", "Spades", "7", 0));
-        this.cards.push(new Card("SIXES", "Spades", "6", 0));
+        this.cards.push(new Card("SIXS", "Spades", "6", 0));
         this.cards.push(new Card("FIVES", "Spades", "5", 5));
         this.cards.push(new Card("FOURS", "Spades", "4", 0));
         this.cards.push(new Card("THREES", "Spades", "3", 0));
