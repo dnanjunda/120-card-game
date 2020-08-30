@@ -1,7 +1,8 @@
 .Bidding-Popup-Container {
-    /*position: absolute;
-    z-index: 100;*/
-    background-color: red;
+    margin-top: 4vw;
+    margin-left: 3.5vw;
+    position: fixed;
+    z-index: 5;
 }
 
 .Bidding-Question-Text {
@@ -41,16 +42,16 @@
     float: left;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.Bidding-Input-Bid::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
 }
   
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.Bidding-Input-Bid:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: white;
 }
   
-::-ms-input-placeholder { /* Microsoft Edge */
+.Bidding-Input-Bid::-ms-input-placeholder { /* Microsoft Edge */
     color: white;
 }
 
