@@ -13,7 +13,7 @@ class BiddingPopup extends Component {
         super(props);
         this.state = {
             bid: "",
-            isBidding: this.props.isBidding,
+            isBidding: this.props.playerIsBidding,
         }
 
         this.handlePass = this.handlePass.bind(this);

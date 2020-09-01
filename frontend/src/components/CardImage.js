@@ -15,7 +15,7 @@ class CardImage extends Component {
 
     render() {
         return(
-            <img className={this.props.className} src={Cards[this.props.test]}></img>
+            <img className={this.props.className} src={Cards[this.props.card]}></img>
         );
     }
 
