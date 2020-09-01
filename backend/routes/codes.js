@@ -4,6 +4,7 @@ var db = require('../db/dbmodels');
 var data = require('../logic/Data');
 
 router.post('/addcode', function(req, res, next) {
+    console.log("route called");
     var newCode = {code: req.body.code};
 
     db.findCode(newCode).then(function(code) {

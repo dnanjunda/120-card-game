@@ -47,7 +47,11 @@ io.on("connection", socket => {
       }
 
       io.sockets.emit("received_data", dataToSend);
-     socket.broadcast.emit("received_data", dataToSend);
+     //socket.broadcast.emit("received_data", dataToSend);
+  });
+
+  socket.on("starting_game", function() {
+    io.sockets.emit("game_started");
   });
 
   //A special namespace "disconnect" for when a client disconnects

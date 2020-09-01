@@ -9,7 +9,8 @@ class StartGame extends React.Component {
         super(props);
         this.state = { apiResponse: [], code: "", sample: "abc" };
         this.assignData = this.assignData.bind(this);
-        this.getPlayers = this.getPlayers.bind(this);
+        this.startgame = this.startgame.bind(this);
+        // this.getPlayers = this.getPlayers.bind(this);
     }
 
     callAPI() {
@@ -19,13 +20,14 @@ class StartGame extends React.Component {
 
     componentWillMount() {
         socket.emit("incoming_data", this.props.location.state.user);
+        socket.on("received_data", this.assignData); 
        // this.callAPI();
     }
 
     componentDidMount() {
         const {codes} = this.props.location.state;
         this.state.code = codes;
-        socket.on("received_data", this.assignData); 
+        //socket.on("received_data", this.assignData); 
         // {
         //     console.log(data);
         //     console.log(data.names[0]);
@@ -42,16 +44,16 @@ class StartGame extends React.Component {
         //this.callAPI();
     }
 
-    useEffect() {
-        this.getPlayers();
-    };
+    // useEffect() {
+    //     this.getPlayers();
+    // };
 
-    getPlayers = async () => {
-        socket.on("received_data", this.assignData);
-    }
+    // getPlayers = async () => {
+    //     socket.on("received_data", this.assignData);
+    // }
 
     assignData = playerNames => {
-        this.setState({apiResponse: [...this.state.apiResponse, playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
+        this.setState({apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
     }
 
     getNames() {
@@ -64,6 +66,13 @@ class StartGame extends React.Component {
             <li>{this.state.apiResponse[4]}</li>
             </div>
         );
+    }
+
+    startgame() {
+        socket.emit("starting_game");
+        this.props.history.push({
+            pathname: '/game'
+            });
     }
 
     render() {
@@ -82,7 +91,7 @@ class StartGame extends React.Component {
                     <Row>
                         <Col>
                             <Link to="/game">
-                                <button className="Button" type="button"> Start Game! </button>
+                                <button className="Button" type="button" onClick={this.startgame} > Start Game! </button>
                             </Link>
                         </Col>
                         <Col>

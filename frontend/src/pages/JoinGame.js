@@ -10,6 +10,7 @@ class JoinGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = { apiResponse: [], code: "", sample: "abc", players: [] };
+        this.startgame = this.startgame.bind(this);
     }
 
     callAPI() {
@@ -24,14 +25,21 @@ class JoinGame extends React.Component {
 
     componentDidMount() {
         socket.on("received_data", this.assignData); 
+        socket.on("game_started", this.startgame);
         
         // const {codes} = this.props.location.state;
         // this.state.code = codes;
         //this.callAPI();
     }
 
+    startgame() {
+        this.props.history.push({
+            pathname: '/game'
+            });
+    }
+
     assignData = playerNames => {
-        this.setState({apiResponse: [...this.state.apiResponse, playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
+        this.setState({apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
     }
 
     render() {
