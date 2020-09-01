@@ -1,0 +1,155 @@
+.Bidding-Popup-Container {
+    margin-top: 4vw;
+    margin-left: 3.5vw;
+    position: fixed;
+    z-index: 5;
+}
+
+.Bidding-Question-Text {
+    color: white;
+    font-family: American Typewriter, serif;
+    font-size: 2vw;
+}
+
+.Bidding-Options {
+    /*margin-left: 2em;*/
+    display: flex;
+    justify-content: flex;
+}
+
+.Bidding-Pass-Button {
+    margin-left: 1em;
+    border-radius: 1vw;
+    border: 0.4vw solid black;
+    background-color: black;
+    color: #5e715b;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+    float: left;
+}
+
+.Bidding-Pass-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
+
+.Bidding-Input-Bid {
+    margin-top: 0.25em;
+    margin-left: 0.5em;
+    background-color: #5e715b;
+    color: white;
+    font-family: American Typewriter, serif;
+    float: left;
+}
+
+.Bidding-Input-Bid::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+  
+.Bidding-Input-Bid:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+  
+.Bidding-Input-Bid::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
+
+.Bidding-Submit-Button {
+    margin-left: 0.5em;
+    border-radius: 1vw;
+    border: 0.4vw solid black;
+    background-color: black;
+    color: #5e715b;
+    transition-duration: 0.4s;
+    font-family: Impact, fantasy;
+    float: left;
+}
+
+.Bidding-Submit-Button:hover {
+    border-radius: 2vw;
+    font-weight: bold;
+}
+
+/*.Bid-Popup-Body {
+    display: flex;
+    justify-content: flex;
+}
+
+.Button-Format {
+    width: 4vw;
+    height: 4.8vw;
+}
+
+#Pass-Button {
+    background-color: black;
+    color: #5e715b;
+    border-color: black;
+    border-radius: 0.5vw;
+
+    font-family: Impact, fantasy;
+    font-size: 2vw;
+}
+
+.Bid {
+    font-family: Impact, fantasy;
+    font-size: 2vw;
+}
+
+#Submit-Button {
+    background-color: black;
+    color: #5e715b;
+    border-color: black;
+    border-radius: 0.5vw;
+
+    font-family: Impact, fantasy;
+    font-size: 2vw;
+} */
+
+/* fixes bidding option positioning 
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+
+    margin-left: 10em !important;
+}
+
+/* pass button 
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    border-color: black !important;
+    border-radius: 0.5vw !important;
+    background-color: black !important;
+    color: #5e715b !important;
+    font-family: Impact, fantasy;
+}
+
+/* dropdown font 
+.btn-group>.btn-group:not(:first-child), .btn-group>.btn:not(:first-child) {
+    margin-left: 1% !important;
+
+    font-family: Impact, fantasy;
+}
+
+/* dropdown colors 
+.btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    border-color: black !important;
+    border-radius: 0.5vw !important;
+    background-color: black !important;
+    color: #5e715b !important;
+}
+
+/* align dropdown items to center 
+.dropdown-menu[x-placement^=bottom], .dropdown-menu[x-placement^=left], .dropdown-menu[x-placement^=right], .dropdown-menu[x-placement^=top] {
+    right: auto;
+    bottom: auto;
+
+    text-align: center !important;
+} */

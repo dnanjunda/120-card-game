@@ -2,7 +2,7 @@
 import React from 'react';
 
 /* bootstrap imports */
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 /* css imports */
 import '../css/Game.css';
@@ -11,6 +11,9 @@ import '../css/Game.css';
 import Seat from '../components/Seat.js';
 import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
+import Card from '../components/CardImage.js';
+import BiddingPopup from '../components/BiddingPopup.js';
+import CardsOnTable from '../components/CardsOnTable';
 
 /* constant imports */
 import CardImages from '../constants/Cards.js';
@@ -28,9 +31,10 @@ class Game extends React.Component {
             dealer: "",
             cutting: "",
             partner: "",
-            isBidding: false,
+            playerIsBidding: false,
+            biddingComplete: false,
             currentBidder: "",
-            testCard: "",
+            gameOngoing: false,
         };
     }
 
@@ -42,6 +46,7 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
+
     }
 
     componentWillMount() {
@@ -54,15 +59,51 @@ class Game extends React.Component {
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
-            cutting: CardImages.AS,
-            partner: CardImages.TWOS,
-            isBidding: false,
+            cutting: "AS",
+            partner: "TWOS",
+            playerIsBidding: false,
+            biddingComplete: true,
             currentBidder: "Anoushka",
-            //testCard: require(this.state.cards[0]),
+            gameOngoing: true,
         })
     }
 
     render() {
+
+        let textOnTable;
+
+        // bidding is ongoing
+        if (!(this.state.biddingComplete)) {
+            if (!(this.state.playerIsBidding)) {
+                //Only want this text if bidding is going on
+                textOnTable = <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="2vw" font-family="American Typewriter, serif" dy=".3em" z-index="5">Waiting for {this.state.currentBidder} to bid...</text>;
+                //need to figure out how to make this go away after (change playerIsBidding to false)
+            }
+    
+            else {
+                textOnTable = <BiddingPopup
+                    playerIsBidding={this.state.playerIsBidding}
+                    minBidAvailable="70"
+                    player="Anoushka"
+                />;
+            }
+        }
+
+        // actual game is ongoing
+        else if (this.state.gameOngoing) {
+            textOnTable = <CardsOnTable
+                thisPlayerCard={"AH"}
+                playerOneCard={"QH"}
+                playerTwoCard={"EIGHTH"}
+                playerThreeCard={"SIXH"}
+                playerFourCard={"TENH"}
+            />;
+        }
+
+        // table is empty
+        else {
+            textOnTable = <div></div>;
+        }
 
         return (
             <div className="Body">
@@ -70,37 +111,39 @@ class Game extends React.Component {
                     <head>
                         <script type="text/javascript" src="../../../backend/logic/Main.js"></script>
                     </head>
-                    {/*Seats*/}
                     <Row>
                         <Col>
+                            {/* Seats */}
                             <Seat playerName={this.state.players[1]} className={"Player-Two"} />
                             <Seat playerName={this.state.players[2]} className={"Player-Three"} />
                             <Seat playerName={this.state.players[3]} className={"Player-Four"} />
                             <Seat playerName={this.state.players[4]} className={"Player-Five"} />
 
                             {/*Table*/}
-                            <svg width="450" height="450" className="Table">
-                                <circle
-                                    cx={'225'}
-                                    cy={'225'}
-                                    r={'225'}
-                                    fill={"#391f03"}
-                                />
-                                {/*Only want this text if bidding is going on.*/}
-                                <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="24px" font-family="American Typewriter, serif" dy=".3em">Waiting for {this.state.currentBidder} to bid...</text>
-                            </svg>
+                            <div>
+                                <svg width="450" height="450" className="Table">
+                                    <circle
+                                        cx={'225'}
+                                        cy={'225'}
+                                        r={'225'}
+                                        fill={"#391f03"}
+                                    />
+                                    {textOnTable}
+                                </svg>
+                                {textOnTable}
+                            </div>
 
                             <Row>
-                                <img className="Card-Image-One" src={this.state.playerCards[0]}></img>
-                                <img className="Card-Image-Two" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Three" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Four" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Five" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Six" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Seven" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Eight" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Nine" src={require("../cards/2S.png")}></img>
-                                <img className="Card-Image-Ten" src={require("../cards/2S.png")}></img>
+                                <Card className="Card-Image-One" card={this.state.playerCardImages[0]} />
+                                <Card className="Card-Image-Two" card={this.state.playerCardImages[1]} />
+                                <Card className="Card-Image-Three" card={this.state.playerCardImages[2]} />
+                                <Card className="Card-Image-Four" card={this.state.playerCardImages[3]} />
+                                <Card className="Card-Image-Five" card={this.state.playerCardImages[4]} />
+                                <Card className="Card-Image-Six" card={this.state.playerCardImages[5]} />
+                                <Card className="Card-Image-Seven" card={this.state.playerCardImages[6]} />
+                                <Card className="Card-Image-Eight" card={this.state.playerCardImages[7]} />
+                                <Card className="Card-Image-Nine" card={this.state.playerCardImages[8]} />
+                                <Card className="Card-Image-Ten" card={this.state.playerCardImages[9]} />
                             </Row>
                         </Col>
                         <Col>
@@ -118,11 +161,11 @@ class Game extends React.Component {
                             <Row>
                                 <Col>
                                     <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    {this.state.cutting ? <img className="Current-Cutting-Images" src={this.state.cutting} responsive /> : null}
+                                    <Card className="Current-Cutting-Images" card={this.state.cutting} />
                                 </Col>
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
-                                    {this.state.partner ? <img className="Current-Partner-Images" src={this.state.partner} responsive /> : null}
+                                    <Card className="Current-Partner-Images" card={this.state.partner} />
                                 </Col>
                             </Row>
                             <Row>

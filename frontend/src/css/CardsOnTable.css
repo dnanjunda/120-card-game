@@ -1,0 +1,73 @@
+.Card-Image-Align {
+    display: flex;
+    justify-content: flex;
+}
+
+.Player-One-Card {
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-45deg);
+    float: left;
+}
+
+.Player-One-Card-Position {
+    position: relative;
+    z-index: 2;
+    margin-top: -23vw;
+    margin-left: -0.25vw;
+}
+
+.Player-Two-Card {
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-25deg);
+    float: left;
+}
+
+.Player-Two-Card-Position {
+    position: relative;
+    z-index: 2;
+    margin-top: -29vw;
+    margin-left: -0.25vw;
+}
+
+.Player-Three-Card {
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(25deg);
+    float: left;
+}
+
+.Player-Three-Card-Position {
+    position: relative;
+    z-index: 2;
+    margin-top: -29vw;
+    margin-left: 1vw;
+}
+
+.Player-Four-Card {
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(45deg);
+    float: left;
+}
+
+.Player-Four-Card-Position {
+    position: relative;
+    z-index: 2;
+    margin-top: -23.5vw;
+    /*margin-left: -0.25vw;*/
+}
+
+.This-Player-Card {
+    width: 6vw;
+    height: 10vw;
+}
+
+.This-Player-Card-Position {
+    position: relative;
+    z-index: 2;
+    margin-top: -14vw;
+    margin-left: -15vw;
+}
+

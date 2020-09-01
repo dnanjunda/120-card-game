@@ -28,29 +28,29 @@
     font-family: Impact, fantasy;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.Name-Box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: black;
     opacity: 1; /* Firefox */
 }
   
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.Name-Box:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: black;
 }
   
-::-ms-input-placeholder { /* Microsoft Edge */
+.Name-Box::-ms-input-placeholder { /* Microsoft Edge */
     color: black;
 }
 
 .Start-Game {
+    margin-left: -5%;
     margin-top: 15%;
     border-radius: 1vw;
-    margin-left: -2vw;
     background-color: black;
     color: #5e715b;
     font-size: 2vw;
     padding: 0.5vw 1vw;
     border: 0.4vw solid black;
-    width: 20vw;
+    width: 19vw;
     transition-duration: 0.4s;
     font-family: Impact, fantasy;
 }
