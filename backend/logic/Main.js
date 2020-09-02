@@ -1,5 +1,3 @@
-const prompt = require('prompt');
-prompt.start();
 
 class Card {
 
@@ -540,15 +538,15 @@ class Game {
                 break;
             }
 
-            prompt.get(['bid'], function(err, result) {
-                if (err) {
-                    console.log(err);
-                    return 1;
-                }
-                //this.players[currentBidder].playerBid = result.bid;
-                //console.log(this.players[currentBidder].playerName, result.bid);
-                console.log(result.bid);
-            })
+            // prompt.get(['bid'], function(err, result) {
+            //     if (err) {
+            //         console.log(err);
+            //         return 1;
+            //     }
+            //     //this.players[currentBidder].playerBid = result.bid;
+            //     //console.log(this.players[currentBidder].playerName, result.bid);
+            //     console.log(result.bid);
+            // })
 
             if (this.players[currentBidder].playerBid > leadingBid) {
                 leadingBid = this.players[currentBidder].playerBid;
