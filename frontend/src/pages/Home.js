@@ -10,11 +10,6 @@ import '../css/Home.css';
 /* component imports */
 import JoinDashboard from '../components/JoinDashboard.js';
 
-/* backend imports */
-import socketIOClient from "socket.io-client";
-
-export var socket;
-
 class Home extends React.Component {
 
     constructor(props) {
@@ -24,24 +19,14 @@ class Home extends React.Component {
         this.makeid = this.makeid.bind(this);
         this.state = {
             username: '',
-            joincode: '',
-            endpoint: 'http://localhost:9000/'
+            joincode: ''
         }
-        socket = socketIOClient(this.state.endpoint);
     }
 
-    inputHandlerName = (e) => {
-        if (e) {
+    inputHandler=(e)=>{
+        if(e){
             this.setState({
                 username: e.target.value
-            })
-        }
-    }
-
-    inputHandlerJoinCode = (e) => {
-        if (e) {
-            this.setState({
-                joincode: e.target.value
             })
         }
     }
@@ -69,11 +54,6 @@ class Home extends React.Component {
     }
 
     postData() {
-        //console.log(() => this.generateId(6));
-        // this.vars.string = this.makeid;
-        // console.log(this.vars.string);
-
-        //var result           = '';
         var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
         for (var i = 0; i < 6; i++) {
@@ -111,30 +91,7 @@ class Home extends React.Component {
                 user: this.state.username
             }
         });
-
-        // Default options are marked with *
-        // const response = fetch(url, {
-        //   method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        //   mode: 'cors', // no-cors, *cors, same-origin
-        //   cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        //   credentials: 'same-origin', // include, *same-origin, omit
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //     // 'Content-Type': 'application/x-www-form-urlencoded',
-        //   },
-        //   redirect: 'follow', // manual, *follow, error
-        //   referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //   body: JSON.stringify(data) // body data type must match "Content-Type" header
-        // });
-        //return response.json(); // parses JSON response into native JavaScript objects
     }
-
-    // callFunc() {
-    //     io.sockets.on('connection', function(socket){
-    //         console.log("new client connected");
-    //     });
-    // }
-
 
     render() {
 
@@ -148,14 +105,14 @@ class Home extends React.Component {
                         <Col>
                             <p className="Description"> An Original, Online, Multiplayer Card Game!</p>
                             <form >
-                                <input className="Name-Box" type="text" placeholder="Enter your name" value={this.state.username} name="username" onChange={this.inputHandlerName} />
+                                <input className="Name-Box" type="text" placeholder="Enter your name" value={this.state.username} name="username" onChange={this.inputHandler} />
                             </form>
                             <Row>
                                 <Col>
                                     <button className="Start-Game" type="button" onClick={this.postData}> Start New Game! </button>
                                 </Col>
                                 <Col>
-                                    <JoinDashboard/>
+                                    <JoinDashboard user={this.state.username} history={this.props.history}/>
                                 </Col>
                             </Row>
                         </Col>

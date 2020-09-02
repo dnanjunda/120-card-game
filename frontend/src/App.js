@@ -23,6 +23,8 @@ import logo from './logo.svg';
 /* backend imports */
 import socketIOClient from "socket.io-client";
 
+export var socket;
+
 class App extends Component {
     
   constructor() {
@@ -31,14 +33,7 @@ class App extends Component {
         response: 0,
         endpoint: "http://127.0.0.1:9000"
     };
-  }
-
-  componentDidMount() {
-    //const {endpoint} = this.state;
-    //Very simply connect to the socket
-    //const socket = socketIOClient(endpoint);
-    //Listen for data on the "outgoing data" namespace and supply a callback for what to do when we get one. In this case, we set a state variable
-    //socket.on("outgoing data", data => this.setState({response: data.num}));
+    socket = socketIOClient(this.state.endpoint);
   }
 
   render() {
