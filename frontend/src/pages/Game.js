@@ -64,7 +64,7 @@ class Game extends React.Component {
             playerIsBidding: false,
             biddingComplete: true,
             currentBidder: "Anoushka",
-            gameOngoing: false,
+            gameOngoing: true,
         })
     }
 
