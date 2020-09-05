@@ -181,11 +181,22 @@
     position: relative;
     z-index: 1;
     margin-top: -10vw;
-    margin-left: -3.5vw;
-    
-    /* position: fixed;
-    left: 17.241379vw;
-    top: 13.888889vw; */
-    /*margin-left: -58.5em;
-    margin-top: 6em;*/
+    margin-left: -3.2vw;
+    width: 30vw;
+    height: 30vw;
+    background-color: #391f03;
+    border-radius: 80vw;
+}
+
+.On-Table {
+    z-index: 5;
+}
+
+.Table-Bidding-Text {
+    position: fixed;
+    margin-top: 12vw;
+    margin-left: 1vw;
+    color: white;
+    font-family: American Typewriter, serif;
+    font-size: 2vw;
 }
