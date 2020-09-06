@@ -126,16 +126,36 @@ class Game extends React.Component {
                                 </div>
                             </div>
                             <Row>
-                                <Card className="Card-Image-One" card={this.state.playerCardImages[0]} />
-                                <Card className="Card-Image-Two" card={this.state.playerCardImages[1]} />
-                                <Card className="Card-Image-Three" card={this.state.playerCardImages[2]} />
-                                <Card className="Card-Image-Four" card={this.state.playerCardImages[3]} />
-                                <Card className="Card-Image-Five" card={this.state.playerCardImages[4]} />
-                                <Card className="Card-Image-Six" card={this.state.playerCardImages[5]} />
-                                <Card className="Card-Image-Seven" card={this.state.playerCardImages[6]} />
-                                <Card className="Card-Image-Eight" card={this.state.playerCardImages[7]} />
-                                <Card className="Card-Image-Nine" card={this.state.playerCardImages[8]} />
-                                <Card className="Card-Image-Ten" card={this.state.playerCardImages[9]} />
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-One" card={this.state.playerCardImages[0]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Two" card={this.state.playerCardImages[1]} /> 
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Three" card={this.state.playerCardImages[2]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Four" card={this.state.playerCardImages[3]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Five" card={this.state.playerCardImages[4]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Six" card={this.state.playerCardImages[5]} /> 
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Seven" card={this.state.playerCardImages[6]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Eight" card={this.state.playerCardImages[7]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Nine" card={this.state.playerCardImages[8]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Ten" card={this.state.playerCardImages[9]} />
+                                </div>
                             </Row>
                         </Col>
                         <Col>
