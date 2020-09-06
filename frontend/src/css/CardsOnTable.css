@@ -13,8 +13,8 @@
 .Player-One-Card-Position {
     position: relative;
     z-index: 2;
-    margin-top: -23vw;
-    margin-left: -0.25vw;
+    margin-top: 8.5vw;
+    margin-left: 2.5vw;
 }
 
 .Player-Two-Card {
@@ -27,7 +27,7 @@
 .Player-Two-Card-Position {
     position: relative;
     z-index: 2;
-    margin-top: -29vw;
+    margin-top: 2.5vw;
     margin-left: -0.25vw;
 }
 
@@ -41,7 +41,7 @@
 .Player-Three-Card-Position {
     position: relative;
     z-index: 2;
-    margin-top: -29vw;
+    margin-top: 2.5vw;
     margin-left: 1vw;
 }
 
@@ -55,7 +55,7 @@
 .Player-Four-Card-Position {
     position: relative;
     z-index: 2;
-    margin-top: -23.5vw;
+    margin-top: 8vw;
     /*margin-left: -0.25vw;*/
 }
 
@@ -67,7 +67,41 @@
 .This-Player-Card-Position {
     position: relative;
     z-index: 2;
-    margin-top: -14vw;
+    margin-top: 16.5vw;
     margin-left: -15vw;
 }
 
+.Temporary-Render-One {
+    position: relative;
+    margin-top: 8.5vw;
+    margin-left: 2.5vw;
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-45deg);
+}
+
+.Temporary-Render-Two {
+    position: relative;
+    margin-top: 2.5vw;
+    margin-left: -0.25vw;
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-45deg);
+}
+
+.Temporary-Render-Three {
+    position: relative;
+    margin-top: 2.5vw;
+    margin-left: 1vw;
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-45deg);
+}
+
+.Temporary-Render-Four {
+    position: relative;
+    margin-top: 8vw;
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-45deg);
+}

@@ -16,4 +16,17 @@ router.post('/addcode', function(req, res, next) {
     })
 });
 
+router.post('/getcode', function(req, res, next) {
+    var joinCode = {code: req.body.code};
+
+    db.findCode(joinCode).then(function(code) {
+        if(!code) {
+            return res.status(400).json("code doesn't exist");
+        } else {
+            res.json({result: "join successful!"});
+            res.send(result);
+        }
+    })
+});
+
 module.exports = router;

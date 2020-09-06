@@ -12,13 +12,15 @@ import '../css/StartGame.css';
 import FooterButtons from '../components/FooterButtons.js';
 
 /* backend imports */
-import {socket} from "../pages/Home.js";
+import { socket } from "../App.js";
 
 class StartGame extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { apiResponse: "", code: "", sample: "abc" };
+        this.state = { apiResponse: [], code: "", sample: "abc" };
+        this.assignData = this.assignData.bind(this);
+        this.startgame = this.startgame.bind(this);
     }
 
     callAPI() {
@@ -28,17 +30,29 @@ class StartGame extends React.Component {
     }
 
     componentWillMount() {
-       // this.callAPI();
+        socket.emit("incoming_data", this.props.location.state.user);
+        socket.on("received_data", this.assignData);
+        // this.callAPI();
     }
 
     componentDidMount() {
-        const {codes} = this.props.location.state;
+        const { codes } = this.props.location.state;
         this.state.code = codes;
-        //socket.emit("incoming_data", this.props.location.state.user);
+    }
+
+    assignData = playerNames => {
+        this.setState({ apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]] });
+    }
+
+    startgame() {
+        socket.emit("starting_game");
+        this.props.history.push({
+            pathname: '/game'
+        });
     }
 
     render() {
-        
+
         return (
             <div className="Body">
                 <Container>
@@ -46,11 +60,11 @@ class StartGame extends React.Component {
                     <h1 className="Game-code">Your game code is {this.props.location.state.codes}.</h1>
                     <h2 className="Players-Title"> Players in your game:</h2>
                     <ol className="Players-list">
-                        <li>{this.props.location.state.user}</li>
-                        <li>Waiting</li>
-                        <li>Waiting</li>
-                        <li>Waiting</li>
-                        <li>Waiting</li>
+                        <li>{this.state.apiResponse[0]}</li>
+                        <li>{this.state.apiResponse[1]}</li>
+                        <li>{this.state.apiResponse[2]}</li>
+                        <li>{this.state.apiResponse[3]}</li>
+                        <li>{this.state.apiResponse[4]}</li>
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
 
@@ -60,6 +74,8 @@ class StartGame extends React.Component {
                         rightButtonTitle="Start Game!"
                         rightPath="/game"
                         className="Start-Game"
+                        history={this.props.history}
+                        startPage={true}
                     />
 
                 </Container>

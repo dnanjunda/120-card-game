@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 /* css imports */
 import '../css/JoinDashboard.css';
 
+export var joinCode;
+export var user;
+
 class JoinDashboard extends Component {
 
     constructor(props) {
@@ -18,6 +21,7 @@ class JoinDashboard extends Component {
         this.state = {
             clicked: false,
             joincode: '',
+            username: "abc"
         }
     }
 
@@ -25,9 +29,10 @@ class JoinDashboard extends Component {
         this.setState({ clicked: true });
     }
 
-    /*handleCancelClick = () => {
-        this.setState({ visible: false });
-    }*/
+    sendCode = () => {
+        console.log('Join Code:', this.state.joincode);
+        this.props.parentCallback(this.state.joincode);
+    }
 
     inputHandler = (e) => {
         if (e) {
@@ -45,17 +50,41 @@ class JoinDashboard extends Component {
 
     handleJoin() {
         if (this.state.joincode == '') {
-            this.setState({
-                valid: false,
-            })
+
         } else {
             console.log('Join Code:', this.state.joincode);
-            this.props.history.push({
-                pathname: '/joingame',
-                state: {
-                    joinedcode: this.state.joincode
-                }
-            });
+            const data = { code: this.state.joincode };
+
+            fetch("http://localhost:9000/codes/getcode", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    if (data == "code doesn't exist") {
+                        this.state.joincode = '';
+                        this.setState({ clicked: false });
+                    } else {
+                        joinCode = this.state.joincode;
+                        user = this.props.user;
+
+                        this.props.history.push(
+                            {
+                                pathname: '/joingame',
+                                state: {
+                                    codes: this.state.joincode,
+                                    user: this.state.username
+                                }
+                            });
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
     }
 
@@ -92,8 +121,8 @@ class JoinDashboard extends Component {
                 <form>
                     <input className="Join-Code-Box" type="text" placeholder="Enter game code" value={this.state.joincode} name="gamecode" onChange={this.inputHandler} />
                 </form>
-                <Link to="/joingame">
-                    <button onClick={this.handleClick} className="Join-Button-After">Join!</button>
+                <Link>
+                    <button onClick={this.handleJoin} className="Join-Button-After">Join!</button>
                 </Link>
             </div>
         );

@@ -76,7 +76,7 @@ class Game extends React.Component {
         if (!(this.state.biddingComplete)) {
             if (!(this.state.playerIsBidding)) {
                 //Only want this text if bidding is going on
-                textOnTable = <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="2vw" font-family="American Typewriter, serif" dy=".3em" z-index="5">Waiting for {this.state.currentBidder} to bid...</text>;
+                textOnTable = <text className = "Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
                 //need to figure out how to make this go away after (change playerIsBidding to false)
             }
     
@@ -85,7 +85,7 @@ class Game extends React.Component {
                     playerIsBidding={this.state.playerIsBidding}
                     minBidAvailable="70"
                     player="Anoushka"
-                />;
+                />
             }
         }
 
@@ -97,12 +97,12 @@ class Game extends React.Component {
                 playerTwoCard={"EIGHTH"}
                 playerThreeCard={"SIXH"}
                 playerFourCard={"TENH"}
-            />;
+            />
         }
 
         // table is empty
         else {
-            textOnTable = <div></div>;
+            textOnTable = <div></div>
         }
 
         return (
@@ -120,30 +120,42 @@ class Game extends React.Component {
                             <Seat playerName={this.state.players[4]} className={"Player-Five"} />
 
                             {/*Table*/}
-                            <div>
-                                <svg width="450" height="450" className="Table">
-                                    <circle
-                                        cx={'225'}
-                                        cy={'225'}
-                                        r={'225'}
-                                        fill={"#391f03"}
-                                    />
+                            <div className="Table">
+                                <div className="On-Table">
                                     {textOnTable}
-                                </svg>
-                                {textOnTable}
+                                </div>
                             </div>
-
                             <Row>
-                                <Card className="Card-Image-One" card={this.state.playerCardImages[0]} />
-                                <Card className="Card-Image-Two" card={this.state.playerCardImages[1]} />
-                                <Card className="Card-Image-Three" card={this.state.playerCardImages[2]} />
-                                <Card className="Card-Image-Four" card={this.state.playerCardImages[3]} />
-                                <Card className="Card-Image-Five" card={this.state.playerCardImages[4]} />
-                                <Card className="Card-Image-Six" card={this.state.playerCardImages[5]} />
-                                <Card className="Card-Image-Seven" card={this.state.playerCardImages[6]} />
-                                <Card className="Card-Image-Eight" card={this.state.playerCardImages[7]} />
-                                <Card className="Card-Image-Nine" card={this.state.playerCardImages[8]} />
-                                <Card className="Card-Image-Ten" card={this.state.playerCardImages[9]} />
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-One" card={this.state.playerCardImages[0]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Two" card={this.state.playerCardImages[1]} /> 
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Three" card={this.state.playerCardImages[2]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Four" card={this.state.playerCardImages[3]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Five" card={this.state.playerCardImages[4]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Six" card={this.state.playerCardImages[5]} /> 
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Seven" card={this.state.playerCardImages[6]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Eight" card={this.state.playerCardImages[7]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Nine" card={this.state.playerCardImages[8]} />
+                                </div>
+                                <div className="Cards-In-Hand">
+                                    <Card className="Card-Image-Ten" card={this.state.playerCardImages[9]} />
+                                </div>
                             </Row>
                         </Col>
                         <Col>

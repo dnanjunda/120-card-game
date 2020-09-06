@@ -38,154 +38,105 @@
 }
 
 .Card-Image-One {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -1vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
-.Card-Image-One:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
-}
-
 .Card-Image-Two {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Two:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Three {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Three:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Four {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Four:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Five {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Five:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Six {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Six:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Seven {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Seven:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Eight {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Eight:hover {
-    z-index: 2;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Nine {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Nine:hover {
-    z-index: 3;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Card-Image-Ten {
-    z-index: 2;
     margin-top: -2vw;
     margin-left: -5vw;
     width: 7.44vw;
     height: 11.16vw;
-}
-
-.Card-Image-Ten:hover {
-    z-index: 3;
-    width: 7.75vw;
-    height: 11.63vw;
 }
 
 .Table {
     position: relative;
     z-index: 1;
     margin-top: -10vw;
-    margin-left: -3.5vw;
-    
-    /* position: fixed;
-    left: 17.241379vw;
-    top: 13.888889vw; */
-    /*margin-left: -58.5em;
-    margin-top: 6em;*/
+    margin-left: -3.2vw;
+    width: 30vw;
+    height: 30vw;
+    background-color: #391f03;
+    border-radius: 80vw;
+}
+
+.On-Table {
+    z-index: 5;
+}
+
+.Table-Bidding-Text {
+    position: fixed;
+    margin-top: 12vw;
+    margin-left: 1vw;
+    color: white;
+    font-family: American Typewriter, serif;
+    font-size: 2vw;
+}
+
+.Cards-In-Hand {
+    z-index: 2;
+}
+
+.Cards-In-Hand:hover  {
+    z-index: 3;
+    width: 7.75vw;
+    height: 11.63vw;
 }
