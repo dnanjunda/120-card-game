@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db/dbmodels');
+var data = require('../logic/Data');
 
 router.post('/addcode', function(req, res, next) {
     var newCode = {code: req.body.code};
@@ -27,6 +28,14 @@ router.post('/getcode', function(req, res, next) {
             res.send(result);
         }
     })
+});
+
+router.post('/getplayers', function(req, res, next) {
+    var playerName = req.body.name;
+
+    var dataToSend = data.getRemainingPlayers(playerName);
+
+    res.send(dataToSend);
 });
 
 module.exports = router;

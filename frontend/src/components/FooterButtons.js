@@ -20,7 +20,10 @@ class FooterButtons extends Component {
     startgame() {
         socket.emit("starting_game");
         this.props.history.push({
-            pathname: '/game'
+            pathname: '/game',
+            state: {
+                name: this.props.user
+            }
         });
     }
 

@@ -34,6 +34,7 @@ server.on('listening', onListening);
 
 io.on("connection", socket => {
   console.log("New client connected " + socket.id);
+  dataHolder.addSocket(socket.id);
 
   //Here we listen on a new namespace called "incoming data"
   socket.on("incoming_data", data => {
@@ -52,7 +53,15 @@ io.on("connection", socket => {
 
   socket.on("starting_game", function () {
     io.sockets.emit("game_started");
+
+    var players = dataHolder.getPlayers();
+
+    io.sockets.emit("player_bidding", players[1]);
   });
+
+  socket.on("current_bidder", name => {
+    io.sockets.emit("update_bidder", name);
+  })
 
 
   //A special namespace "disconnect" for when a client disconnects

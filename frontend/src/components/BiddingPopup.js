@@ -51,7 +51,7 @@ class BiddingPopup extends Component {
 
         let bidding;
 
-        if (this.props.isBidding) {
+        if (this.state.isBidding) {
             bidding =
                 <div className="Bidding-Popup-Container">
                     <h2 className="Bidding-Question-Text">What is your bid?</h2>
