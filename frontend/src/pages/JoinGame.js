@@ -31,7 +31,10 @@ class JoinGame extends React.Component {
 
     startgame() {
         this.props.history.push({
-            pathname: '/game'
+            pathname: '/game',
+            state: {
+                name: user
+            }
             });
     }
 

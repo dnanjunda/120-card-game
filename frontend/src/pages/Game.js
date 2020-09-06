@@ -18,6 +18,9 @@ import CardsOnTable from '../components/CardsOnTable';
 /* constant imports */
 import CardImages from '../constants/Cards.js';
 
+/* backend imports */
+import { socket } from "../App.js";
+
 class Game extends React.Component {
 
     constructor(props) {
@@ -35,36 +38,77 @@ class Game extends React.Component {
             biddingComplete: false,
             currentBidder: "",
             gameOngoing: false,
+            playerName: ""
         };
     }
 
     callAPI() {
-        fetch("http://localhost:9000/testAPI/array")
+        const data = { name: this.props.location.state.name};
+        fetch("http://localhost:9000/testAPI/array", {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
             .then(res => res.json())
             .then(res => this.setState({ playerCardImages: res }));
     }
 
+    getNames() {
+        const data = { name: this.props.location.state.name};
+        fetch("http://localhost:9000/codes/getplayers", {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            //.then(res => console.log(res))
+            .then(res => this.setState({ players: res }))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
     componentDidMount() {
         this.setGame();
+        //socket.on("bidding_complete", this.setState({biddingComplete: true}));
+        socket.on("player_bidding", this.decideBidder);
+        socket.on("update_bidder", this.updateBidder);
 
     }
 
     componentWillMount() {
+        this.setState({ playerName: this.props.location.state.name});
         this.callAPI();
+        this.getNames();
+    }
+
+    decideBidder = player => {
+        if(this.props.location.state.name === player) {
+            this.setState({ playerIsBidding: true});
+            //this.setState({ currentBidder: this.props.location.state.name});
+            socket.emit("current_bidder", this.props.location.state.name);
+        } else {
+            this.setState({ playerIsBidding: false});
+        }
+    }
+
+    updateBidder = name => {
+        this.setState({currentBidder: name});
     }
 
     setGame() {
         this.setState({
-            players: ["Anoushka", "Ashley", "Dhanush", "Shreenithi", "Anshul"],
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
             cutting: "AS",
             partner: "TWOS",
-            playerIsBidding: false,
-            biddingComplete: true,
-            currentBidder: "Anoushka",
-            gameOngoing: true,
+            biddingComplete: false,
+            gameOngoing: false,
         })
     }
 
@@ -81,6 +125,7 @@ class Game extends React.Component {
             }
     
             else {
+                console.log("in else");
                 textOnTable = <BiddingPopup
                     playerIsBidding={this.state.playerIsBidding}
                     minBidAvailable="70"
@@ -114,10 +159,10 @@ class Game extends React.Component {
                     <Row>
                         <Col>
                             {/* Seats */}
-                            <Seat playerName={this.state.players[1]} className={"Player-Two"} />
-                            <Seat playerName={this.state.players[2]} className={"Player-Three"} />
-                            <Seat playerName={this.state.players[3]} className={"Player-Four"} />
-                            <Seat playerName={this.state.players[4]} className={"Player-Five"} />
+                            <Seat playerName={this.state.players[0]} className={"Player-Two"} />
+                            <Seat playerName={this.state.players[1]} className={"Player-Three"} />
+                            <Seat playerName={this.state.players[2]} className={"Player-Four"} />
+                            <Seat playerName={this.state.players[3]} className={"Player-Five"} />
 
                             {/*Table*/}
                             <div className="Table">

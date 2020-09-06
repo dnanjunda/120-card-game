@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Game = require('../logic/Main.js');
+var data = require('../logic/Data');
 
 router.get('/', function(req, res, next) {
     res.send('API is working properly');
@@ -10,11 +11,17 @@ router.get('/', function(req, res, next) {
     Game.dumb();
 });*/}
 
-router.get('/array', function(req, res, next) {
+router.post('/array', function(req, res, next) {
     // var objToSend = {
     //     array: Game.p1StartingCards,
     // }
-    res.send(Game.p1StartingCards);
+
+    var playerName = req.body.name;
+
+    var index = data.getIndex(playerName);
+
+    var cards = "p" + index.toString() + "StartingCards";
+    res.send(Game[cards]);
 });
 
 module.exports = router;

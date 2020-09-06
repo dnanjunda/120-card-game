@@ -45,9 +45,13 @@ class StartGame extends React.Component {
     }
 
     startgame() {
+
         socket.emit("starting_game");
         this.props.history.push({
-            pathname: '/game'
+            pathname: '/game',
+            state: {
+                names: this.state.apiResponse
+            }
         });
     }
 
@@ -75,6 +79,7 @@ class StartGame extends React.Component {
                         rightPath="/game"
                         className="Start-Game"
                         history={this.props.history}
+                        user={this.props.location.state.user}
                         startPage={true}
                     />
 

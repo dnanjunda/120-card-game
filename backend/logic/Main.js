@@ -913,4 +913,4 @@ game.setNextGame();
 
 game.setGameResults();
 console.log(p1StartingCards);
-module.exports = { p1StartingCards };
+module.exports = { p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards };

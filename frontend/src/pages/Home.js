@@ -23,8 +23,8 @@ class Home extends React.Component {
         }
     }
 
-    inputHandler=(e)=>{
-        if(e){
+    inputHandler = (e) => {
+        if (e) {
             this.setState({
                 username: e.target.value
             })
@@ -112,7 +112,7 @@ class Home extends React.Component {
                                     <button className="Start-Game" type="button" onClick={this.postData}> Start New Game! </button>
                                 </Col>
                                 <Col>
-                                    <JoinDashboard user={this.state.username} history={this.props.history}/>
+                                    <JoinDashboard user={this.state.username} history={this.props.history} />
                                 </Col>
                             </Row>
                         </Col>
