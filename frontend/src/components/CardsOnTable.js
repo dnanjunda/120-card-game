@@ -1,8 +1,5 @@
 /* react imports */
-import React, { Component, Button } from 'react';
-
-/* bootstrap imports */
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { Component } from 'react';
 
 /* css imports */
 import '../css/CardsOnTable.css';
@@ -25,21 +22,11 @@ class CardsOnTable extends Component {
 
         return (
             <div className="Card-Image-Align">
-                <div className="Player-One-Card-Position">
-                    {this.props.playerOneCard ? <img className="Player-One-Card" src={Cards[this.props.playerOneCard]}></img> : placeHolderCardOne}
-                </div>
-                <div className="Player-Two-Card-Position">
-                    {this.props.playerTwoCard ? <img className="Player-Two-Card" src={Cards[this.props.playerTwoCard]}></img> : placeHolderCardTwo}
-                </div>
-                <div className="Player-Three-Card-Position">
-                    {this.props.playerThreeCard ? <img className="Player-Three-Card" src={Cards[this.props.playerThreeCard]}></img> : placeHolderCardThree}
-                </div>
-                <div className="Player-Four-Card-Position">
-                    {this.props.playerFourCard ? <img className="Player-Four-Card" src={Cards[this.props.playerFourCard]}></img> : placeHolderCardFour}
-                </div>
-                <div className="This-Player-Card-Position">
-                    {this.props.thisPlayerCard ? <img className="This-Player-Card" src={Cards[this.props.thisPlayerCard]}></img> : null}
-                </div>
+                {this.props.tableCards.map((card, index) => 
+                    <div className={`Player-${index}-Card-Position`}>
+                        {card ? <img className={`Player-${index}-Card`} src={Cards[card]}></img> : null}
+                    </div>
+                )}
             </div>
         );
     }

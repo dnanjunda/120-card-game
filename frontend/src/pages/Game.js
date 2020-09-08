@@ -29,6 +29,7 @@ class Game extends React.Component {
             playerCardImages: [],
             playerCards: [],
             players: [],
+            tableCards: [null, null, null, null, null],
             leader: "",
             bid: "",
             dealer: "",
@@ -102,14 +103,25 @@ class Game extends React.Component {
 
     setGame() {
         this.setState({
+            // each index is which player played card
+            // null for that index if player has not played yet
+            // last card is this player's card
+            tableCards: ["AH", "QH", "EIGHTH", "SIXH", "TENH"],
             leader: "Anoushka",
             bid: "75",
             dealer: "Shreenithi",
             cutting: "AS",
             partner: "TWOS",
-            biddingComplete: false,
-            gameOngoing: false,
+            biddingComplete: true,
+            gameOngoing: true,
         })
+    }
+
+    handleCardPlay(index, value) {
+        // have it be the player's index here
+        this.state.tableCards[0] = value;
+        //this.state.playerCardImages.splice(index, 1);
+        //this.state.playerCardImages.remove(index);
     }
 
     render() {
@@ -137,11 +149,7 @@ class Game extends React.Component {
         // actual game is ongoing
         else if (this.state.gameOngoing) {
             textOnTable = <CardsOnTable
-                thisPlayerCard={"AH"}
-                playerOneCard={"QH"}
-                playerTwoCard={"EIGHTH"}
-                playerThreeCard={"SIXH"}
-                playerFourCard={"TENH"}
+                tableCards={this.state.tableCards}
             />
         }
 
@@ -171,35 +179,13 @@ class Game extends React.Component {
                                 </div>
                             </div>
                             <Row>
+                                {this.state.playerCardImages.map((value, index) => 
+                                    <div className="Cards-In-Hand">
+                                        <Card className={`Card-Image-${index}`} card={value}/>
+                                    </div>
+                                )}
                                 <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-One" card={this.state.playerCardImages[0]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Two" card={this.state.playerCardImages[1]} /> 
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Three" card={this.state.playerCardImages[2]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Four" card={this.state.playerCardImages[3]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Five" card={this.state.playerCardImages[4]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Six" card={this.state.playerCardImages[5]} /> 
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Seven" card={this.state.playerCardImages[6]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Eight" card={this.state.playerCardImages[7]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Nine" card={this.state.playerCardImages[8]} />
-                                </div>
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-Ten" card={this.state.playerCardImages[9]} />
+                                    <Card className="Card-Image-0" card={"TENS"} onClick="this.handleCardPlay(0, 'TENS')"/>
                                 </div>
                             </Row>
                         </Col>
@@ -218,11 +204,11 @@ class Game extends React.Component {
                             <Row>
                                 <Col>
                                     <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    <Card className="Current-Cutting-Images" card={this.state.cutting} />
+                                    <Card className="Current-Cutting-Images" card={this.state.cutting}/>
                                 </Col>
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
-                                    <Card className="Current-Partner-Images" card={this.state.partner} />
+                                    <Card className="Current-Partner-Images" card={this.state.partner}/>
                                 </Col>
                             </Row>
                             <Row>
