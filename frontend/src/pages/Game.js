@@ -118,10 +118,23 @@ class Game extends React.Component {
     }
 
     handleCardPlay(index, value) {
+        // add card to table
+        let tableCardsCopy = [...this.state.tableCards];
         // have it be the player's index here
-        this.state.tableCards[0] = value;
-        //this.state.playerCardImages.splice(index, 1);
-        //this.state.playerCardImages.remove(index);
+        let cardToChange = {...tableCardsCopy[0]};
+        cardToChange = value;
+        tableCardsCopy[0] = cardToChange;
+
+        // remove card from player hand
+        let playerCardImagesCopy = [...this.state.playerCardImages];
+        let cardToRemove = {...playerCardImagesCopy[index]};
+        cardToRemove = null;
+        playerCardImagesCopy[index] = cardToRemove;
+
+        this.setState({
+            tableCards: tableCardsCopy,
+            playerCardImages: playerCardImagesCopy,
+        });
     }
 
     render() {
@@ -181,12 +194,11 @@ class Game extends React.Component {
                             <Row>
                                 {this.state.playerCardImages.map((value, index) => 
                                     <div className="Cards-In-Hand">
-                                        <Card className={`Card-Image-${index}`} card={value}/>
+                                        <button onClick={() => this.handleCardPlay(index, value)}>
+                                            <Card className={`Card-Image-${index}`} card={value} onClick={() => this.handleCardPlay(index, value)}/>
+                                        </button>
                                     </div>
                                 )}
-                                <div className="Cards-In-Hand">
-                                    <Card className="Card-Image-0" card={"TENS"} onClick="this.handleCardPlay(0, 'TENS')"/>
-                                </div>
                             </Row>
                         </Col>
                         <Col>
@@ -225,6 +237,13 @@ class Game extends React.Component {
             </div >
         );
     }
+
+    /*document.getElementById("Test-Image").onClick = handleCardPlay(index, value) {
+        // have it be the player's index here
+        this.state.tableCards[0] = value;
+        //this.state.playerCardImages.splice(index, 1);
+        //this.state.playerCardImages.remove(index);
+    };*/
 }
 
 export default Game;
