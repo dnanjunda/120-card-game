@@ -45,24 +45,11 @@ class Results extends React.Component {
             <div className="Body">
                 <h1 className="Winner-Text">{this.state.winningTeam} Team won with {this.state.winningTotal} points!</h1>
                 <div className="Rows">
-                    <Col className="Title">
-                        <h2>Player</h2>
-                    </Col>
-                    <Col className="Title">
-                        <h2>Cards</h2>
-                    </Col>
-                    <Col className="Title">
-                        <h2>Points</h2>
-                    </Col>
-                    <Col className="Title">
-                        <h2>Total Points</h2>
-                    </Col>
-                    <Col className="Title">
-                        <h2>Games Won</h2>
-                    </Col>
-                    <Col className="Title">
-                        <h2>Rank</h2>
-                    </Col>
+                    {['Player', 'Cards', 'Points', 'TotalPoints', 'Games Won', 'Rank'].map((title) =>
+                        <Col className="Title">
+                            <h2>{title}</h2>
+                        </Col>
+                    )}
                 </div>
 
                 <div className="Rows">
