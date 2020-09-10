@@ -35,6 +35,7 @@ class BiddingPopup extends Component {
             isBidding: false,
         });
 
+        this.props.onResponse(this.state.bid);
         alert(this.props.player + ' bid ' + this.state.bid + '!');
     }
 
@@ -44,6 +45,7 @@ class BiddingPopup extends Component {
             isBidding: false,
         });
 
+        this.props.onResponse(this.state.bid);
         alert(this.props.player + ' passed!');
     }
 

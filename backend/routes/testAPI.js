@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Game = require('../logic/Main.js');
+var Game = require('../logic/RunGame');
 var data = require('../logic/Data');
 
 router.get('/', function(req, res, next) {

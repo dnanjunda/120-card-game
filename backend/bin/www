@@ -10,6 +10,8 @@ var http = require('http');
 var socketIO = require('socket.io');
 var dataHolder = require('../logic/Data');
 
+var currentGame = require('../logic/RunGame');
+
 /**
  * Get port from environment and store in Express.
  */
@@ -41,6 +43,7 @@ io.on("connection", socket => {
     //Here we broadcast it out to all other sockets EXCLUDING the socket which sent us the data
     console.log(data + " joined");
     dataHolder.addPlayer(data);
+    currentGame.addPlayer(data);
     console.log(dataHolder.getPlayers());
     var players = dataHolder.getPlayers();
     const dataToSend = {
@@ -56,11 +59,30 @@ io.on("connection", socket => {
 
     var players = dataHolder.getPlayers();
 
-    io.sockets.emit("player_bidding", players[1]);
+    currentGame.startgame();
+
+    io.sockets.emit("player_bidding", players[0]);
   });
 
   socket.on("current_bidder", name => {
     io.sockets.emit("update_bidder", name);
+  })
+
+  socket.on("player_bid", bid => {
+    //do bidding logic
+    var players = dataHolder.getPlayers();
+
+    var bidToSend = currentGame.submitBid(bid);
+
+    io.sockets.emit("new_bid", bidToSend);
+
+    if(currentGame.checkBiddingComplete()) {
+      io.sockets.emit("bidding_complete");
+    } else {
+      var bidPlayer = currentGame.getNextBidder();
+      io.sockets.emit("player_bidding", players[bidPlayer]);
+    }
+
   })
 
 
