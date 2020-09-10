@@ -39,70 +39,70 @@
 
 .Card-Image-0 {
     margin-top: -2vw;
-    margin-left: -1vw;
+    margin-left: -2.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-1 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-2 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-3 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-4 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-5 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-6 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-7 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-8 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
 
 .Card-Image-9 {
     margin-top: -2vw;
-    margin-left: -5vw;
+    margin-left: -5.5vw;
     width: 7.44vw;
     height: 11.16vw;
 }
@@ -139,4 +139,9 @@
     z-index: 3;
     width: 7.75vw;
     height: 11.63vw;
+}
+
+.Card-Button {
+    background: none;
+    border: none;
 }
