@@ -74,9 +74,10 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
-        //socket.on("bidding_complete", this.setState({biddingComplete: true}));
+        socket.on("bidding_complete", this.finishBidding);
         socket.on("player_bidding", this.decideBidder);
         socket.on("update_bidder", this.updateBidder);
+        socket.on("new_bid", this.updateBid);
 
     }
 
@@ -96,15 +97,28 @@ class Game extends React.Component {
         }
     }
 
+    updateBid = newBid => {
+        this.setState({ bid : newBid});
+    }
+
     updateBidder = name => {
         this.setState({currentBidder: name});
     }
 
+    finishBidding = () => {
+        this.setState({ biddingComplete: true});
+        this.setState({ gameOngoing: true});
+    }
+
+    handleBidResponse = bid => {
+        socket.emit("player_bid", bid);
+    }
+
     setGame() {
         this.setState({
-            leader: "Anoushka",
-            bid: "75",
-            dealer: "Shreenithi",
+            leader: "Waiting",
+            bid: "70",
+            dealer: "Waiting",
             cutting: "AS",
             partner: "TWOS",
             biddingComplete: false,
@@ -128,8 +142,9 @@ class Game extends React.Component {
                 console.log("in else");
                 textOnTable = <BiddingPopup
                     playerIsBidding={this.state.playerIsBidding}
-                    minBidAvailable="70"
-                    player="Anoushka"
+                    minBidAvailable={this.state.bid}
+                    player={this.state.playerName}
+                    onResponse={this.handleBidResponse}
                 />
             }
         }
