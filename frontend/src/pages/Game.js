@@ -194,7 +194,7 @@ class Game extends React.Component {
                             <Row>
                                 {this.state.playerCardImages.map((value, index) => 
                                     <div className="Cards-In-Hand">
-                                        <button onClick={() => this.handleCardPlay(index, value)}>
+                                        <button /*onClick={() => this.handleCardPlay(index, value)}*/>
                                             <Card className={`Card-Image-${index}`} card={value} onClick={() => this.handleCardPlay(index, value)}/>
                                         </button>
                                     </div>

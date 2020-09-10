@@ -15,16 +15,19 @@ class CardsOnTable extends Component {
 
     render() {
 
-        let placeHolderCardOne = <div className="Temporary-Render-One">TEMP RENDER ONE</div>
-        let placeHolderCardTwo = <div className="Temporary-Render-Two">TEMP RENDER TWO</div>
-        let placeHolderCardThree = <div className="Temporary-Render-Three">TEMP RENDER THREE</div>
-        let placeHolderCardFour = <div className="Temporary-Render-Four">TEMP RENDER FOUR</div>
+        const tempRender0 = <div className="Temporary-Render-0"></div>
+        const tempRender1 = <div className="Temporary-Render-1"></div>
+        const tempRender2 = <div className="Temporary-Render-2"></div>
+        const tempRender3 = <div className="Temporary-Render-3"></div>
+        const tempRender4 = <div className="Temporary-Render-4"></div>
+
+        let temporaryRender = [tempRender0, tempRender1, tempRender2, tempRender3, tempRender4];
 
         return (
             <div className="Card-Image-Align">
                 {this.props.tableCards.map((card, index) => 
                     <div className={`Player-${index}-Card-Position`}>
-                        {card ? <img className={`Player-${index}-Card`} src={Cards[card]}></img> : null}
+                        {card ? <img className={`Player-${index}-Card`} src={Cards[card]}></img> : temporaryRender[index]}
                     </div>
                 )}
             </div>
