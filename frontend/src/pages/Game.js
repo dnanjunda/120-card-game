@@ -39,12 +39,13 @@ class Game extends React.Component {
             biddingComplete: false,
             currentBidder: "",
             gameOngoing: false,
-            playerName: ""
+            playerTurn: false,
+            playerName: "",
         };
     }
 
     callAPI() {
-        const data = { name: this.props.location.state.name};
+        const data = { name: this.props.location.state.name };
         fetch("http://localhost:9000/testAPI/array", {
             method: 'POST', // or 'PUT'
             headers: {
@@ -57,7 +58,7 @@ class Game extends React.Component {
     }
 
     getNames() {
-        const data = { name: this.props.location.state.name};
+        const data = { name: this.props.location.state.name };
         fetch("http://localhost:9000/codes/getplayers", {
             method: 'POST', // or 'PUT'
             headers: {
@@ -82,23 +83,23 @@ class Game extends React.Component {
     }
 
     componentWillMount() {
-        this.setState({ playerName: this.props.location.state.name});
+        this.setState({ playerName: this.props.location.state.name });
         this.callAPI();
         this.getNames();
     }
 
     decideBidder = player => {
-        if(this.props.location.state.name === player) {
-            this.setState({ playerIsBidding: true});
+        if (this.props.location.state.name === player) {
+            this.setState({ playerIsBidding: true });
             //this.setState({ currentBidder: this.props.location.state.name});
             socket.emit("current_bidder", this.props.location.state.name);
         } else {
-            this.setState({ playerIsBidding: false});
+            this.setState({ playerIsBidding: false });
         }
     }
 
     updateBidder = name => {
-        this.setState({currentBidder: name});
+        this.setState({ currentBidder: name });
     }
 
     setGame() {
@@ -114,27 +115,29 @@ class Game extends React.Component {
             partner: "TWOS",
             biddingComplete: true,
             gameOngoing: true,
+            playerTurn: true,
         })
     }
 
     handleCardPlay(index, value) {
-        // add card to table
-        let tableCardsCopy = [...this.state.tableCards];
-        // have it be the player's index here
-        let cardToChange = {...tableCardsCopy[0]};
-        cardToChange = value;
-        tableCardsCopy[0] = cardToChange;
+        if (this.state.playerTurn) {
+            // add card to table
+            let tableCardsCopy = [...this.state.tableCards];
+            // have it be the player's index here
+            let cardToChange = { ...tableCardsCopy[0] };
+            cardToChange = value;
+            tableCardsCopy[0] = cardToChange;
 
-        // remove card from player hand
-        let playerCardImagesCopy = [...this.state.playerCardImages];
-        let cardToRemove = {...playerCardImagesCopy[index]};
-        cardToRemove = null;
-        playerCardImagesCopy[index] = cardToRemove;
+            // remove card from player hand
+            let playerCardImagesCopy = [...this.state.playerCardImages];
+            playerCardImagesCopy.splice(index, 1);
 
-        this.setState({
-            tableCards: tableCardsCopy,
-            playerCardImages: playerCardImagesCopy,
-        });
+            this.setState({
+                tableCards: tableCardsCopy,
+                playerCardImages: playerCardImagesCopy,
+                playerTurn: false,
+            });
+        }
     }
 
     render() {
@@ -145,10 +148,10 @@ class Game extends React.Component {
         if (!(this.state.biddingComplete)) {
             if (!(this.state.playerIsBidding)) {
                 //Only want this text if bidding is going on
-                textOnTable = <text className = "Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
+                textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
                 //need to figure out how to make this go away after (change playerIsBidding to false)
             }
-    
+
             else {
                 console.log("in else");
                 textOnTable = <BiddingPopup
@@ -192,10 +195,10 @@ class Game extends React.Component {
                                 </div>
                             </div>
                             <Row>
-                                {this.state.playerCardImages.map((value, index) => 
+                                {this.state.playerCardImages.map((value, index) =>
                                     <div className="Cards-In-Hand">
-                                        <button onClick={() => this.handleCardPlay(index, value)}>
-                                            <Card className={`Card-Image-${index}`} card={value} onClick={() => this.handleCardPlay(index, value)}/>
+                                        <button className="Card-Button" onClick={() => this.handleCardPlay(index, value)}>
+                                            <Card className={`Card-Image-${index}`} card={value} onClick={() => this.handleCardPlay(index, value)} />
                                         </button>
                                     </div>
                                 )}
@@ -216,11 +219,11 @@ class Game extends React.Component {
                             <Row>
                                 <Col>
                                     <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    <Card className="Current-Cutting-Images" card={this.state.cutting}/>
+                                    <Card className="Current-Cutting-Images" card={this.state.cutting} />
                                 </Col>
                                 <Col>
                                     <h1 className="Current-Partner">Partner Card</h1>
-                                    <Card className="Current-Partner-Images" card={this.state.partner}/>
+                                    <Card className="Current-Partner-Images" card={this.state.partner} />
                                 </Col>
                             </Row>
                             <Row>

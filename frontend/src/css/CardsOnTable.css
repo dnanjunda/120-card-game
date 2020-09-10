@@ -71,37 +71,35 @@
     /*margin-left: -0.25vw;*/
 }
 
-.Temporary-Render-One {
-    position: relative;
-    margin-top: 8.5vw;
-    margin-left: 2.5vw;
+.Temporary-Render-0 {
     width: 6vw;
     height: 10vw;
-    transform: rotate(-45deg);
 }
 
-.Temporary-Render-Two {
-    position: relative;
-    margin-top: 2.5vw;
-    margin-left: -0.25vw;
+.Temporary-Render-1 {
     width: 6vw;
     height: 10vw;
     transform: rotate(-45deg);
+    float: left;
 }
 
-.Temporary-Render-Three {
-    position: relative;
-    margin-top: 2.5vw;
-    margin-left: 1vw;
+.Temporary-Render-2 {
     width: 6vw;
     height: 10vw;
     transform: rotate(-45deg);
+    float: left;
 }
 
-.Temporary-Render-Four {
-    position: relative;
-    margin-top: 8vw;
+.Temporary-Render-3 {
     width: 6vw;
     height: 10vw;
     transform: rotate(-45deg);
+    float: left;
+}
+
+.Temporary-Render-4 {
+    width: 6vw;
+    height: 10vw;
+    transform: rotate(-45deg);
+    float: left;
 }
