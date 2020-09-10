@@ -547,7 +547,7 @@ class Game {
             this.setupLeader();
         }
 
-        return this.leadingBid;
+        return [this.leadingBid, this.players[this.leader]];
     }
 
     setupLeader() {

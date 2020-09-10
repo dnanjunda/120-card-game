@@ -3,72 +3,72 @@
     justify-content: flex;
 }
 
-.Player-One-Card {
+.Player-0-Card {
+    width: 6vw;
+    height: 10vw;
+}
+
+.Player-0-Card-Position {
+    position: relative;
+    z-index: 2;
+    margin-top: 16.5vw;
+    margin-left: 12vw;
+}
+
+.Player-1-Card {
     width: 6vw;
     height: 10vw;
     transform: rotate(-45deg);
     float: left;
 }
 
-.Player-One-Card-Position {
+.Player-1-Card-Position {
     position: relative;
     z-index: 2;
     margin-top: 8.5vw;
-    margin-left: 2.5vw;
+    margin-left: -15.5vw;
 }
 
-.Player-Two-Card {
+.Player-2-Card {
     width: 6vw;
     height: 10vw;
     transform: rotate(-25deg);
     float: left;
 }
 
-.Player-Two-Card-Position {
+.Player-2-Card-Position {
     position: relative;
     z-index: 2;
     margin-top: 2.5vw;
     margin-left: -0.25vw;
 }
 
-.Player-Three-Card {
+.Player-3-Card {
     width: 6vw;
     height: 10vw;
     transform: rotate(25deg);
     float: left;
 }
 
-.Player-Three-Card-Position {
+.Player-3-Card-Position {
     position: relative;
     z-index: 2;
     margin-top: 2.5vw;
     margin-left: 1vw;
 }
 
-.Player-Four-Card {
+.Player-4-Card {
     width: 6vw;
     height: 10vw;
     transform: rotate(45deg);
     float: left;
 }
 
-.Player-Four-Card-Position {
+.Player-4-Card-Position {
     position: relative;
     z-index: 2;
     margin-top: 8vw;
     /*margin-left: -0.25vw;*/
-}
-
-.This-Player-Card {
-    width: 6vw;
-    height: 10vw;
-}
-
-.This-Player-Card-Position {
-    position: relative;
-    z-index: 2;
-    margin-top: 16.5vw;
-    margin-left: -15vw;
 }
 
 .Temporary-Render-One {
