@@ -259,13 +259,6 @@ class Game extends React.Component {
             </div >
         );
     }
-
-    /*document.getElementById("Test-Image").onClick = handleCardPlay(index, value) {
-        // have it be the player's index here
-        this.state.tableCards[0] = value;
-        //this.state.playerCardImages.splice(index, 1);
-        //this.state.playerCardImages.remove(index);
-    };*/
 }
 
 export default Game;
