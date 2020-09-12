@@ -30,10 +30,14 @@ function getSocketIDs() {
 function getRemainingPlayers(player) {
     var RemainingPlayers = [];
 
-    for(let i = 0; i < players.length; i++) {
-        if(players[i] != player) {
-            RemainingPlayers.push(players[i]);
-        }
+    var playerIndex = getIndex(player);
+
+    for(let i = playerIndex+1; i < players.length; i++) {
+        RemainingPlayers.push(players[i]);
+    }
+
+    for(let j = 0; j < playerIndex; j++) {
+        RemainingPlayers.push(players[j]);
     }
 
     return RemainingPlayers;
@@ -42,7 +46,7 @@ function getRemainingPlayers(player) {
 function getIndex(player) {
     for(let i = 0; i < players.length; i++) {
         if(players[i] === player) {
-            return i+1;
+            return i;
         }
     }
 }

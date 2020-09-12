@@ -37,6 +37,18 @@ function getNextBidder() {
 }
 
 function startgame() {
+    if(players[1] == null) {
+        players[1] = new Player("waiting");
+    }
+    if(players[2] == null) {
+        players[2] = new Player("waiting");
+    }
+    if(players[3] == null) {
+        players[3] = new Player("waiting");
+    }
+    if(players[4] == null) {
+        players[4] = new Player("waiting");
+    }
     game.startGame(players[0], players[1], players[2], players[3], players[4]);
 
     p1StartingCards.push(game.players[0].playerStack[0].index);

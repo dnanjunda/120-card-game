@@ -36,7 +36,7 @@ class BiddingPopup extends Component {
         });
 
         this.props.onResponse(this.state.bid);
-        alert(this.props.player + ' bid ' + this.state.bid + '!');
+        //alert(this.props.player + ' bid ' + this.state.bid + '!');
     }
 
     handlePass = () => {
@@ -46,7 +46,7 @@ class BiddingPopup extends Component {
         });
 
         this.props.onResponse(this.state.bid);
-        alert(this.props.player + ' passed!');
+        //alert(this.props.player + ' passed!');
     }
 
     render() {

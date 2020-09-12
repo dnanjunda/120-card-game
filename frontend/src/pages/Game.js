@@ -103,7 +103,9 @@ class Game extends React.Component {
     updateBid = newBid => {
         this.setState({ bid : newBid[0]});
         this.setState({ leader : newBid[1]});
-        //this.setState({minBid : newBid[0]+5});
+        var min = parseInt(this.state.bid);
+        min = min + 5;
+        this.setState({minBid : min.toString()});
     }
 
     updateBidder = name => {
@@ -171,10 +173,9 @@ class Game extends React.Component {
             }
 
             else {
-                console.log("in else");
                 textOnTable = <BiddingPopup
                     playerIsBidding={this.state.playerIsBidding}
-                    minBidAvailable={this.state.bid}
+                    minBidAvailable={this.state.minBid}
                     player={this.state.playerName}
                     onResponse={this.handleBidResponse}
                 />
