@@ -22,6 +22,8 @@ class BiddingPopup extends Component {
     }
 
     handleChange = (event) => {
+        event.preventDefault();
+        
         this.setState({
             bid: event.target.value,
         });
@@ -60,7 +62,7 @@ class BiddingPopup extends Component {
                     <div className="Bidding-Options">
                         <button className="Bidding-Pass-Button" onClick={() => this.handlePass()}>Pass</button>
                         <form>
-                            <input className="Bidding-Input-Bid" type='number' placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
+                            <input className="Bidding-Input-Bid" type='number' onKeyDown='return false' placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
                             <button className="Bidding-Submit-Button" onClick={(event) => this.handleSubmit(event)}>Submit</button>
                         </form>
                     </div>

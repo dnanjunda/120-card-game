@@ -1,9 +1,7 @@
-/* DELETE FILE */
-
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import '../css/JoinGame.css';
+import '../css/StartGame.css';
 import {joinCode, user} from '../components/JoinDashboard';
 import {socket} from "../App.js";
 
@@ -47,8 +45,8 @@ class JoinGame extends React.Component {
         return (
             <div className="Body" location={this.props.location}>
                 <Container>
-                    <h1 className="Game-Title">Joined game {joinCode} </h1>
-                    <h2 className="Players"> Players in this game:</h2>
+                    <h1 className="Game-Title">Joined game {joinCode}</h1>
+                    <h2 className="Players-Title"> Players in this game:</h2>
                     <ol className="Players-List">
                         <li>{this.state.apiResponse[0]}</li>
                         <li>{this.state.apiResponse[1]}</li>
@@ -56,7 +54,7 @@ class JoinGame extends React.Component {
                         <li>{this.state.apiResponse[3]}</li>
                         <li>{this.state.apiResponse[4]}</li>
                     </ol>
-                    <h2 className="Waiting">Waiting for five players to join...</h2>
+                    <h2 className="Waiting-Text">Waiting for five players to join...</h2>
                 </Container>
                 <br />
                 <br />
