@@ -30,11 +30,15 @@
     margin-top: 3em;
 }
 
+.Join-Game-Button {
+    margin-left: 66vw;
+    margin-top: 14.5vw;
+}
+
 .Game-Button {
     margin-left: 28vw;
     margin-top: 25vw;
 }
-
 
 .Results-Left-Button {
     margin-left: 28em;

@@ -29,7 +29,7 @@ class FooterButtons extends Component {
 
     render() {
 
-        /* Game Page */
+        /* Game Page, Join Game Page */
         if (this.props.buttonsCount === "1") return (
             <div className="Horizontal-Buttons">
                 <Link to={this.props.buttonPath}>

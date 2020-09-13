@@ -1,9 +1,14 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
+
+import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+
 import '../css/StartGame.css';
-import {joinCode, user} from '../components/JoinDashboard';
-import {socket} from "../App.js";
+
+import { joinCode, user } from '../components/JoinDashboard.js';
+import FooterButtons from '../components/FooterButtons.js';
+
+import { socket } from "../App.js";
 
 class JoinGame extends React.Component {
     constructor(props) {
@@ -19,11 +24,11 @@ class JoinGame extends React.Component {
 
     componentWillMount() {
         socket.emit("incoming_data", user);
-       // this.callAPI();
+        // this.callAPI();
     }
 
     componentDidMount() {
-        socket.on("received_data", this.assignData); 
+        socket.on("received_data", this.assignData);
         socket.on("game_started", this.startgame);
     }
 
@@ -33,11 +38,11 @@ class JoinGame extends React.Component {
             state: {
                 name: user
             }
-            });
+        });
     }
 
     assignData = playerNames => {
-        this.setState({apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
+        this.setState({ apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]] });
     }
 
     render() {
@@ -55,9 +60,13 @@ class JoinGame extends React.Component {
                         <li>{this.state.apiResponse[4]}</li>
                     </ol>
                     <h2 className="Waiting-Text">Waiting for five players to join...</h2>
+                    <FooterButtons
+                        buttonsCount="1"
+                        buttonTitle="Return to Home"
+                        buttonPath="/home"
+                        className="Join-Game"
+                    />
                 </Container>
-                <br />
-                <br />
             </div>
         );
     }
