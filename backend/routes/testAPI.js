@@ -18,7 +18,7 @@ router.post('/array', function(req, res, next) {
 
     var playerName = req.body.name;
 
-    var index = data.getIndex(playerName);
+    var index = data.getIndex(playerName) + 1;
 
     var cards = "p" + index.toString() + "StartingCards";
     res.send(Game[cards]);
