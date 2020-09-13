@@ -1,8 +1,5 @@
 /* react imports */
-import React, { Component, Button } from 'react';
-
-/* bootstrap imports */
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { Component } from 'react';
 
 /* css imports */
 import '../css/BiddingPopup.css';
