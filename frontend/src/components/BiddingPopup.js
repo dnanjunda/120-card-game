@@ -21,24 +21,34 @@ class BiddingPopup extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount = () => {
+        const biddingPopup = document.getElementById("Bidding-Popup");
+        biddingPopup.addEventListener("keypress", (event) => {
+            event.preventDefault();
+        });
+    }
+
+    handleBackspace = (event) => {
+        let backspace = 8;
+        if (event.keyCode === backspace) {
+            event.preventDefault();
+        }
+    }
+
     handleChange = (event) => {
-        event.preventDefault();
-        
         this.setState({
             bid: event.target.value,
         });
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-
         this.setState({
             bid: event.target.value,
             isBidding: false,
         });
 
         this.props.onResponse(this.state.bid);
-        //alert(this.props.player + ' bid ' + this.state.bid + '!');
+        alert(this.props.player + ' bid ' + this.state.bid + '!');
     }
 
     handlePass = () => {
@@ -48,7 +58,7 @@ class BiddingPopup extends Component {
         });
 
         this.props.onResponse(this.state.bid);
-        //alert(this.props.player + ' passed!');
+        alert(this.props.player + ' passed!');
     }
 
     render() {
@@ -62,7 +72,7 @@ class BiddingPopup extends Component {
                     <div className="Bidding-Options">
                         <button className="Bidding-Pass-Button" onClick={() => this.handlePass()}>Pass</button>
                         <form>
-                            <input className="Bidding-Input-Bid" type='number' onKeyDown='return false' placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
+                            <input id="Bidding-Popup" className="Bidding-Input-Bid" type='number' onKeyDown={(event) => this.handleBackspace(event)} placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
                             <button className="Bidding-Submit-Button" onClick={(event) => this.handleSubmit(event)}>Submit</button>
                         </form>
                     </div>
@@ -79,7 +89,6 @@ class BiddingPopup extends Component {
             </div>
         );
     }
-
 }
 
 export default BiddingPopup;
