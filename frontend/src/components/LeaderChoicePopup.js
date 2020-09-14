@@ -4,41 +4,38 @@ import React, { Component } from 'react';
 /* css imports */
 import '../css/LeaderChoicePopup.css';
 
+/* constant imports */
+import ImagestoCards from '../constants/ImagesToCards.js';
+
 class LeaderChoicePopup extends Component {
     constructor(props) {
         super(props);
     }
 
     handleSubmit = (event) => {
-        /*this.setState({
-            bid: event.target.value,
-            isBidding: false,
-        });
-
-        this.props.onResponse(this.state.bid);
-        alert(this.props.player + ' bid ' + this.state.bid + '!');*/
+        
     }
 
     render() {
         return (
             <div className="Leader-Choice-Popop-Container">
-                <div className="Leader-Choice-Options">
-                    <h2 className="Leader-Choice-Question-Text">Choose your cutting suit:</h2>
+                <div>
+                    <h2 className="Leader-Choice-Question-Text Leader-Choice-Cutting-Text">Choose your cutting suit:</h2>
                     <form>
-                        <select className="Cutting-Suit-Input">
-                            <option selected value="spades">Spades</option>
-                            <option value="diamonds">Diamonds</option>
-                            <option value="clubs">Clubs</option>
-                            <option value="hearts">Hearts</option>
+                        <select className="Cutting-Suit-Input Leader-Choice-Input">
+                            <option className="Leader-Choice-Selection" selected value="spades">Spades</option>
+                            <option className="Leader-Choice-Selection" value="diamonds">Diamonds</option>
+                            <option className="Leader-Choice-Selection" value="clubs">Clubs</option>
+                            <option className="Leader-Choice-Selection" value="hearts">Hearts</option>
                         </select>
                     </form>
                 </div>
-                <div className="Leader-Choice-Options">
+                <div>
                     <h2 className="Leader-Choice-Question-Text">Choose your partner card:</h2>
-                    <form className="Partner-Card-Input">
-                        <select>
+                    <form>
+                        <select className="Partner-Card-Input Leader-Choice-Input">
                             {this.props.otherPlayerCards.map((val) =>
-                                <option value={val}>{val}</option>
+                                <option className="Leader-Choice-Selection" value={val}>{ImagestoCards[val]}</option>
                             )}
                         </select>
                     </form>

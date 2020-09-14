@@ -1,4 +1,4 @@
-const CardImages = Object.freeze({
+const CardsToImages = Object.freeze({
 
     // SPADES
     AS: require('../cards/AS.png'),
@@ -59,4 +59,4 @@ const CardImages = Object.freeze({
     TWOH: require('../cards/2H.png'),
 });
 
-export default CardImages;
+export default CardsToImages;

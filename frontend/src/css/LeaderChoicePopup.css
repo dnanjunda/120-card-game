@@ -1,43 +1,44 @@
-.Leader-Choice-Popup-Container {
-    /*margin-top: 12vw;
-    margin-left: 6.25vw;
-    position: fixed;*/
+.Leader-Choice-Popop-Container {
+    margin-top: 9vw;
+    margin-left: 5.5vw;
+    position: fixed;
 }
 
 .Leader-Choice-Question-Text {
     color: white;
     font-family: American Typewriter, serif;
-    font-size: 2vw;
+    font-size: 1.5vw;
 }
 
-.Leader-Choice-Options {
-    /*margin-left: 2em;*/
-    display: flex;
-    justify-content: flex;
+.Leader-Choice-Cutting-Text {
+    margin-left: 0.4vw;
 }
 
-.Cutting-Suit-Input {
-    margin-top: 0.25em;
-    margin-left: 0.5em;
-    width: 8vw;
+.Leader-Choice-Input {
     height: 2vw;
     background-color: #5e715b;
     color: white;
     font-family: American Typewriter, serif;
 }
 
+.Cutting-Suit-Input {
+    margin-left: 5.5vw;
+    margin-bottom: 1vw;
+    width: 7vw;
+}
+
 .Partner-Card-Input {
-    margin-top: 0.25em;
-    margin-left: 0.5em;
-    width: 8vw;
-    height: 2vw;
-    background-color: #5e715b;
-    color: white;
+    margin-left: 3.25vw;
+    width: 12vw;
+}
+
+.Leader-Choice-Selection {
     font-family: American Typewriter, serif;
 }
 
 .Leader-Choice-Submit-Button {
-    margin-left: 10em;
+    margin-top: 1vw;
+    margin-left: 6.75vw;
     border-radius: 1vw;
     border: 0.4vw solid black;
     background-color: black;

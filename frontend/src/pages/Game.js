@@ -17,7 +17,7 @@ import LeaderChoicePopup from '../components/LeaderChoicePopup.js';
 import CardsOnTable from '../components/CardsOnTable';
 
 /* constant imports */
-import CardImages from '../constants/Cards.js';
+import CardImages from '../constants/CardsToImages.js';
 
 /* backend imports */
 import { socket } from "../App.js";
@@ -87,7 +87,7 @@ class Game extends React.Component {
             body: JSON.stringify(data),
         })
             .then(response => response.json())
-            .then(res => console.log(res))
+            //.then(res => console.log(res))
             .then(res => this.setState({ otherPlayerCards: res }))
             .catch((error) => {
                 console.error('Error:', error);
@@ -195,7 +195,6 @@ class Game extends React.Component {
             else if (!(this.state.playerIsBidding)) {
                 //Only want this text if bidding is going on
                 textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
-                //need to figure out how to make this go away after (change playerIsBidding to false)
             }
 
             else {

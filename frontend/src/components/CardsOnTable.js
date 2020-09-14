@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import '../css/CardsOnTable.css';
 
 /* constant imports */
-import Cards from '../constants/Cards.js';
+import CardsToImages from '../constants/CardsToImages.js';
 
 class CardsOnTable extends Component {
 
@@ -27,7 +27,7 @@ class CardsOnTable extends Component {
             <div className="Card-Image-Align">
                 {this.props.tableCards.map((card, index) => 
                     <div className={`Player-${index}-Card-Position`}>
-                        {card ? <img className={`Player-${index}-Card`} src={Cards[card]}></img> : temporaryRender[index]}
+                        {card ? <img className={`Player-${index}-Card`} src={CardsToImages[card]}></img> : temporaryRender[index]}
                     </div>
                 )}
             </div>
