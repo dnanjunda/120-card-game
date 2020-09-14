@@ -37,7 +37,7 @@ class LeaderChoicePopup extends Component {
                     <h2 className="Leader-Choice-Question-Text">Choose your partner card:</h2>
                     <form className="Partner-Card-Input">
                         <select>
-                            {this.state.otherPlayerCards.map((val) =>
+                            {this.props.otherPlayerCards.map((val) =>
                                 <option value={val}>{val}</option>
                             )}
                         </select>

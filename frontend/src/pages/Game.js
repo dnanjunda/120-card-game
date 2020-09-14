@@ -32,7 +32,7 @@ class Game extends React.Component {
             players: [],
             otherPlayerCards: [],
             tableCards: [null, null, null, null, null],
-            leader: "",
+            leader: "anoushka",
             bid: "",
             minBid:"",
             dealer: "",
@@ -45,6 +45,7 @@ class Game extends React.Component {
             playerTurn: false,
             playerName: "",
         };
+        this.getOtherCards = this.getOtherCards.bind(this);
     }
 
     callAPI() {
@@ -70,8 +71,24 @@ class Game extends React.Component {
             body: JSON.stringify(data),
         })
             .then(response => response.json())
-            //.then(res => console.log(res))
             .then(res => this.setState({ players: res }))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    getOtherCards() {
+        const data = { name: this.state.leader };
+        fetch("http://localhost:9000/testAPI/otherPlayerCards", {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(res => console.log(res))
+            .then(res => this.setState({ otherPlayerCards: res }))
             .catch((error) => {
                 console.error('Error:', error);
             });
@@ -121,22 +138,6 @@ class Game extends React.Component {
 
     handleBidResponse = bid => {
         socket.emit("player_bid", bid);
-    }
-
-    getOtherCards = () => {
-        const data = { name: this.leader };
-        fetch("http://localhost:9000/testAPI/otherPlayerCards", {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => response.json())
-            .then(res => this.setState({ otherPlayerCards: res }))
-            .catch((error) => {
-                console.error('Error:', error);
-            });
     }
 
     setGame() {
