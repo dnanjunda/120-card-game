@@ -23,7 +23,7 @@ class LeaderChoicePopup extends Component {
         return (
             <div className="Leader-Choice-Popop-Container">
                 <div className="Leader-Choice-Options">
-                    <h2 className="Leader-Choice-Question-Text">Choose your cutting suit.</h2>
+                    <h2 className="Leader-Choice-Question-Text">Choose your cutting suit:</h2>
                     <form>
                         <select className="Cutting-Suit-Input">
                             <option selected value="spades">Spades</option>
@@ -34,14 +34,12 @@ class LeaderChoicePopup extends Component {
                     </form>
                 </div>
                 <div className="Leader-Choice-Options">
-                    <h2 className="Leader-Choice-Question-Text">Choose your partner.</h2>
+                    <h2 className="Leader-Choice-Question-Text">Choose your partner card:</h2>
                     <form className="Partner-Card-Input">
-                        {/* these options can only be from cards they do not have in their hand */}
                         <select>
-                            <option selected value="spades">2 of Spades</option>
-                            <option value="diamonds">Diamonds</option>
-                            <option value="clubs">Clubs</option>
-                            <option value="hearts">Hearts</option>
+                            {this.state.otherPlayerCards.map((val) =>
+                                <option value={val}>{val}</option>
+                            )}
                         </select>
                     </form>
                 </div>

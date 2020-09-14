@@ -13,6 +13,7 @@ import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
 import Card from '../components/CardImage.js';
 import BiddingPopup from '../components/BiddingPopup.js';
+import LeaderChoicePopup from '../components/LeaderChoicePopup.js';
 import CardsOnTable from '../components/CardsOnTable';
 
 /* constant imports */
@@ -29,6 +30,7 @@ class Game extends React.Component {
             playerCardImages: [],
             playerCards: [],
             players: [],
+            otherPlayerCards: [],
             tableCards: [null, null, null, null, null],
             leader: "",
             bid: "",
@@ -121,9 +123,25 @@ class Game extends React.Component {
         socket.emit("player_bid", bid);
     }
 
+    getOtherCards = () => {
+        const data = { name: this.leader };
+        fetch("http://localhost:9000/testAPI/otherPlayerCards", {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(res => this.setState({ otherPlayerCards: res }))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
     setGame() {
         this.setState({
-            leader: "Waiting",
+            leader: "anoushka",
             bid: "70",
             minBid: "70",
             dealer: "Waiting",
@@ -166,7 +184,14 @@ class Game extends React.Component {
 
         // bidding is ongoing
         if (!(this.state.biddingComplete)) {
-            if (!(this.state.playerIsBidding)) {
+            if (this.state.leader != "Waiting") {
+                this.getOtherCards();
+                textOnTable = <LeaderChoicePopup
+                    otherPlayerCards={this.state.otherPlayerCards}
+                />
+            }
+
+            else if (!(this.state.playerIsBidding)) {
                 //Only want this text if bidding is going on
                 textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
                 //need to figure out how to make this go away after (change playerIsBidding to false)

@@ -9,7 +9,6 @@ import '../css/Home.css';
 
 /* component imports */
 import JoinDashboard from '../components/JoinDashboard.js';
-import LeaderChoicePopup from '../components/LeaderChoicePopup.js';
 
 class Home extends React.Component {
 
@@ -23,6 +22,8 @@ class Home extends React.Component {
             joincode: ''
         }
     }
+
+
 
     inputHandler = (e) => {
         if (e) {
@@ -99,7 +100,6 @@ class Home extends React.Component {
         return (
             <div className="Body">
                 <Container>
-                    <LeaderChoicePopup/>
                     <Row>
                         <Col>
                             <img className="Logo" src={require("../images/homeLogo.png")}></img>
