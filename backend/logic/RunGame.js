@@ -36,19 +36,23 @@ function getNextBidder() {
     return bidIndex;
 }
 
+function setChoices(data) {
+    game.setupLeader(data);
+}
+
 function startgame() {
-    if(players[1] == null) {
-        players[1] = new Player("waiting");
-    }
-    if(players[2] == null) {
-        players[2] = new Player("waiting");
-    }
-    if(players[3] == null) {
-        players[3] = new Player("waiting");
-    }
-    if(players[4] == null) {
-        players[4] = new Player("waiting");
-    }
+    // if(players[1] == null) {
+    //     players[1] = new Player("waiting");
+    // }
+    // if(players[2] == null) {
+    //     players[2] = new Player("waiting");
+    // }
+    // if(players[3] == null) {
+    //     players[3] = new Player("waiting");
+    // }
+    // if(players[4] == null) {
+    //     players[4] = new Player("waiting");
+    // }
     game.startGame(players[0], players[1], players[2], players[3], players[4]);
 
     p1StartingCards.push(game.players[0].playerStack[0].index);
@@ -107,6 +111,6 @@ function startgame() {
     p5StartingCards.push(game.players[4].playerStack[9].index);
 }
 
-module.exports = { addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
+module.exports = { addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
 
 

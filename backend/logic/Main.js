@@ -543,20 +543,20 @@ class Game {
         this.players[currentBidder].bidComplete = true;
 
         this.dealer++;
-        if(this.checkBiddingComplete()) {
-            this.setupLeader();
-        }
+        // if(this.checkBiddingComplete()) {
+        //     this.setupLeader();
+        // }
 
-        return [this.leadingBid, this.players[this.leader]];
+        return [this.leadingBid, this.players[this.leader].playerName];
     }
 
-    setupLeader() {
-        this.cuttingSuit = 'Spades';
-        this.partnerCard = this.findCard("TWOS");
+    setupLeader(data) {
+        this.cuttingSuit = data.suit;
+        this.partnerCard = this.findCard(data.card);
 
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 9; j++) {
-                if (this.players[i].playerStack[j].index == "TWOS") {
+                if (this.players[i].playerStack[j].index == this.partnerCard) {
                     this.partner = i;
                 }
             }

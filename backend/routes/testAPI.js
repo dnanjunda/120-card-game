@@ -21,7 +21,7 @@ router.post('/array', function(req, res, next) {
 
 router.post('/otherPlayerCards', function(req, res, next) {
     var playerName = req.body.name;
-    console.log(playerName);
+    //console.log(playerName);
     var index = data.getIndex(playerName) + 1;
     var cardname = "p" + index.toString() + "StartingCards";
     var playerCards = Game[cardname];
@@ -46,7 +46,7 @@ router.post('/otherPlayerCards', function(req, res, next) {
         exists = false;
     }
 
-    console.log(otherCards);
+    //console.log(otherCards);
     res.send(otherCards);
 });
 

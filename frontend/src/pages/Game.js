@@ -32,7 +32,7 @@ class Game extends React.Component {
             players: [],
             otherPlayerCards: [],
             tableCards: [null, null, null, null, null],
-            leader: "anoushka",
+            leader: "Waiting",
             bid: "",
             minBid:"",
             dealer: "",
@@ -41,6 +41,7 @@ class Game extends React.Component {
             playerIsBidding: false,
             biddingComplete: false,
             currentBidder: "",
+            currentPlayer: "",
             gameOngoing: false,
             playerTurn: false,
             playerName: "",
@@ -100,6 +101,8 @@ class Game extends React.Component {
         socket.on("player_bidding", this.decideBidder);
         socket.on("update_bidder", this.updateBidder);
         socket.on("new_bid", this.updateBid);
+        socket.on("update_choices", this.updateChoices);
+        socket.on("update_turn", this.updateTurn);
 
     }
 
@@ -121,7 +124,7 @@ class Game extends React.Component {
 
     updateBid = newBid => {
         this.setState({ bid : newBid[0]});
-        this.setState({ leader : newBid[1]});
+        //this.setState({ leader : newBid[1]});
         var min = parseInt(this.state.bid);
         min = min + 5;
         this.setState({minBid : min.toString()});
@@ -131,18 +134,34 @@ class Game extends React.Component {
         this.setState({ currentBidder: name });
     }
 
-    finishBidding = () => {
+    updateTurn = name => {
+        this.setState({ currentPlayer: name});
+    }
+
+    finishBidding = name => {
         this.setState({ biddingComplete: true});
+        this.setState({ leader: name[1]});
+        this.getOtherCards();
+    }
+
+    updateChoices = data => {
         this.setState({ gameOngoing: true});
+        //this.setState({ cutting: data.suit});
+        this.setState({partner: data.card});
     }
 
     handleBidResponse = bid => {
         socket.emit("player_bid", bid);
     }
 
+    handleChoiceResponse = data => {
+        socket.emit("leader_choice", data);
+        this.setState({ playerTurn: true});
+    }
+
     setGame() {
         this.setState({
-            leader: "anoushka",
+            leader: "Waiting",
             bid: "70",
             minBid: "70",
             dealer: "Waiting",
@@ -154,7 +173,7 @@ class Game extends React.Component {
             partner: "TWOS",
             biddingComplete: false,
             gameOngoing: false,
-            playerTurn: true,
+            playerTurn: false,
         })
     }
 
@@ -171,6 +190,8 @@ class Game extends React.Component {
             let playerCardImagesCopy = [...this.state.playerCardImages];
             playerCardImagesCopy.splice(index, 1);
 
+            socket.emit("card_played", value);
+
             this.setState({
                 tableCards: tableCardsCopy,
                 playerCardImages: playerCardImagesCopy,
@@ -185,18 +206,10 @@ class Game extends React.Component {
 
         // bidding is ongoing
         if (!(this.state.biddingComplete)) {
-            if (this.state.leader != "Waiting") {
-                this.getOtherCards();
-                textOnTable = <LeaderChoicePopup
-                    otherPlayerCards={this.state.otherPlayerCards}
-                />
-            }
-
-            else if (!(this.state.playerIsBidding)) {
+            if (!(this.state.playerIsBidding)) {
                 //Only want this text if bidding is going on
                 textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
             }
-
             else {
                 textOnTable = <BiddingPopup
                     playerIsBidding={this.state.playerIsBidding}
@@ -205,13 +218,25 @@ class Game extends React.Component {
                     onResponse={this.handleBidResponse}
                 />
             }
-        }
+        } 
 
         // actual game is ongoing
         else if (this.state.gameOngoing) {
             textOnTable = <CardsOnTable
                 tableCards={this.state.tableCards}
             />
+        }
+
+        else if(this.state.leader != "Waiting") {
+            if(this.props.location.state.name === this.state.leader) {
+                //this.getOtherCards();
+                textOnTable = <LeaderChoicePopup
+                    otherPlayerCards={this.state.otherPlayerCards}
+                    onResponse={this.handleChoiceResponse}
+                />
+            } else {
+                textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.leader} to choose...</text>
+            }
         }
 
         // table is empty

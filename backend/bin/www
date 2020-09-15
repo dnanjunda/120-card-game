@@ -70,6 +70,7 @@ io.on("connection", socket => {
 
   socket.on("player_bid", bid => {
     //do bidding logic
+    console.log("player bid called")
     var players = dataHolder.getPlayers();
 
     var bidToSend = currentGame.submitBid(bid);
@@ -78,12 +79,22 @@ io.on("connection", socket => {
 
     if(currentGame.checkBiddingComplete()) {
       console.log("entered bidding done");
-      io.sockets.emit("bidding_complete");
+      io.sockets.emit("bidding_complete", bidToSend);
     } else {
       var bidPlayer = currentGame.getNextBidder();
       io.sockets.emit("player_bidding", players[bidPlayer]);
     }
 
+  })
+
+  socket.on("leader_choice", data => {
+    currentGame.setChoices(data);
+    console.log(data);
+    io.sockets.emit("update_choices", data);
+  })
+
+  socket.on("card_played", data => {
+    console.log(data);
   })
 
 
