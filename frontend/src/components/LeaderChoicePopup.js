@@ -43,10 +43,10 @@ class LeaderChoicePopup extends Component {
                     <h2 className="Leader-Choice-Question-Text Leader-Choice-Cutting-Text">Choose your cutting suit:</h2>
                     <form>
                         <select className="Cutting-Suit-Input Leader-Choice-Input" onChange={this.handleSuitChange}>
-                            <option className="Leader-Choice-Selection" value="Spades">Spades</option>
-                            <option className="Leader-Choice-Selection" value="Diamonds">Diamonds</option>
-                            <option className="Leader-Choice-Selection" value="Clubs">Clubs</option>
-                            <option className="Leader-Choice-Selection" value="Hearts">Hearts</option>
+                            <option className="Leader-Choice-Selection" value="AS">Spades</option>
+                            <option className="Leader-Choice-Selection" value="AD">Diamonds</option>
+                            <option className="Leader-Choice-Selection" value="AC">Clubs</option>
+                            <option className="Leader-Choice-Selection" value="AH">Hearts</option>
                         </select>
                     </form>
                 </div>

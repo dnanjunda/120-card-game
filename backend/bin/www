@@ -79,6 +79,7 @@ io.on("connection", socket => {
 
     if(currentGame.checkBiddingComplete()) {
       console.log("entered bidding done");
+      currentGame.setHandOrder();
       io.sockets.emit("bidding_complete", bidToSend);
     } else {
       var bidPlayer = currentGame.getNextBidder();
@@ -94,6 +95,12 @@ io.on("connection", socket => {
   })
 
   socket.on("card_played", data => {
+    currentGame.submitChoice(data);
+
+    var nextPlayer = currentGame.getNextPlayer();
+
+    io.sockets.emit("card_played", data.card);
+    io.sockets.emit("player_playing", nextPlayer);
     console.log(data);
   })
 

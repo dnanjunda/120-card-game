@@ -6,7 +6,10 @@ let game = new Game();
 
 var index = 0;
 var bidIndex = 0;
+var handIndex = 0;
 var players = [];
+var handOrder = [];
+var hand = [];
 
 let p1StartingCards = []; //10 total cards
 let p2StartingCards = []; //10 total cards
@@ -14,6 +17,41 @@ let p3StartingCards = []; //10 total cards
 let p4StartingCards = []; //10 total cards
 let p5StartingCards = []; //10 total cards
 
+function setHandOrder() {
+    var leader = game.players[game.leader];
+    handOrder.push(leader.playerName);
+
+    var leaderIndex = getIndex(leader);
+
+    for(let i = leaderIndex+1; i < players.length; i++) {
+        handOrder.push(players[i].playerName);
+    }
+
+    for(let j = 0; j < leaderIndex; j++) {
+        handOrder.push(players[j].playerName);
+    }
+}
+
+function getNextPlayer() {
+    return handOrder[handIndex];
+}
+
+function submitChoice(data) {
+    hand.push(data.ind);
+    handIndex++;
+}
+
+function getIndex(player) {
+    for(let i = 0; i < players.length; i++) {
+        if(players[i] === player) {
+            return i;
+        }
+    }
+}
+
+function getPlayers() {
+    return players;
+}
 function addPlayer(name) {
     var player = player + (index + 1).toString();
     player = new Player(name);
@@ -111,6 +149,6 @@ function startgame() {
     p5StartingCards.push(game.players[4].playerStack[9].index);
 }
 
-module.exports = { addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
+module.exports = { getNextPlayer, submitChoice, setHandOrder, addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, getPlayers, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
 
 

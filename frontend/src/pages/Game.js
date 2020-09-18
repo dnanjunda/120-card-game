@@ -103,6 +103,8 @@ class Game extends React.Component {
         socket.on("new_bid", this.updateBid);
         socket.on("update_choices", this.updateChoices);
         socket.on("update_turn", this.updateTurn);
+        socket.on("player_playing", this.decidePlayer);
+        socket.on("card_played", this.updateTable);
 
     }
 
@@ -115,19 +117,31 @@ class Game extends React.Component {
     decideBidder = player => {
         if (this.props.location.state.name === player) {
             this.setState({ playerIsBidding: true });
-            //this.setState({ currentBidder: this.props.location.state.name});
             socket.emit("current_bidder", this.props.location.state.name);
         } else {
             this.setState({ playerIsBidding: false });
         }
     }
 
+    decidePlayer = player => {
+        if (this.props.location.state.name === player) {
+            this.setState({ playerTurn: true });
+        } else {
+            this.setState({ playerTurn: false });
+        }
+    }
+
+    updateTable = data => {
+        this.state.tableCards.push(data);
+    }
     updateBid = newBid => {
         this.setState({ bid : newBid[0]});
         //this.setState({ leader : newBid[1]});
         var min = parseInt(this.state.bid);
-        min = min + 5;
-        this.setState({minBid : min.toString()});
+        if(min != 0) {
+            min = min + 5;
+            this.setState({minBid : min.toString()});
+        }
     }
 
     updateBidder = name => {
@@ -146,7 +160,7 @@ class Game extends React.Component {
 
     updateChoices = data => {
         this.setState({ gameOngoing: true});
-        //this.setState({ cutting: data.suit});
+        this.setState({ cutting: data.suit});
         this.setState({partner: data.card});
     }
 
@@ -168,7 +182,7 @@ class Game extends React.Component {
             // each index is which player played card
             // null for that index if player has not played yet
             // last card is this player's card
-            tableCards: ["AH", "QH", "EIGHTH", "SIXH", "TENH"],
+            //tableCards: ["AH", "QH", "EIGHTH", "SIXH", "TENH"],
             cutting: "AS",
             partner: "TWOS",
             biddingComplete: false,
@@ -190,7 +204,12 @@ class Game extends React.Component {
             let playerCardImagesCopy = [...this.state.playerCardImages];
             playerCardImagesCopy.splice(index, 1);
 
-            socket.emit("card_played", value);
+            var objToSend = {
+                ind: index,
+                card: value
+            }
+
+            socket.emit("card_played", objToSend);
 
             this.setState({
                 tableCards: tableCardsCopy,

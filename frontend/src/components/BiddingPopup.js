@@ -40,7 +40,7 @@ class BiddingPopup extends Component {
 
     handleSubmit = (event) => {
         this.setState({
-            bid: event.target.value,
+            //bid: event.target.value,
             isBidding: false,
         });
 
@@ -50,11 +50,13 @@ class BiddingPopup extends Component {
 
     handlePass = () => {
         this.setState({
-            bid: "0",
+            bid: 0,
             isBidding: false,
         });
 
-        this.props.onResponse(this.state.bid);
+        console.log(this.state.bid);
+
+        this.props.onResponse(0);
         alert(this.props.player + ' passed!');
     }
 
