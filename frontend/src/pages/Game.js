@@ -27,24 +27,32 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            // this player info
+            playerName: "",
+            playerTurn: false,
             playerCardImages: [],
             playerCards: [],
-            players: [],
-            otherPlayerCards: [],
-            tableCards: [null, null, null, null, null],
-            leader: "Waiting",
-            bid: "",
-            minBid:"",
-            dealer: "",
-            cutting: "",
-            partner: "",
+
+            // bidding info
             playerIsBidding: false,
             biddingComplete: false,
             currentBidder: "",
             currentPlayer: "",
+            bid: "",
+            minBid: "",
+
+            // info of all players
+            players: [],
+            otherPlayerCards: [],
+
+            // current game info
             gameOngoing: false,
-            playerTurn: false,
-            playerName: "",
+            tableCards: [null, null, null, null, null],
+            //leaderChoiceComplete: false,
+            leader: "",
+            dealer: "",
+            cutting: "",
+            partner: "",
         };
         this.getOtherCards = this.getOtherCards.bind(this);
     }
@@ -97,6 +105,8 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
+        //socket.emit("update_dealer", this.setDealer);
+        //socket.on("set_dealer", this.setDealer);
         socket.on("bidding_complete", this.finishBidding);
         socket.on("player_bidding", this.decideBidder);
         socket.on("update_bidder", this.updateBidder);
@@ -107,6 +117,13 @@ class Game extends React.Component {
         socket.on("card_played", this.updateTable);
 
     }
+
+    /*setDealer = player => {
+        //console.log("entered set dealer, player index is ", player);
+        // after first game is complete, should get next dealer
+        this.setState({ dealer: this.state.players[player] });
+        //this.setState({ dealer: "Waiting" });
+    }*/
 
     componentWillMount() {
         this.setState({ playerName: this.props.location.state.name });
@@ -143,13 +160,14 @@ class Game extends React.Component {
         }
         //this.state.tableCards.push(data);
     }
+
     updateBid = newBid => {
-        this.setState({ bid : newBid[0]});
+        this.setState({ bid: newBid[0] });
         //this.setState({ leader : newBid[1]});
         var min = parseInt(this.state.bid);
-        if(min != 0) {
+        if (min != 0) {
             min = min + 5;
-            this.setState({minBid : min.toString()});
+            this.setState({ minBid: min.toString() });
         }
     }
 
@@ -158,19 +176,20 @@ class Game extends React.Component {
     }
 
     updateTurn = name => {
-        this.setState({ currentPlayer: name});
+        this.setState({ currentPlayer: name });
     }
 
     finishBidding = name => {
-        this.setState({ biddingComplete: true});
-        this.setState({ leader: name[1]});
+        this.setState({ biddingComplete: true });
+        this.setState({ leader: name[1] });
         this.getOtherCards();
     }
 
     updateChoices = data => {
-        this.setState({ gameOngoing: true});
-        this.setState({ cutting: data.suit});
-        this.setState({partner: data.card});
+        this.setState({ gameOngoing: true });
+        this.setState({ cutting: data.suit });
+        this.setState({ partner: data.card });
+        this.setState({ leaderChoiceComplete: true });
     }
 
     handleBidResponse = bid => {
@@ -179,7 +198,7 @@ class Game extends React.Component {
 
     handleChoiceResponse = data => {
         socket.emit("leader_choice", data);
-        this.setState({ playerTurn: true});
+        this.setState({ playerTurn: true });
     }
 
     setGame() {
@@ -198,7 +217,8 @@ class Game extends React.Component {
             biddingComplete: false,
             gameOngoing: false,
             playerTurn: false,
-        })
+        });
+        //this.setDealer();
     }
 
     handleCardPlay(index, value) {
@@ -245,10 +265,11 @@ class Game extends React.Component {
                     playerIsBidding={this.state.playerIsBidding}
                     minBidAvailable={this.state.minBid}
                     player={this.state.playerName}
+                    dealer={this.state.dealer}
                     onResponse={this.handleBidResponse}
                 />
             }
-        } 
+        }
 
         // actual game is ongoing
         else if (this.state.gameOngoing) {
@@ -257,8 +278,8 @@ class Game extends React.Component {
             />
         }
 
-        else if(this.state.leader != "Waiting") {
-            if(this.props.location.state.name === this.state.leader) {
+        else if (this.state.leader != "Waiting") {
+            if (this.props.location.state.name === this.state.leader) {
                 //this.getOtherCards();
                 textOnTable = <LeaderChoicePopup
                     otherPlayerCards={this.state.otherPlayerCards}
@@ -273,6 +294,8 @@ class Game extends React.Component {
         else {
             textOnTable = <div></div>
         }
+
+        const leaderChoiceAppears = this.state.leaderChoiceComplete ? "Display-Leader-Choices" : "Hide-Leader-Choices";
 
         return (
             <div className="Body">
@@ -318,12 +341,12 @@ class Game extends React.Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    <Card className="Current-Cutting-Images" card={this.state.cutting} />
+                                    <h1 className={`Current-Cutting ${leaderChoiceAppears}`}>Cutting Suit</h1>
+                                    <Card className={`Current-Cutting-Images ${leaderChoiceAppears}`} card={this.state.cutting} />
                                 </Col>
                                 <Col>
-                                    <h1 className="Current-Partner">Partner Card</h1>
-                                    <Card className="Current-Partner-Images" card={this.state.partner} />
+                                    <h1 className={`Current-Partner ${leaderChoiceAppears}`}>Partner Card</h1>
+                                    <Card className={`Current-Partner-Images ${leaderChoiceAppears}`} card={this.state.partner} />
                                 </Col>
                             </Row>
                             <Row>

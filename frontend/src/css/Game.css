@@ -37,6 +37,15 @@
     height: 9.3vw;
 }
 
+.Display-Leader-Choices {
+    display: flex;
+    justify-content: flex;
+}
+
+.Hide-Leader-Choices {
+    display: none;
+}
+
 .Card-Image-0 {
     margin-top: -2vw;
     margin-left: -2.5vw;

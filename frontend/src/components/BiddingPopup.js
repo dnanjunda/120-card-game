@@ -19,7 +19,7 @@ class BiddingPopup extends Component {
     }
 
     componentDidMount = () => {
-        const biddingPopup = document.getElementById("Bidding-Popup");
+        const biddingPopup = document.getElementById("Bidding-Popup") === null ? document.getElementById("Bidding-Popup-Dealer") : document.getElementById("Bidding-Popup");
         biddingPopup.addEventListener("keypress", (event) => {
             event.preventDefault();
         });
@@ -62,7 +62,7 @@ class BiddingPopup extends Component {
 
         let bidding;
 
-        if (this.state.isBidding) {
+        if (this.state.isBidding && (this.props.dealer != this.props.player)) {
             bidding =
                 <div className="Bidding-Popup-Container">
                     <h2 className="Bidding-Question-Text">What is your bid?</h2>
@@ -74,6 +74,19 @@ class BiddingPopup extends Component {
                         </form>
                     </div>
                 </div>;
+        }
+
+        else if (this.state.isBidding && (this.props.dealer === this.props.player)) {
+            bidding = 
+                <div className="Bidding-Popup-Container">
+                    <h2 className="Bidding-Question-Text">What is your bid?</h2>
+                    <div className="Bidding-Options-Dealer">
+                        <form>
+                            <input id="Bidding-Popup-Dealer" className="Bidding-Input-Bid" type='number' onKeyDown={(event) => this.handleBackspace(event)} placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
+                            <button className="Bidding-Submit-Button" onClick={() => this.handleSubmit()}>Submit</button>
+                        </form>
+                    </div>
+                 </div>; 
         }
 
         else {
