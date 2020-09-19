@@ -64,6 +64,11 @@ io.on("connection", socket => {
     io.sockets.emit("player_bidding", players[0]);
   });
 
+  /*socket.on("update_dealer", function () {
+    var dealer = currentGame.setDealer();
+    io.sockets.emit("set_dealer", dealer);
+  });*/
+
   socket.on("current_bidder", name => {
     io.sockets.emit("update_bidder", name);
   })

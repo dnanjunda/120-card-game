@@ -38,7 +38,8 @@
 }
 
 .Display-Leader-Choices {
-    display: block;
+    display: flex;
+    justify-content: flex;
 }
 
 .Hide-Leader-Choices {

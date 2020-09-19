@@ -109,6 +109,7 @@ class Game {
         this.deck = new Deck();
         this.hands = []; //2D array of 10 hands of 5 cards each with player that played card
         this.players = []; // array of 5 total players
+        //this.dealer = -1; // start dealer -1 so increment will correct this
         this.dealer = 0;
         this.leader = 0;
         this.partner = 3; // assign once card is chosen
@@ -552,8 +553,7 @@ class Game {
 
     setupLeader(data) {
         this.cuttingSuit = data.suit;
-        //this.partnerCard = this.findCard(data.card);
-        this.partnerCard = data.card;
+        this.partnerCard = this.findCard(data.card);
 
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 9; j++) {

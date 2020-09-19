@@ -52,11 +52,17 @@ function getIndex(player) {
 function getPlayers() {
     return players;
 }
+
 function addPlayer(name) {
     var player = player + (index + 1).toString();
     player = new Player(name);
     players.push(player);
 }
+
+/*function setDealer() {
+    game.updateDealer();
+    return game.dealer;
+}*/
 
 function checkBiddingComplete() {
     if(game.checkBiddingComplete()) {

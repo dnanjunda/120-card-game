@@ -284,7 +284,7 @@ class Game extends React.Component {
             textOnTable = <div></div>
         }
 
-        //const leaderChoiceAppears = this.state.leaderChoiceComplete ? "Display-Leader-Choices" : "Hide-Leader-Choices";
+        const leaderChoiceAppears = this.state.leaderChoiceComplete ? "Display-Leader-Choices" : "Hide-Leader-Choices";
 
         return (
             <div className="Body">
@@ -330,12 +330,12 @@ class Game extends React.Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    <Card className="Current-Cutting-Images" card={this.state.cutting} />
+                                    <h1 className={`Current-Cutting ${leaderChoiceAppears}`}>Cutting Suit</h1>
+                                    <Card className={`Current-Cutting-Images ${leaderChoiceAppears}`} card={this.state.cutting} />
                                 </Col>
                                 <Col>
-                                    <h1 className="Current-Partner">Partner Card</h1>
-                                    <Card className="Current-Partner-Images" card={this.state.partner} />
+                                    <h1 className={`Current-Partner ${leaderChoiceAppears}`}>Partner Card</h1>
+                                    <Card className={`Current-Partner-Images ${leaderChoiceAppears}`} card={this.state.partner} />
                                 </Col>
                             </Row>
                             <Row>
