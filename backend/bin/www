@@ -97,6 +97,8 @@ io.on("connection", socket => {
   socket.on("card_played", data => {
     currentGame.submitChoice(data);
 
+    io.sockets.emit("update_turn", data.player);
+
     var nextPlayer = currentGame.getNextPlayer();
 
     io.sockets.emit("card_played", data.card);
