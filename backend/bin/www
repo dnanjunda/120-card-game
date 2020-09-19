@@ -80,6 +80,10 @@ io.on("connection", socket => {
 
     var bidToSend = currentGame.submitBid(bid);
 
+    if (bid === 0) {
+      
+    }
+
     io.sockets.emit("new_bid", bidToSend);
 
     if(currentGame.checkBiddingComplete()) {
