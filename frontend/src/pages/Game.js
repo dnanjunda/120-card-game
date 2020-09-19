@@ -234,6 +234,7 @@ class Game extends React.Component {
                     playerIsBidding={this.state.playerIsBidding}
                     minBidAvailable={this.state.minBid}
                     player={this.state.playerName}
+                    dealer={this.state.dealer}
                     onResponse={this.handleBidResponse}
                 />
             }

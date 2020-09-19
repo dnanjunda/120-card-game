@@ -552,7 +552,8 @@ class Game {
 
     setupLeader(data) {
         this.cuttingSuit = data.suit;
-        this.partnerCard = this.findCard(data.card);
+        //this.partnerCard = this.findCard(data.card);
+        this.partnerCard = data.card;
 
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 9; j++) {
