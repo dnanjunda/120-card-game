@@ -77,6 +77,17 @@ function submitBid(bid) {
 }
 
 function getNextBidder() {
+    if(bidIndex > 4) {
+        bidIndex = 0;
+    }
+
+    for(let i = 0; i < game.players.length; i++) {
+        if(game.players[bidIndex].bidComplete) {
+            bidIndex++;
+        } else {
+            break;
+        }
+    }
     return bidIndex;
 }
 

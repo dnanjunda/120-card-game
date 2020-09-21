@@ -117,6 +117,7 @@ class Game {
         this.cuttingSuit;
         this.partnerCard;
         this.winners = []; // winners of current game
+        this.currentBidder = 0;
     }
 
     // finds card in the deck
@@ -514,39 +515,59 @@ class Game {
 
     // checks if bidding complete
     checkBiddingComplete() {
-
+        
+        let counter = 0;
         for (let i = 0; i < 5; i++) {
-            if(!(this.players[i].bidComplete)) {
-                return false;
+            if(this.players[i].bidComplete) {
+                console.log(this.players[i].playerName);
+                counter++;
             }
         }
-        return true;
+
+        console.log("checked " + counter);
+        if(counter >= 4) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // bidding method, also sets leader, cutting suit, and partner card
 
     setLeader(bid) {
 
-        if(this.dealer === 0) {
+        if(this.leadingBid === 0) {
             this.leadingBid = bid;
             this.leader = this.dealer;
         }
-        let currentBidder = this.dealer;
+        //let currentBidder = this.dealer;
 
-        console.log(currentBidder);
+        this.players[this.currentBidder].playerBid = bid;
 
-        this.players[currentBidder].playerBid = bid;
-
-        if (this.players[currentBidder].playerBid > this.leadingBid) {
-            this.leadingBid = this.players[currentBidder].playerBid;
-            this.leader = currentBidder;
+        if (this.players[this.currentBidder].playerBid > this.leadingBid) {
+            this.leadingBid = this.players[this.currentBidder].playerBid;
+            this.leader = this.currentBidder;
         }
-        this.players[currentBidder].bidComplete = true;
 
-        this.dealer++;
-        // if(this.checkBiddingComplete()) {
-        //     this.setupLeader();
-        // }
+        if(bid === 0 ) {
+            console.log("called " + this.players[this.currentBidder].playerName);
+            this.players[this.currentBidder].bidComplete = true;
+        }
+
+        this.currentBidder++;
+        if(this.currentBidder > 4) {
+            this.currentBidder = 0;
+        }
+
+        for(let i = 0; i < this.players.length; i++) {
+            if(this.players[this.currentBidder].bidComplete) {
+                this.currentBidder++;
+            } else {
+                break;
+            }
+        }
+
+        //this.dealer = 1;
 
         return [this.leadingBid, this.players[this.leader].playerName];
     }

@@ -75,14 +75,10 @@ io.on("connection", socket => {
 
   socket.on("player_bid", bid => {
     //do bidding logic
-    console.log("player bid called")
     var players = dataHolder.getPlayers();
 
     var bidToSend = currentGame.submitBid(bid);
-
-    if (bid === 0) {
-      
-    }
+    console.log(bid);
 
     io.sockets.emit("new_bid", bidToSend);
 
