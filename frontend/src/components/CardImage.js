@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 /* css imports */
 import '../css/Game.css';
+import '../css/Results.css';
 
 /* constant imports */
 import CardsToImages from '../constants/CardsToImages.js';
