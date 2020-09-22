@@ -555,11 +555,14 @@ class Game {
         }
 
         this.currentBidder++;
-        if(this.currentBidder > 4) {
-            this.currentBidder = 0;
-        }
+        // if(this.currentBidder > 4) {
+        //     this.currentBidder = 0;
+        // }
 
         for(let i = 0; i < this.players.length; i++) {
+            if(this.currentBidder > 4) {
+                this.currentBidder = 0;
+            }
             if(this.players[this.currentBidder].bidComplete) {
                 this.currentBidder++;
             } else {

@@ -115,6 +115,7 @@ class Game extends React.Component {
         socket.on("update_turn", this.updateTurn);
         socket.on("player_playing", this.decidePlayer);
         socket.on("card_played", this.updateTable);
+        socket.on("hand_complete", this.resetTable);
 
     }
 
@@ -158,7 +159,12 @@ class Game extends React.Component {
                 }
             }
         }
-        //this.state.tableCards.push(data);
+    }
+
+    resetTable = () => {
+        for(let i = 0; i < 5; i++) {
+            this.state.tableCards[i] = null;
+        }
     }
 
     updateBid = newBid => {
