@@ -54,8 +54,6 @@ class BiddingPopup extends Component {
             isBidding: false,
         });
 
-        console.log(this.state.bid);
-
         this.props.onResponse(0);
         alert(this.props.player + ' passed!');
     }

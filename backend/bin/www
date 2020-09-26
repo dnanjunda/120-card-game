@@ -75,24 +75,18 @@ io.on("connection", socket => {
 
   socket.on("player_bid", bid => {
     //do bidding logic
-    console.log("player bid called")
     var players = dataHolder.getPlayers();
 
     var bidToSend = currentGame.submitBid(bid);
 
-    if (bid === 0) {
-      
-    }
-
     io.sockets.emit("new_bid", bidToSend);
 
     if(currentGame.checkBiddingComplete()) {
-      console.log("entered bidding done");
       currentGame.setHandOrder();
       io.sockets.emit("bidding_complete", bidToSend);
     } else {
       var bidPlayer = currentGame.getNextBidder();
-      io.sockets.emit("player_bidding", players[bidPlayer]);
+      io.sockets.emit("player_bidding", bidPlayer);
     }
 
   })
@@ -106,10 +100,23 @@ io.on("connection", socket => {
   socket.on("card_played", data => {
     currentGame.submitChoice(data);
 
-    var nextPlayer = currentGame.getNextPlayer();
+    io.sockets.emit("update_turn", data.player);
 
     io.sockets.emit("card_played", data.card);
-    io.sockets.emit("player_playing", nextPlayer);
+
+    if(currentGame.handComplete()) {
+      //reset hand
+      if(currentGame.gameComplete()) {
+        currentGame.finishGame();
+      } else {
+        var player = currentGame.getNextPlayer();
+        io.sockets.emit("hand_complete");
+        io.sockets.emit("player_playing", player);
+      }
+    } else {
+      var nextPlayer = currentGame.getNextPlayer();
+      io.sockets.emit("player_playing", nextPlayer);
+    }
     console.log(data);
   })
 

@@ -10,6 +10,7 @@ var handIndex = 0;
 var players = [];
 var handOrder = [];
 var hand = [];
+var handRound = 0;
 
 let p1StartingCards = []; //10 total cards
 let p2StartingCards = []; //10 total cards
@@ -19,31 +20,55 @@ let p5StartingCards = []; //10 total cards
 
 function setHandOrder() {
     var leader = game.players[game.leader];
-    handOrder.push(leader.playerName);
+    handOrder.push(leader);
 
-    var leaderIndex = getIndex(leader);
+    var leaderIndex = getIndex(leader.playerName);
 
     for(let i = leaderIndex+1; i < players.length; i++) {
-        handOrder.push(players[i].playerName);
+        handOrder.push(players[i]);
     }
 
     for(let j = 0; j < leaderIndex; j++) {
-        handOrder.push(players[j].playerName);
+        handOrder.push(players[j]);
     }
 }
 
 function getNextPlayer() {
-    return handOrder[handIndex];
+    return handOrder[handIndex].playerName;
 }
 
 function submitChoice(data) {
-    hand.push(data.ind);
+    var pushData = [handOrder[handIndex], handOrder[handIndex].playerStack[data.ind]];
+    hand.push(pushData);
     handIndex++;
+}
+
+function handComplete() {
+    if(handIndex > 4) {
+        handIndex = 0;
+        console.log(hand);
+        game.handPlay(hand);
+        hand = [];
+        handRound++;
+        return true;
+    }
+    return false;
+}
+
+function gameComplete() {
+    if(handRound >= 10) {
+        return true;
+    }
+    return false;
+}
+
+function finishGame() {
+    game.calculateGamePoints();
 }
 
 function getIndex(player) {
     for(let i = 0; i < players.length; i++) {
-        if(players[i] === player) {
+        if(players[i].playerName === player) {
             return i;
         }
     }
@@ -71,13 +96,29 @@ function checkBiddingComplete() {
         return false;
     }
 }
+
 function submitBid(bid) {
-    bidIndex++;
+    //bidIndex++;
     return game.setLeader(bid);
 }
 
 function getNextBidder() {
-    return bidIndex;
+    
+    console.log(game.players[game.currentBidder].playerName);
+    return game.players[game.currentBidder].playerName;
+
+    // if(bidIndex > 4) {
+    //     bidIndex = 0;
+    // }
+
+    // for(let i = 0; i < game.players.length; i++) {
+    //     if(game.players[bidIndex].bidComplete) {
+    //         bidIndex++;
+    //     } else {
+    //         break;
+    //     }
+    // }
+    // return bidIndex;
 }
 
 function setChoices(data) {
@@ -155,6 +196,6 @@ function startgame() {
     p5StartingCards.push(game.players[4].playerStack[9].index);
 }
 
-module.exports = { getNextPlayer, submitChoice, setHandOrder, addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, getPlayers, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
+module.exports = { finishGame, gameComplete, handComplete, getNextPlayer, submitChoice, setHandOrder, addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, getPlayers, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
 
 

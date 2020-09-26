@@ -115,6 +115,7 @@ class Game extends React.Component {
         socket.on("update_turn", this.updateTurn);
         socket.on("player_playing", this.decidePlayer);
         socket.on("card_played", this.updateTable);
+        socket.on("hand_complete", this.resetTable);
 
     }
 
@@ -149,7 +150,21 @@ class Game extends React.Component {
     }
 
     updateTable = data => {
-        this.state.tableCards.push(data);
+        if(this.state.playerName === this.state.currentPlayer) {
+            this.state.tableCards[0] = data;
+        } else {
+            for(let i = 0; i < this.state.players.length; i++) {
+                if(this.state.currentPlayer === this.state.players[i]) {
+                    this.state.tableCards[i+1] = data;
+                }
+            }
+        }
+    }
+
+    resetTable = () => {
+        for(let i = 0; i < 5; i++) {
+            this.state.tableCards[i] = null;
+        }
     }
 
     updateBid = newBid => {
@@ -198,6 +213,7 @@ class Game extends React.Component {
             bid: "70",
             minBid: "70",
             dealer: "Waiting",
+            tableCards: [null, null, null, null, null],
             // each index is which player played card
             // null for that index if player has not played yet
             // last card is this player's card
@@ -226,7 +242,8 @@ class Game extends React.Component {
 
             var objToSend = {
                 ind: index,
-                card: value
+                card: value,
+                player: this.state.playerName,
             }
 
             socket.emit("card_played", objToSend);

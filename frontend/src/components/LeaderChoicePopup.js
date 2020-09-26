@@ -11,15 +11,25 @@ class LeaderChoicePopup extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cuttingSuit: "",
+            cuttingSuit: "AS",
             partnerCard: ""
         }
     }
 
     handleSubmit = (event) => {
-        var dataToSend = {
-            suit: this.state.cuttingSuit,
-            card: this.state.partnerCard
+        console.log(this.state.partnerCard);
+        console.log(this.props.otherPlayerCards[0]);
+        if(this.state.partnerCard === "") {
+            var dataToSend = {
+                suit: this.state.cuttingSuit,
+                card: this.props.otherPlayerCards[0]
+            }
+            //this.setState({ partnerCard: this.props.otherPlayerCards[0]});
+        } else {
+            var dataToSend = {
+                suit: this.state.cuttingSuit,
+                card: this.state.partnerCard
+            }
         }
         this.props.onResponse(dataToSend);
     }
