@@ -71,6 +71,7 @@ class Game extends React.Component {
     }
 
     getNames() {
+        console.log(this.state.tableCards);
         const data = { name: this.props.location.state.name };
         fetch("http://localhost:9000/codes/getplayers", {
             method: 'POST', // or 'PUT'

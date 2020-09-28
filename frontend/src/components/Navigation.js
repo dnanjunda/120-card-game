@@ -12,7 +12,7 @@ import '../css/Navigation.css';
 class Navigation extends Component {
 
     componentDidMount() {
-        console.log(this.props.val);
+        //console.log(this.props.val);
     }
 
     render() {
