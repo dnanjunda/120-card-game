@@ -109,8 +109,8 @@ class Game {
         this.deck = new Deck();
         this.hands = []; //2D array of 10 hands of 5 cards each with player that played card
         this.players = []; // array of 5 total players
-        //this.dealer = -1; // start dealer -1 so increment will correct this
-        this.dealer = 0;
+        this.dealer = -1; // start dealer -1 so increment will correct this
+        //this.dealer = 0;
         this.leader = 0;
         this.partner = 3; // assign once card is chosen
         this.leadingBid = 0;
@@ -549,15 +549,13 @@ class Game {
             this.leader = this.currentBidder;
         }
 
-        if(bid === 0 ) {
+        console.log(bid);
+        if(bid == 70 || bid == 0) {
             console.log("called " + this.players[this.currentBidder].playerName);
             this.players[this.currentBidder].bidComplete = true;
         }
 
         this.currentBidder++;
-        // if(this.currentBidder > 4) {
-        //     this.currentBidder = 0;
-        // }
 
         for(let i = 0; i < this.players.length; i++) {
             if(this.currentBidder > 4) {
@@ -666,6 +664,7 @@ class Game {
     handPlay(hand) {
 
         this.hands.push(hand);
+        console.log(hand);
 
         // set card precedence for this hand based on cutting suit & starting card
         let precendence = this.setCardPrecedence(hand);
@@ -690,7 +689,11 @@ class Game {
             }
         }
 
+        console.log(handWinner);
+
         this.players[handWinner].playerHands.push(hand);
+
+        console.log(this.players[handWinner].playerHands);
     }
 
     // determines winner
@@ -698,6 +701,7 @@ class Game {
 
         for (let i = 0; i < 5; i++) {
             for (let j = 0; j < this.players[i].playerHands.length; j++) {
+                console.log("entered");
                 this.players[i].gamePoints += this.players[i].playerHands[j].points;
             }
                 

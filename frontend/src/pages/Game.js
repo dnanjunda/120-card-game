@@ -105,8 +105,6 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
-        //socket.emit("update_dealer", this.setDealer);
-        //socket.on("set_dealer", this.setDealer);
         socket.on("bidding_complete", this.finishBidding);
         socket.on("player_bidding", this.decideBidder);
         socket.on("update_bidder", this.updateBidder);
@@ -116,15 +114,9 @@ class Game extends React.Component {
         socket.on("player_playing", this.decidePlayer);
         socket.on("card_played", this.updateTable);
         socket.on("hand_complete", this.resetTable);
+        socket.on("update_dealer", this.updateDealer);
 
     }
-
-    /*setDealer = player => {
-        //console.log("entered set dealer, player index is ", player);
-        // after first game is complete, should get next dealer
-        this.setState({ dealer: this.state.players[player] });
-        //this.setState({ dealer: "Waiting" });
-    }*/
 
     componentWillMount() {
         this.setState({ playerName: this.props.location.state.name });
@@ -139,6 +131,10 @@ class Game extends React.Component {
         } else {
             this.setState({ playerIsBidding: false });
         }
+    }
+
+    updateDealer = player => {
+        this.setState({ dealer: player});
     }
 
     decidePlayer = player => {
@@ -224,7 +220,6 @@ class Game extends React.Component {
             gameOngoing: false,
             playerTurn: false,
         });
-        //this.setDealer();
     }
 
     handleCardPlay(index, value) {

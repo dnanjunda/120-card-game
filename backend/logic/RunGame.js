@@ -62,6 +62,11 @@ function gameComplete() {
     return false;
 }
 
+function updateDealer() {
+    game.updateDealer();
+    return game.players[game.dealer].playerName;
+}
+
 function finishGame() {
     game.calculateGamePoints();
 }
@@ -84,11 +89,6 @@ function addPlayer(name) {
     players.push(player);
 }
 
-/*function setDealer() {
-    game.updateDealer();
-    return game.dealer;
-}*/
-
 function checkBiddingComplete() {
     if(game.checkBiddingComplete()) {
         return true;
@@ -104,7 +104,7 @@ function submitBid(bid) {
 
 function getNextBidder() {
     
-    console.log(game.players[game.currentBidder].playerName);
+    //console.log(game.players[game.currentBidder].playerName);
     return game.players[game.currentBidder].playerName;
 
     // if(bidIndex > 4) {
@@ -196,6 +196,6 @@ function startgame() {
     p5StartingCards.push(game.players[4].playerStack[9].index);
 }
 
-module.exports = { finishGame, gameComplete, handComplete, getNextPlayer, submitChoice, setHandOrder, addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, getPlayers, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
+module.exports = { updateDealer, finishGame, gameComplete, handComplete, getNextPlayer, submitChoice, setHandOrder, addPlayer, startgame, checkBiddingComplete, submitBid, getNextBidder, getPlayers, setChoices, p1StartingCards, p2StartingCards, p3StartingCards, p4StartingCards, p5StartingCards }
 
 
