@@ -13,10 +13,11 @@ import GameButton from '../components/GameButton.js';
 import FooterButtons from '../components/FooterButtons';
 import Card from '../components/CardImage.js';
 import BiddingPopup from '../components/BiddingPopup.js';
+import LeaderChoicePopup from '../components/LeaderChoicePopup.js';
 import CardsOnTable from '../components/CardsOnTable';
 
 /* constant imports */
-import CardImages from '../constants/Cards.js';
+import CardImages from '../constants/CardsToImages.js';
 
 /* backend imports */
 import { socket } from "../App.js";
@@ -26,23 +27,34 @@ class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            // this player info
+            playerName: "",
+            playerTurn: false,
             playerCardImages: [],
             playerCards: [],
-            players: [],
-            tableCards: [null, null, null, null, null],
-            leader: "",
-            bid: "",
-            minBid:"",
-            dealer: "",
-            cutting: "",
-            partner: "",
+
+            // bidding info
             playerIsBidding: false,
             biddingComplete: false,
             currentBidder: "",
+            currentPlayer: "",
+            bid: "",
+            minBid: "",
+
+            // info of all players
+            players: [],
+            otherPlayerCards: [],
+
+            // current game info
             gameOngoing: false,
-            playerTurn: false,
-            playerName: "",
+            tableCards: [null, null, null, null, null],
+            //leaderChoiceComplete: false,
+            leader: "",
+            dealer: "",
+            cutting: "",
+            partner: "",
         };
+        this.getOtherCards = this.getOtherCards.bind(this);
     }
 
     callAPI() {
@@ -59,6 +71,7 @@ class Game extends React.Component {
     }
 
     getNames() {
+        console.log(this.state.tableCards);
         const data = { name: this.props.location.state.name };
         fetch("http://localhost:9000/codes/getplayers", {
             method: 'POST', // or 'PUT'
@@ -68,8 +81,24 @@ class Game extends React.Component {
             body: JSON.stringify(data),
         })
             .then(response => response.json())
-            //.then(res => console.log(res))
             .then(res => this.setState({ players: res }))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    getOtherCards() {
+        const data = { name: this.state.leader };
+        fetch("http://localhost:9000/testAPI/otherPlayerCards", {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            //.then(res => console.log(res))
+            .then(res => this.setState({ otherPlayerCards: res }))
             .catch((error) => {
                 console.error('Error:', error);
             });
@@ -77,12 +106,26 @@ class Game extends React.Component {
 
     componentDidMount() {
         this.setGame();
+        //socket.emit("update_dealer", this.setDealer);
+        //socket.on("set_dealer", this.setDealer);
         socket.on("bidding_complete", this.finishBidding);
         socket.on("player_bidding", this.decideBidder);
         socket.on("update_bidder", this.updateBidder);
         socket.on("new_bid", this.updateBid);
+        socket.on("update_choices", this.updateChoices);
+        socket.on("update_turn", this.updateTurn);
+        socket.on("player_playing", this.decidePlayer);
+        socket.on("card_played", this.updateTable);
+        socket.on("hand_complete", this.resetTable);
 
     }
+
+    /*setDealer = player => {
+        //console.log("entered set dealer, player index is ", player);
+        // after first game is complete, should get next dealer
+        this.setState({ dealer: this.state.players[player] });
+        //this.setState({ dealer: "Waiting" });
+    }*/
 
     componentWillMount() {
         this.setState({ playerName: this.props.location.state.name });
@@ -93,30 +136,76 @@ class Game extends React.Component {
     decideBidder = player => {
         if (this.props.location.state.name === player) {
             this.setState({ playerIsBidding: true });
-            //this.setState({ currentBidder: this.props.location.state.name});
             socket.emit("current_bidder", this.props.location.state.name);
         } else {
             this.setState({ playerIsBidding: false });
         }
     }
 
+    decidePlayer = player => {
+        if (this.props.location.state.name === player) {
+            this.setState({ playerTurn: true });
+        } else {
+            this.setState({ playerTurn: false });
+        }
+    }
+
+    updateTable = data => {
+        if(this.state.playerName === this.state.currentPlayer) {
+            this.state.tableCards[0] = data;
+        } else {
+            for(let i = 0; i < this.state.players.length; i++) {
+                if(this.state.currentPlayer === this.state.players[i]) {
+                    this.state.tableCards[i+1] = data;
+                }
+            }
+        }
+    }
+
+    resetTable = () => {
+        for(let i = 0; i < 5; i++) {
+            this.state.tableCards[i] = null;
+        }
+    }
+
     updateBid = newBid => {
-        this.setState({ bid : newBid[0]});
-        this.setState({ leader : newBid[1]});
-        //this.setState({minBid : newBid[0]+5});
+        this.setState({ bid: newBid[0] });
+        //this.setState({ leader : newBid[1]});
+        var min = parseInt(this.state.bid);
+        if (min != 0) {
+            min = min + 5;
+            this.setState({ minBid: min.toString() });
+        }
     }
 
     updateBidder = name => {
         this.setState({ currentBidder: name });
     }
 
-    finishBidding = () => {
-        this.setState({ biddingComplete: true});
-        this.setState({ gameOngoing: true});
+    updateTurn = name => {
+        this.setState({ currentPlayer: name });
+    }
+
+    finishBidding = name => {
+        this.setState({ biddingComplete: true });
+        this.setState({ leader: name[1] });
+        this.getOtherCards();
+    }
+
+    updateChoices = data => {
+        this.setState({ gameOngoing: true });
+        this.setState({ cutting: data.suit });
+        this.setState({ partner: data.card });
+        this.setState({ leaderChoiceComplete: true });
     }
 
     handleBidResponse = bid => {
         socket.emit("player_bid", bid);
+    }
+
+    handleChoiceResponse = data => {
+        socket.emit("leader_choice", data);
+        this.setState({ playerTurn: true });
     }
 
     setGame() {
@@ -125,16 +214,18 @@ class Game extends React.Component {
             bid: "70",
             minBid: "70",
             dealer: "Waiting",
+            tableCards: [null, null, null, null, null],
             // each index is which player played card
             // null for that index if player has not played yet
             // last card is this player's card
-            tableCards: ["AH", "QH", "EIGHTH", "SIXH", "TENH"],
+            //tableCards: ["AH", "QH", "EIGHTH", "SIXH", "TENH"],
             cutting: "AS",
             partner: "TWOS",
             biddingComplete: false,
             gameOngoing: false,
-            playerTurn: true,
-        })
+            playerTurn: false,
+        });
+        //this.setDealer();
     }
 
     handleCardPlay(index, value) {
@@ -149,6 +240,14 @@ class Game extends React.Component {
             // remove card from player hand
             let playerCardImagesCopy = [...this.state.playerCardImages];
             playerCardImagesCopy.splice(index, 1);
+
+            var objToSend = {
+                ind: index,
+                card: value,
+                player: this.state.playerName,
+            }
+
+            socket.emit("card_played", objToSend);
 
             this.setState({
                 tableCards: tableCardsCopy,
@@ -167,15 +266,13 @@ class Game extends React.Component {
             if (!(this.state.playerIsBidding)) {
                 //Only want this text if bidding is going on
                 textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.currentBidder} to bid...</text>
-                //need to figure out how to make this go away after (change playerIsBidding to false)
             }
-
             else {
-                console.log("in else");
                 textOnTable = <BiddingPopup
                     playerIsBidding={this.state.playerIsBidding}
-                    minBidAvailable={this.state.bid}
+                    minBidAvailable={this.state.minBid}
                     player={this.state.playerName}
+                    dealer={this.state.dealer}
                     onResponse={this.handleBidResponse}
                 />
             }
@@ -188,10 +285,24 @@ class Game extends React.Component {
             />
         }
 
+        else if (this.state.leader != "Waiting") {
+            if (this.props.location.state.name === this.state.leader) {
+                //this.getOtherCards();
+                textOnTable = <LeaderChoicePopup
+                    otherPlayerCards={this.state.otherPlayerCards}
+                    onResponse={this.handleChoiceResponse}
+                />
+            } else {
+                textOnTable = <text className="Table-Bidding-Text">Waiting for {this.state.leader} to choose...</text>
+            }
+        }
+
         // table is empty
         else {
             textOnTable = <div></div>
         }
+
+        const leaderChoiceAppears = this.state.leaderChoiceComplete ? "Display-Leader-Choices" : "Hide-Leader-Choices";
 
         return (
             <div className="Body">
@@ -237,12 +348,12 @@ class Game extends React.Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    <h1 className="Current-Cutting">Cutting Suit</h1>
-                                    <Card className="Current-Cutting-Images" card={this.state.cutting} />
+                                    <h1 className={`Current-Cutting ${leaderChoiceAppears}`}>Cutting Suit</h1>
+                                    <Card className={`Current-Cutting-Images ${leaderChoiceAppears}`} card={this.state.cutting} />
                                 </Col>
                                 <Col>
-                                    <h1 className="Current-Partner">Partner Card</h1>
-                                    <Card className="Current-Partner-Images" card={this.state.partner} />
+                                    <h1 className={`Current-Partner ${leaderChoiceAppears}`}>Partner Card</h1>
+                                    <Card className={`Current-Partner-Images ${leaderChoiceAppears}`} card={this.state.partner} />
                                 </Col>
                             </Row>
                             <Row>
@@ -259,13 +370,6 @@ class Game extends React.Component {
             </div >
         );
     }
-
-    /*document.getElementById("Test-Image").onClick = handleCardPlay(index, value) {
-        // have it be the player's index here
-        this.state.tableCards[0] = value;
-        //this.state.playerCardImages.splice(index, 1);
-        //this.state.playerCardImages.remove(index);
-    };*/
 }
 
 export default Game;

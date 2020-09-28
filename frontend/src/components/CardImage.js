@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 
 /* css imports */
 import '../css/Game.css';
+import '../css/Results.css';
 
 /* constant imports */
-import Cards from '../constants/Cards.js';
+import CardsToImages from '../constants/CardsToImages.js';
 
 class CardImage extends Component {
 
@@ -15,7 +16,7 @@ class CardImage extends Component {
 
     render() {
         return(
-            <img className={this.props.className} src={Cards[this.props.card]}></img>
+            <img className={this.props.className} src={CardsToImages[this.props.card]}></img>
         );
     }
 

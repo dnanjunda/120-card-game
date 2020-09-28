@@ -1,8 +1,5 @@
 /* react imports */
-import React, { Component, Button } from 'react';
-
-/* bootstrap imports */
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { Component } from 'react';
 
 /* css imports */
 import '../css/BiddingPopup.css';
@@ -21,6 +18,20 @@ class BiddingPopup extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount = () => {
+        const biddingPopup = document.getElementById("Bidding-Popup") === null ? document.getElementById("Bidding-Popup-Dealer") : document.getElementById("Bidding-Popup");
+        biddingPopup.addEventListener("keypress", (event) => {
+            event.preventDefault();
+        });
+    }
+
+    handleBackspace = (event) => {
+        let backspace = 8;
+        if (event.keyCode === backspace) {
+            event.preventDefault();
+        }
+    }
+
     handleChange = (event) => {
         this.setState({
             bid: event.target.value,
@@ -28,10 +39,8 @@ class BiddingPopup extends Component {
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-
         this.setState({
-            bid: event.target.value,
+            //bid: event.target.value,
             isBidding: false,
         });
 
@@ -41,11 +50,11 @@ class BiddingPopup extends Component {
 
     handlePass = () => {
         this.setState({
-            bid: "0",
+            bid: 0,
             isBidding: false,
         });
 
-        this.props.onResponse(this.state.bid);
+        this.props.onResponse(0);
         alert(this.props.player + ' passed!');
     }
 
@@ -53,18 +62,31 @@ class BiddingPopup extends Component {
 
         let bidding;
 
-        if (this.state.isBidding) {
+        if (this.state.isBidding && (this.props.dealer != this.props.player)) {
             bidding =
                 <div className="Bidding-Popup-Container">
                     <h2 className="Bidding-Question-Text">What is your bid?</h2>
                     <div className="Bidding-Options">
                         <button className="Bidding-Pass-Button" onClick={() => this.handlePass()}>Pass</button>
                         <form>
-                            <input className="Bidding-Input-Bid" type='number' placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
+                            <input id="Bidding-Popup" className="Bidding-Input-Bid" type='number' onKeyDown={(event) => this.handleBackspace(event)} placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
                             <button className="Bidding-Submit-Button" onClick={(event) => this.handleSubmit(event)}>Submit</button>
                         </form>
                     </div>
                 </div>;
+        }
+
+        else if (this.state.isBidding && (this.props.dealer === this.props.player)) {
+            bidding = 
+                <div className="Bidding-Popup-Container">
+                    <h2 className="Bidding-Question-Text">What is your bid?</h2>
+                    <div className="Bidding-Options-Dealer">
+                        <form>
+                            <input id="Bidding-Popup-Dealer" className="Bidding-Input-Bid" type='number' onKeyDown={(event) => this.handleBackspace(event)} placeholder="Bid" step='5' min={this.props.minBidAvailable} max='120' onChange={this.handleChange} />
+                            <button className="Bidding-Submit-Button" onClick={() => this.handleSubmit()}>Submit</button>
+                        </form>
+                    </div>
+                 </div>; 
         }
 
         else {
@@ -77,7 +99,6 @@ class BiddingPopup extends Component {
             </div>
         );
     }
-
 }
 
 export default BiddingPopup;

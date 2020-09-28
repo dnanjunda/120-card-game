@@ -1,11 +1,14 @@
-/* DELETE FILE */
+import React from 'react';
 
 import { Link } from 'react-router-dom';
-import React from 'react';
 import { Container } from 'react-bootstrap';
-import '../css/JoinGame.css';
-import {joinCode, user} from '../components/JoinDashboard';
-import {socket} from "../App.js";
+
+import '../css/StartGame.css';
+
+import { joinCode, user } from '../components/JoinDashboard.js';
+import FooterButtons from '../components/FooterButtons.js';
+
+import { socket } from "../App.js";
 
 class JoinGame extends React.Component {
     constructor(props) {
@@ -21,11 +24,11 @@ class JoinGame extends React.Component {
 
     componentWillMount() {
         socket.emit("incoming_data", user);
-       // this.callAPI();
+        // this.callAPI();
     }
 
     componentDidMount() {
-        socket.on("received_data", this.assignData); 
+        socket.on("received_data", this.assignData);
         socket.on("game_started", this.startgame);
     }
 
@@ -35,11 +38,11 @@ class JoinGame extends React.Component {
             state: {
                 name: user
             }
-            });
+        });
     }
 
     assignData = playerNames => {
-        this.setState({apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]]});
+        this.setState({ apiResponse: [playerNames.names[0], playerNames.names[1], playerNames.names[2], playerNames.names[3], playerNames.names[4]] });
     }
 
     render() {
@@ -47,8 +50,8 @@ class JoinGame extends React.Component {
         return (
             <div className="Body" location={this.props.location}>
                 <Container>
-                    <h1 className="Game-Title">Joined game {joinCode} </h1>
-                    <h2 className="Players"> Players in this game:</h2>
+                    <h1 className="Game-Title">Joined game {joinCode}</h1>
+                    <h2 className="Players-Title"> Players in this game:</h2>
                     <ol className="Players-List">
                         <li>{this.state.apiResponse[0]}</li>
                         <li>{this.state.apiResponse[1]}</li>
@@ -56,10 +59,14 @@ class JoinGame extends React.Component {
                         <li>{this.state.apiResponse[3]}</li>
                         <li>{this.state.apiResponse[4]}</li>
                     </ol>
-                    <h2 className="Waiting">Waiting for five players to join...</h2>
+                    <h2 className="Waiting-Text">Waiting for five players to join...</h2>
+                    <FooterButtons
+                        buttonsCount="1"
+                        buttonTitle="Return to Home"
+                        buttonPath="/home"
+                        className="Join-Game"
+                    />
                 </Container>
-                <br />
-                <br />
             </div>
         );
     }

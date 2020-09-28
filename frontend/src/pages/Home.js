@@ -19,8 +19,17 @@ class Home extends React.Component {
         this.makeid = this.makeid.bind(this);
         this.state = {
             username: '',
-            joincode: ''
+            joincode: '', 
+            test: "hello",
         }
+    }
+
+    componentDidMount() {
+        this.testFunc();
+    }
+
+    testFunc() {
+        console.log(this.state.test);
     }
 
     inputHandler = (e) => {

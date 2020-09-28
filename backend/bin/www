@@ -64,6 +64,11 @@ io.on("connection", socket => {
     io.sockets.emit("player_bidding", players[0]);
   });
 
+  /*socket.on("update_dealer", function () {
+    var dealer = currentGame.setDealer();
+    io.sockets.emit("set_dealer", dealer);
+  });*/
+
   socket.on("current_bidder", name => {
     io.sockets.emit("update_bidder", name);
   })
@@ -77,12 +82,42 @@ io.on("connection", socket => {
     io.sockets.emit("new_bid", bidToSend);
 
     if(currentGame.checkBiddingComplete()) {
-      io.sockets.emit("bidding_complete");
+      currentGame.setHandOrder();
+      io.sockets.emit("bidding_complete", bidToSend);
     } else {
       var bidPlayer = currentGame.getNextBidder();
-      io.sockets.emit("player_bidding", players[bidPlayer]);
+      io.sockets.emit("player_bidding", bidPlayer);
     }
 
+  })
+
+  socket.on("leader_choice", data => {
+    currentGame.setChoices(data);
+    console.log(data);
+    io.sockets.emit("update_choices", data);
+  })
+
+  socket.on("card_played", data => {
+    currentGame.submitChoice(data);
+
+    io.sockets.emit("update_turn", data.player);
+
+    io.sockets.emit("card_played", data.card);
+
+    if(currentGame.handComplete()) {
+      //reset hand
+      if(currentGame.gameComplete()) {
+        currentGame.finishGame();
+      } else {
+        var player = currentGame.getNextPlayer();
+        io.sockets.emit("hand_complete");
+        io.sockets.emit("player_playing", player);
+      }
+    } else {
+      var nextPlayer = currentGame.getNextPlayer();
+      io.sockets.emit("player_playing", nextPlayer);
+    }
+    console.log(data);
   })
 
 

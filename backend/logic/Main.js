@@ -109,6 +109,7 @@ class Game {
         this.deck = new Deck();
         this.hands = []; //2D array of 10 hands of 5 cards each with player that played card
         this.players = []; // array of 5 total players
+        //this.dealer = -1; // start dealer -1 so increment will correct this
         this.dealer = 0;
         this.leader = 0;
         this.partner = 3; // assign once card is chosen
@@ -116,6 +117,7 @@ class Game {
         this.cuttingSuit;
         this.partnerCard;
         this.winners = []; // winners of current game
+        this.currentBidder = 0;
     }
 
     // finds card in the deck
@@ -513,117 +515,78 @@ class Game {
 
     // checks if bidding complete
     checkBiddingComplete() {
-
+        
+        let counter = 0;
         for (let i = 0; i < 5; i++) {
-            if(!(this.players[i].bidComplete)) {
-                return false;
+            if(this.players[i].bidComplete) {
+                console.log(this.players[i].playerName);
+                counter++;
             }
         }
-        return true;
+
+        console.log("checked " + counter);
+        if(counter >= 4) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // bidding method, also sets leader, cutting suit, and partner card
 
     setLeader(bid) {
 
-        if(this.dealer === 0) {
+        if(this.leadingBid === 0) {
             this.leadingBid = bid;
             this.leader = this.dealer;
         }
-        let currentBidder = this.dealer;
+        //let currentBidder = this.dealer;
 
-        console.log(currentBidder);
+        this.players[this.currentBidder].playerBid = bid;
 
-        this.players[currentBidder].playerBid = bid;
-
-        if (this.players[currentBidder].playerBid > this.leadingBid) {
-            this.leadingBid = this.players[currentBidder].playerBid;
-            this.leader = currentBidder;
-        }
-        this.players[currentBidder].bidComplete = true;
-
-        this.dealer++;
-        if(this.checkBiddingComplete()) {
-            this.setupLeader();
+        if (this.players[this.currentBidder].playerBid > this.leadingBid) {
+            this.leadingBid = this.players[this.currentBidder].playerBid;
+            this.leader = this.currentBidder;
         }
 
-        return [this.leadingBid, this.players[this.leader]];
+        if(bid === 0 ) {
+            console.log("called " + this.players[this.currentBidder].playerName);
+            this.players[this.currentBidder].bidComplete = true;
+        }
+
+        this.currentBidder++;
+        // if(this.currentBidder > 4) {
+        //     this.currentBidder = 0;
+        // }
+
+        for(let i = 0; i < this.players.length; i++) {
+            if(this.currentBidder > 4) {
+                this.currentBidder = 0;
+            }
+            if(this.players[this.currentBidder].bidComplete) {
+                this.currentBidder++;
+            } else {
+                break;
+            }
+        }
+
+        //this.dealer = 1;
+
+        return [this.leadingBid, this.players[this.leader].playerName];
     }
 
-    setupLeader() {
-        this.cuttingSuit = 'Spades';
-        this.partnerCard = this.findCard("TWOS");
+    setupLeader(data) {
+        this.cuttingSuit = data.suit;
+        this.partnerCard = this.findCard(data.card);
 
         for (let i = 0; i < 4; i++) {
             for (let j = 0; j < 9; j++) {
-                if (this.players[i].playerStack[j].index == "TWOS") {
+                if (this.players[i].playerStack[j].index == this.partnerCard) {
                     this.partner = i;
                 }
             }
         }
     }
-
-    // setLeader() {
-
-    //     let bidders = 5;
-    //     let currentBidder = this.dealer;
-
-    //     let leadingPlayerIndex = this.dealer;
-    //     let leadingBid = 70;
-
-    //     while (bidders > 1) {
-
-    //         // check if bidding is complete
-    //         if(this.checkBiddingComplete()) {
-    //             break;
-    //         }
-
-    //         // prompt.get(['bid'], function(err, result) {
-    //         //     if (err) {
-    //         //         console.log(err);
-    //         //         return 1;
-    //         //     }
-    //         //     //this.players[currentBidder].playerBid = result.bid;
-    //         //     //console.log(this.players[currentBidder].playerName, result.bid);
-    //         //     console.log(result.bid);
-    //         // })
-
-    //         if (this.players[currentBidder].playerBid > leadingBid) {
-    //             leadingBid = this.players[currentBidder].playerBid;
-    //             leadingPlayerIndex = currentBidder;
-    //         }
-
-    //         else {
-    //             this.players[currentBidder].bidComplete = true;
-    //             bidders--;
-    //         }
-
-    //         while (this.players[currentBidder].bidComplete) {
-    //             currentBidder++;
-
-    //             if (currentBidder > 4) {
-    //                 currentBidder = 0;
-    //             }
-    //         }
-    //     }
-
-    //     this.leader = leadingPlayerIndex;
-    //     this.leadingBid = leadingBid;
-
-    //     // when we set the leader, we also have to set cutting suit and partner card
-    //     // setting manually for now
-    //     this.cuttingSuit = 'Spades';
-    //     this.partnerCard = this.findCard("TWOS");
-
-    //     // assign the partner
-    //     for (let i = 0; i < 4; i++) {
-    //         for (let j = 0; j < 9; j++) {
-    //             if (this.players[i].playerStack[j].index == "TWOS") {
-    //                 this.partner = i;
-    //             }
-    //         }
-    //     }
-    // }
 
     // must set card precendence based on cutting suit and which card was played first for each hand
     // precedence goes from low to high, smaller values have more precedence
@@ -863,94 +826,4 @@ class Game {
     // september get provisional patent, server setup, deploy
 }
 
-// let game = new Game();
-
-// let playerOne = new Player("Anu");
-// let playerTwo = new Player("Dhanush");
-// let playerThree = new Player("Anshul");
-// let playerFour = new Player("Nidhi");
-// let playerFive = new Player("Ashley");
-
-// game.startGame(playerOne, playerTwo, playerThree, playerFour, playerFive);
-
-// // starting card images
-// let p1StartingCards = []; //10 total cards
-// p1StartingCards.push(game.players[0].playerStack[0].index);
-// p1StartingCards.push(game.players[0].playerStack[1].index);
-// p1StartingCards.push(game.players[0].playerStack[2].index);
-// p1StartingCards.push(game.players[0].playerStack[3].index);
-// p1StartingCards.push(game.players[0].playerStack[4].index);
-// p1StartingCards.push(game.players[0].playerStack[5].index);
-// p1StartingCards.push(game.players[0].playerStack[6].index);
-// p1StartingCards.push(game.players[0].playerStack[7].index);
-// p1StartingCards.push(game.players[0].playerStack[8].index);
-// p1StartingCards.push(game.players[0].playerStack[9].index);
-
-// let p2StartingCards = []; //10 total cards
-// p2StartingCards.push(game.players[1].playerStack[0].index);
-// p2StartingCards.push(game.players[1].playerStack[1].index);
-// p2StartingCards.push(game.players[1].playerStack[2].index);
-// p2StartingCards.push(game.players[1].playerStack[3].index);
-// p2StartingCards.push(game.players[1].playerStack[4].index);
-// p2StartingCards.push(game.players[1].playerStack[5].index);
-// p2StartingCards.push(game.players[1].playerStack[6].index);
-// p2StartingCards.push(game.players[1].playerStack[7].index);
-// p2StartingCards.push(game.players[1].playerStack[8].index);
-// p2StartingCards.push(game.players[1].playerStack[9].index);
-
-// let p3StartingCards = []; //10 total cards
-// p3StartingCards.push(game.players[2].playerStack[0].index);
-// p3StartingCards.push(game.players[2].playerStack[1].index);
-// p3StartingCards.push(game.players[2].playerStack[2].index);
-// p3StartingCards.push(game.players[2].playerStack[3].index);
-// p3StartingCards.push(game.players[2].playerStack[4].index);
-// p3StartingCards.push(game.players[2].playerStack[5].index);
-// p3StartingCards.push(game.players[2].playerStack[6].index);
-// p3StartingCards.push(game.players[2].playerStack[7].index);
-// p3StartingCards.push(game.players[2].playerStack[8].index);
-// p3StartingCards.push(game.players[2].playerStack[9].index);
-
-// let p4StartingCards = []; //10 total cards
-// p4StartingCards.push(game.players[3].playerStack[0].index);
-// p4StartingCards.push(game.players[3].playerStack[1].index);
-// p4StartingCards.push(game.players[3].playerStack[2].index);
-// p4StartingCards.push(game.players[3].playerStack[3].index);
-// p4StartingCards.push(game.players[3].playerStack[4].index);
-// p4StartingCards.push(game.players[3].playerStack[5].index);
-// p4StartingCards.push(game.players[3].playerStack[6].index);
-// p4StartingCards.push(game.players[3].playerStack[7].index);
-// p4StartingCards.push(game.players[3].playerStack[8].index);
-// p4StartingCards.push(game.players[3].playerStack[9].index);
-
-// let p5StartingCards = []; //10 total cards
-// p5StartingCards.push(game.players[4].playerStack[0].index);
-// p5StartingCards.push(game.players[4].playerStack[1].index);
-// p5StartingCards.push(game.players[4].playerStack[2].index);
-// p5StartingCards.push(game.players[4].playerStack[3].index);
-// p5StartingCards.push(game.players[4].playerStack[4].index);
-// p5StartingCards.push(game.players[4].playerStack[5].index);
-// p5StartingCards.push(game.players[4].playerStack[6].index);
-// p5StartingCards.push(game.players[4].playerStack[7].index);
-// p5StartingCards.push(game.players[4].playerStack[8].index);
-// p5StartingCards.push(game.players[4].playerStack[9].index);
-
-// game.setLeader();
-
-// // hardcoded what card they played
-// hand = [[playerOne, playerOne.playerStack[0]], [playerTwo, playerTwo.playerStack[0]], [playerThree, playerThree.playerStack[0]], 
-//     [playerFour, playerFour.playerStack[0]], [playerFive, playerFive.playerStack[0]]];
-
-// game.handPlay(hand);
-
-// game.setNextGame();
-
-// //console.log(game.leader);
-// //console.log(game.leadingBid);
-// //console.log(game.players);
-// //console.log(game.players[0].playerStack[0].image);
-// //console.log(game.players[0].playerStack);
-// //console.log(p1StartingCards); 
-
-// game.setGameResults();
-// console.log(p1StartingCards);
-module.exports = { Player, Game };
+module.exports = { Deck, Player, Game };

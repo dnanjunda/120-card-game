@@ -4,14 +4,14 @@
     height: 100%;
 }
 
-.Game-title {
+.Game-Title {
     color: white;
     margin-left: 15%;
     margin-top: 5%;
     font-family: American Typewriter, serif;
 }
 
-.Game-code {
+.Game-Code {
     color: whitesmoke;
     margin-left: 15%;
     margin-top: 5%;
@@ -25,7 +25,7 @@
     font-family: American Typewriter, serif;
 }
 
-.Players-list {
+.Players-List {
     color: white;
     margin-left: 15%;
     font-family: American Typewriter, serif;

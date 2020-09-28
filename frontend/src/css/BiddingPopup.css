@@ -11,7 +11,12 @@
 }
 
 .Bidding-Options {
-    /*margin-left: 2em;*/
+    display: flex;
+    justify-content: flex;
+}
+
+.Bidding-Options-Dealer {
+    margin-left: 3.25em;
     display: flex;
     justify-content: flex;
 }

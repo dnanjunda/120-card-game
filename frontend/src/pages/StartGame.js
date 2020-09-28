@@ -60,10 +60,10 @@ class StartGame extends React.Component {
         return (
             <div className="Body">
                 <Container>
-                    <h1 className="Game-title">Starting new game...</h1>
-                    <h1 className="Game-code">Your game code is {this.props.location.state.codes}.</h1>
+                    <h1 className="Game-Title">Starting new game...</h1>
+                    <h1 className="Game-Code">Your game code is {this.props.location.state.codes}</h1>
                     <h2 className="Players-Title"> Players in your game:</h2>
-                    <ol className="Players-list">
+                    <ol className="Players-List">
                         <li>{this.state.apiResponse[0]}</li>
                         <li>{this.state.apiResponse[1]}</li>
                         <li>{this.state.apiResponse[2]}</li>
