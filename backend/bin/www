@@ -61,13 +61,13 @@ io.on("connection", socket => {
 
     currentGame.startgame();
 
+    var player = currentGame.updateDealer();
+    //console.log(player);
+
+    io.sockets.emit("update_dealer", player);
+
     io.sockets.emit("player_bidding", players[0]);
   });
-
-  /*socket.on("update_dealer", function () {
-    var dealer = currentGame.setDealer();
-    io.sockets.emit("set_dealer", dealer);
-  });*/
 
   socket.on("current_bidder", name => {
     io.sockets.emit("update_bidder", name);
@@ -107,6 +107,8 @@ io.on("connection", socket => {
     if(currentGame.handComplete()) {
       //reset hand
       if(currentGame.gameComplete()) {
+        var player = currentGame.updateDealer();
+        io.sockets.emit("update_dealer", player);
         currentGame.finishGame();
       } else {
         var player = currentGame.getNextPlayer();
@@ -117,7 +119,7 @@ io.on("connection", socket => {
       var nextPlayer = currentGame.getNextPlayer();
       io.sockets.emit("player_playing", nextPlayer);
     }
-    console.log(data);
+    //console.log(data);
   })
 
 
